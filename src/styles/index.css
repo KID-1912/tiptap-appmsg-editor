@@ -1,0 +1,219 @@
+/* header头部样式 */
+.header {
+  display: flex;
+  width: 100%;
+  padding: 8px;
+  position: fixed;
+  top: 0;
+  background-color: #fff;
+  z-index: 1;
+}
+
+.header .modules {
+  margin: 0 auto;
+  display: flex;
+}
+
+.header .modules .module-group {
+  display: flex;
+  background-color: rgba(0, 0, 0, 0.03);
+  border-radius: 4px;
+}
+
+.header .modules .module-group.left {
+  margin-right: 24px;
+}
+
+.header .modules .module-item {
+  position: relative;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.header .modules .module-item:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+  transition: all .2s;
+}
+
+#image_uploader {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* toolbar工具栏样式 */
+.toolbar-wrapper {
+  display: flex;
+  width: 100%;
+  padding: 8px;
+  position: fixed;
+  top: 50px;
+  background-color: #fafafa;
+  z-index: 1;
+}
+
+#toolbar {
+  display: flex;
+  margin: 0 auto;
+}
+
+#toolbar .btn-group {
+  display: flex;
+  padding: 0 6px;
+}
+
+#toolbar .btn-group+.btn-group {
+  border-left: 1px solid #ddd;
+}
+
+#toolbar .edit-btn {
+  height: 24px;
+  padding: 0 3px;
+  color: #4A4A51;
+  font-size: 18px;
+  line-height: 1;
+  border-radius: 2px;
+}
+
+#toolbar .edit-btn:hover {
+  background-color: rgba(0, 0, 0, 0.07);
+}
+
+#toolbar .edit-btn.active {
+  color: rgb(7, 193, 96);
+}
+
+#toolbar .edit-btn+.edit-btn {
+  margin-left: 6px;
+}
+
+#toolbar .picker {
+  position: relative;
+}
+
+#toolbar .picker .colorlump {
+  position: absolute;
+  display: inline-block;
+  height: 2px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  border-radius: 1px;
+}
+
+#toolbar .dropdown {
+  cursor: default;
+}
+
+#toolbar .dropdown .dropdown-toggle {
+  border: none;
+  background-color: unset;
+}
+
+#toolbar .dropdown .dropdown-toggle .icon-arrow {
+  display: inline-block;
+  width: 0;
+  height: 0px;
+  border-width: 4px 4px 0 4px;
+  border-style: solid;
+  vertical-align: middle;
+  border-color: currentColor transparent transparent transparent;
+}
+
+
+#toolbar .dropdown .dropdown-menu {
+  width: 140px;
+  padding: 10px 0;
+  line-height: 1.2;
+  background-color: #fff;
+}
+
+#toolbar .dropdown .dropdown-menu .menu-item {
+  padding: 0 8px;
+}
+
+#toolbar .dropdown .dropdown-menu .menu-item:hover {
+  background-color: #fafafa;
+}
+
+/* 编辑器栏 */
+.editor-wrapper {
+  height: 100%;
+  overflow: auto;
+  padding-top: 120px;
+}
+
+.editor-container {
+  position: relative;
+  width: 768px;
+  margin: 0 auto;
+}
+
+.editor {
+  height: 1200px;
+  padding: 70px 95px;
+  position: relative;
+  border-radius: 6px;
+  background-color: #fff;
+  box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.05);
+}
+
+.tiptap.ProseMirror {
+  outline: none;
+}
+
+.ProseMirror img {
+  height: auto;
+  max-width: 100%;
+}
+
+.ProseMirror img.ProseMirror-selectednode {
+  outline: 2px solid rgb(7, 193, 96);
+}
+
+/* 底部栏 */
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 768px;
+  padding: 20px 20px 15px;
+  position: fixed;
+  bottom: 0;
+  border-radius: 6px;
+  background-color: #fff;
+  box-shadow: 0 -1px 4px 0 rgba(0, 0, 0, 0.05);
+}
+
+.footer .info {
+  color: #8d8d8d;
+  display: flex;
+}
+
+.footer .info .save-time {
+  margin-right: 24px;
+}
+
+.footer .operation {
+  display: flex;
+}
+
+.footer .operation .btn {
+  width: 96px;
+  height: 34px;
+  margin-left: 6px;
+  line-height: 34px;
+  text-align: center;
+  border-radius: 4px;
+  border: 1px solid #e7e7e8;
+  cursor: pointer;
+}
+
+.footer .operation .btn:hover {
+  background: #e7e7e8;
+  transition: all 0.3s;
+}

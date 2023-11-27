@@ -1,0 +1,52 @@
+{
+  "name": "tiptap-appmsg-editor",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "rollup -c -w"
+  },
+  "keywords": [
+    "editor",
+    "rich text",
+    "tiptap",
+    "wechat"
+  ],
+  "author": "kid-1912",
+  "homepage": "",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "dependencies": {
+    "@tiptap/core": "^2.1.12",
+    "@tiptap/extension-color": "^2.1.12",
+    "@tiptap/extension-highlight": "^2.1.12",
+    "@tiptap/extension-image": "^2.1.12",
+    "@tiptap/extension-text-align": "^2.1.12",
+    "@tiptap/extension-text-style": "^2.1.12",
+    "@tiptap/extension-underline": "^2.1.12",
+    "@tiptap/pm": "^2.1.12",
+    "@tiptap/starter-kit": "^2.1.12",
+    "@types/clipboard": "^2.0.7",
+    "@types/npm": "^7.19.3",
+    "clipboard": "^2.0.11",
+    "install": "^0.13.0",
+    "npm": "^10.2.4",
+    "tiptap-extension-font-size": "^1.2.0"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^25.0.4",
+    "@rollup/plugin-html": "^1.0.2",
+    "@rollup/plugin-node-resolve": "^15.2.1",
+    "@simonwep/pickr": "^1.8.2",
+    "postcss": "^8.4.30",
+    "rollup": "^3.29.0",
+    "rollup-plugin-postcss": "^4.0.2",
+    "rollup-plugin-serve": "^2.0.2",
+    "rollup-plugin-svg-to-symbol": "^1.0.0",
+    "rollup-plugin-watch": "^1.0.3"
+  },
+  "license": "ISC"
+}

@@ -1,0 +1,89 @@
+@charset "UTF-8";
+
+/* css 样式统一 */
+html,
+body,
+ul,
+li,
+ol,
+dl,
+dd,
+dt,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+form,
+fieldset,
+legend,
+input,
+button,
+textarea,
+div,
+th,
+td {
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+
+  /* -webkit-tap-highlight-color:transparent; */
+}
+
+html {
+  overflow: -moz-scrollbars;
+  overflow-y: auto;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* 去掉标题默认大小 */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 100%;
+  font-weight: normal;
+}
+
+/* 标签格式化 */
+i {
+  font-style: normal;
+}
+
+/* 列表 */
+ul,
+ol {
+  list-style: none;
+}
+
+/* 去掉蓝色边框 */
+fieldset,
+img {
+  border: 0;
+}
+
+img {
+  vertical-align: middle;
+}
+
+select,
+input {
+  border: none;
+  outline: 0;
+}
+
+/* 防止拖动 影响布局 */
+textarea {
+  overflow: auto;
+  font: inherit;
+  resize: none;
+}
+
+table {
+  border-spacing: 0;
+  border-collapse: collapse;
+}
