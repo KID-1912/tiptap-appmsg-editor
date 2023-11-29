@@ -19492,122 +19492,27 @@ const Highlight = Mark.create({
     },
 });
 
-// Section.js
-
-const Section = Node.create({
+var Section = Node.create({
   name: "section",
   group: "block",
   content: "block+",
-  whitespace: "normal",
-  renderHTML({ HTMLAttributes }) {
-    return ["section", HTMLAttributes, 0];
-  },
-  parseHTML() {
-    return [
-      {
-        tag: "section",
-      },
-    ];
-  },
-});
 
-const Margin = Extension.create({
-  name: "margin",
-  addOptions() {
+  addAttributes() {
     return {
-      defaultMargin: "0px", // 默认的 margin 值
+      style: {
+        parseHTML: (element) => element.style.cssText,
+        renderHTML: (attributes) => ({ style: attributes.style }),
+      },
     };
   },
-  addGlobalAttributes() {
-    return [
-      {
-        types: ["heading", "paragraph", "section"],
-        attributes: {
-          margin: {
-            default: this.options.defaultMargin,
-            parseHTML: (element) =>
-              element.style.margin || this.options.defaultMargin,
-            renderHTML: (attributes) => {
-              if (attributes.margin === this.options.defaultMargin) {
-                return {};
-              }
-              return { style: `margin: ${attributes.margin}` };
-            },
-          },
-          marginLeft: {
-            default: this.options.defaultMargin,
-            parseHTML: (element) =>
-              element.style.marginLeft || this.options.defaultMargin,
-            renderHTML: (attributes) => {
-              if (attributes.marginLeft === this.options.defaultMargin) {
-                return {};
-              }
-              return { style: `margin-left: ${attributes.marginLeft}` };
-            },
-          },
-          marginRight: {
-            default: this.options.defaultMargin,
-            parseHTML: (element) =>
-              element.style.marginRight || this.options.defaultMargin,
-            renderHTML: (attributes) => {
-              if (attributes.marginRight === this.options.defaultMargin) {
-                return {};
-              }
-              return { style: `margin-right: ${attributes.marginRight}` };
-            },
-          },
-          marginTop: {
-            default: this.options.defaultMargin,
-            parseHTML: (element) =>
-              element.style.marginTop || this.options.defaultMargin,
-            renderHTML: (attributes) => {
-              if (attributes.marginTop === this.options.defaultMargin) {
-                return {};
-              }
-              return { style: `margin-top: ${attributes.marginTop}` };
-            },
-          },
-          marginBottom: {
-            default: this.options.defaultMargin,
-            parseHTML: (element) =>
-              element.style.marginBottom || this.options.defaultMargin,
-            renderHTML: (attributes) => {
-              if (attributes.marginBottom === this.options.defaultMargin) {
-                return {};
-              }
-              return { style: `margin-bottom: ${attributes.marginBottom}` };
-            },
-          },
-        },
-      },
-    ];
+
+  parseHTML() {
+    return [{ tag: "section" }];
   },
-  // addCommands() {
-  //   return {
-  //     setMargin:
-  //       (margin) =>
-  //       ({ commands }) => {
-  //         return this.options.types.every((type) =>
-  //           commands.updateAttributes(type, { margin })
-  //         );
-  //       },
-  //     setMarginLeft:
-  //       (marginLeft) =>
-  //       ({ commands }) => {
-  //         return this.options.types.every((type) =>
-  //           commands.updateAttributes(type, { marginLeft })
-  //         );
-  //       },
-  //     setMarginRight:
-  //       (marginRight) =>
-  //       ({ commands }) => {
-  //         return this.options.types.every((type) =>
-  //           commands.updateAttributes(type, { marginRight })
-  //         );
-  //       },
-  //     // Add more commands as needed
-  //   };
-  // },
+
+  renderHTML({ HTMLAttributes }) {
+    return ["section", mergeAttributes(HTMLAttributes), 0];
+  },
 });
 
 const editor = new Editor({
@@ -19623,26 +19528,18 @@ const editor = new Editor({
       inline: true,
     }),
     Section,
-    Margin,
   ],
 });
 
-editor.commands.insertContentAt(
-  0,
-  `<section>
-  <img src="https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png" style="width: 100%;" />
-  <section style="margin-top: 24px">
-    <p style="margin-top: 24px">这    <strong>里</strong>
-    是
-    <strong>文字</strong></p>
-  </section>
-</section>`,
-  {
-    parseOptions: {
-      preserveWhitespace: false,
-    },
-  }
-);
+// const module = await import("../templates/test.html");
+const module = await import('./graphic-7b9701e0.js');
+const template = await fetch(module.default);
+const html = await template.text();
+editor.commands.insertContentAt(0, html, {
+  parseOptions: {
+    preserveWhitespace: false,
+  },
+});
 
 function getDefaultExportFromCjs (x) {
 	return x && x.__esModule && Object.prototype.hasOwnProperty.call(x, 'default') ? x['default'] : x;
