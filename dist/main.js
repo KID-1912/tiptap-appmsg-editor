@@ -25,14 +25,14 @@ function styleInject(css, ref) {
   }
 }
 
-var css_248z$4 = "@charset \"UTF-8\";\n\n/* css 样式统一 */\nhtml,\nbody,\nul,\nli,\nol,\ndl,\ndd,\ndt,\np,\nh1,\nh2,\nh3,\nh4,\nh5,\nh6,\nform,\nfieldset,\nlegend,\ninput,\nbutton,\ntextarea,\ndiv,\nth,\ntd {\n  margin: 0;\n  box-sizing: border-box;\n  padding: 0;\n\n  /* -webkit-tap-highlight-color:transparent; */\n}\n\nhtml {\n  overflow: -moz-scrollbars;\n  overflow-y: auto;\n  -webkit-text-size-adjust: 100%;\n}\n\n/* 去掉标题默认大小 */\nh1,\nh2,\nh3,\nh4,\nh5,\nh6 {\n  font-size: 100%;\n  font-weight: normal;\n}\n\n/* 标签格式化 */\ni {\n  font-style: normal;\n}\n\n/* 列表 */\nul,\nol {\n  list-style: none;\n}\n\n/* 去掉蓝色边框 */\nfieldset,\nimg {\n  border: 0;\n}\n\nimg {\n  vertical-align: middle;\n}\n\nselect,\ninput {\n  border: none;\n  outline: 0;\n}\n\n/* 防止拖动 影响布局 */\ntextarea {\n  overflow: auto;\n  font: inherit;\n  resize: none;\n}\n\ntable {\n  border-spacing: 0;\n  border-collapse: collapse;\n}";
+var css_248z$5 = "@charset \"UTF-8\";\n\n/* css 样式统一 */\nhtml,\nbody,\nul,\nli,\nol,\ndl,\ndd,\ndt,\np,\nh1,\nh2,\nh3,\nh4,\nh5,\nh6,\nform,\nfieldset,\nlegend,\ninput,\nbutton,\ntextarea,\ndiv,\nth,\ntd {\n  margin: 0;\n  box-sizing: border-box;\n  padding: 0;\n\n  /* -webkit-tap-highlight-color:transparent; */\n}\n\nhtml {\n  overflow: -moz-scrollbars;\n  overflow-y: auto;\n  -webkit-text-size-adjust: 100%;\n}\n\n/* 去掉标题默认大小 */\nh1,\nh2,\nh3,\nh4,\nh5,\nh6 {\n  font-size: 100%;\n  font-weight: normal;\n}\n\n/* 标签格式化 */\ni {\n  font-style: normal;\n}\n\n/* 列表 */\nul,\nol {\n  list-style: none;\n}\n\n/* 去掉蓝色边框 */\nfieldset,\nimg {\n  border: 0;\n}\n\nimg {\n  vertical-align: middle;\n}\n\nselect,\ninput {\n  border: none;\n  outline: 0;\n}\n\n/* 防止拖动 影响布局 */\ntextarea {\n  overflow: auto;\n  font: inherit;\n  resize: none;\n}\n\ntable {\n  border-spacing: 0;\n  border-collapse: collapse;\n}";
+styleInject(css_248z$5);
+
+var css_248z$4 = "html,\nbody {\n  width: 100%;\n  height: 100%;\n  color: #353535;\n  font-size: 14px;\n}\n\nbody {\n  background-color: #F5F5F5;\n}\n\nbutton {\n  border: none;\n  background-color: unset;\n}\n\nsvg {\n  width: 1em;\n  height: 1em;\n  vertical-align: bottom;\n}\n\n::-webkit-scrollbar {\n  width: 6px;\n}\n\n::-webkit-scrollbar-track {\n  border-radius: 3px;\n}\n\n::-webkit-scrollbar-thumb {\n  background-color: #c4c4c4;\n  border-radius: 3px;\n}";
 styleInject(css_248z$4);
 
-var css_248z$3 = "html,\nbody {\n  width: 100%;\n  height: 100%;\n  color: #353535;\n  font-size: 14px;\n}\n\nbody {\n  background-color: #F5F5F5;\n}\n\nbutton {\n  border: none;\n  background-color: unset;\n}\n\nsvg {\n  width: 1em;\n  height: 1em;\n  vertical-align: bottom;\n}";
+var css_248z$3 = "/* header头部样式 */\n.header {\n  display: flex;\n  width: 100%;\n  padding: 8px;\n  position: fixed;\n  top: 0;\n  background-color: #fff;\n  z-index: 1;\n}\n\n.header .modules {\n  margin: 0 auto;\n  display: flex;\n}\n\n.header .modules .module-group {\n  display: flex;\n  background-color: rgba(0, 0, 0, 0.03);\n  border-radius: 4px;\n}\n\n.header .modules .module-group.left {\n  margin-right: 24px;\n}\n\n.header .modules .module-item {\n  position: relative;\n  padding: 8px 12px;\n  cursor: pointer;\n}\n\n.header .modules .module-item:hover {\n  background-color: rgba(0, 0, 0, 0.04);\n  transition: all .2s;\n}\n\n#image_uploader {\n  width: 100%;\n  height: 100%;\n  position: absolute;\n  top: 0;\n  left: 0;\n  opacity: 0;\n  cursor: pointer;\n}\n\n/* toolbar工具栏样式 */\n.toolbar-wrapper {\n  display: flex;\n  width: 100%;\n  padding: 8px;\n  position: fixed;\n  top: 50px;\n  background-color: #fafafa;\n  z-index: 1;\n}\n\n#toolbar {\n  display: flex;\n  margin: 0 auto;\n}\n\n#toolbar .btn-group {\n  display: flex;\n  padding: 0 6px;\n}\n\n#toolbar .btn-group+.btn-group {\n  border-left: 1px solid #ddd;\n}\n\n#toolbar .edit-btn {\n  height: 24px;\n  padding: 0 3px;\n  color: #4A4A51;\n  font-size: 18px;\n  line-height: 1;\n  border-radius: 2px;\n}\n\n#toolbar .edit-btn:hover {\n  background-color: rgba(0, 0, 0, 0.07);\n}\n\n#toolbar .edit-btn.active {\n  color: rgb(7, 193, 96);\n}\n\n#toolbar .edit-btn+.edit-btn {\n  margin-left: 6px;\n}\n\n#toolbar .picker {\n  position: relative;\n}\n\n#toolbar .picker .colorlump {\n  position: absolute;\n  display: inline-block;\n  height: 2px;\n  width: 18px;\n  left: 3px;\n  bottom: 3px;\n  border-radius: 1px;\n}\n\n#toolbar .dropdown {\n  cursor: default;\n}\n\n#toolbar .dropdown .dropdown-toggle {\n  border: none;\n  background-color: unset;\n}\n\n#toolbar .dropdown .dropdown-toggle .icon-arrow {\n  display: inline-block;\n  width: 0;\n  height: 0px;\n  border-width: 4px 4px 0 4px;\n  border-style: solid;\n  vertical-align: middle;\n  border-color: currentColor transparent transparent transparent;\n}\n\n\n#toolbar .dropdown .dropdown-menu {\n  width: 140px;\n  padding: 10px 0;\n  line-height: 1.2;\n  background-color: #fff;\n}\n\n#toolbar .dropdown .dropdown-menu .menu-item {\n  padding: 0 8px;\n}\n\n#toolbar .dropdown .dropdown-menu .menu-item:hover {\n  background-color: #fafafa;\n}\n\n/* 侧壁栏 */\n.sidebar {\n  position: fixed;\n  width: 360px;\n  top: 90px;\n  bottom: 0;\n  left: 0;\n  overflow: auto;\n  background-color: #fff;\n}\n\n.sidebar .tabs-nav {\n  display: flex;\n  border-bottom: 1px solid #eee;\n}\n\n.sidebar .tabs-nav .tab-item {\n  flex: 1;\n  padding: 15px;\n  font-size: 16px;\n  text-align: center;\n  cursor: pointer;\n}\n\n.sidebar .tabs-nav .tab-item:hover,\n.sidebar .tabs-nav .tab-item.active {\n  color: rgb(7, 193, 96);\n  transition: all 0.3s;\n}\n\n.sidebar .tabs-nav .tab-item.active {\n  font-weight: bold;\n}\n\n.sidebar .graphic-list .graphic-item {\n  padding: 5px 15px;\n}\n\n/* 编辑器 */\n.editor-wrapper {\n  height: 100%;\n  overflow: auto;\n  padding-top: 120px;\n}\n\n.editor-container {\n  position: relative;\n  width: 768px;\n  margin: 0 auto;\n}\n\n.editor {\n  height: 1200px;\n  padding: 70px 95px;\n  position: relative;\n  border-radius: 6px;\n  background-color: #fff;\n  box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.05);\n}\n\n.tiptap.ProseMirror {\n  outline: none;\n  height: 100%;\n}\n\n.ProseMirror img {\n  height: auto;\n  max-width: 100%;\n}\n\n.ProseMirror img.ProseMirror-selectednode {\n  outline: 2px solid rgb(7, 193, 96);\n}\n\n/* 底部栏 */\n.footer {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  width: 768px;\n  padding: 20px 20px 15px;\n  position: fixed;\n  bottom: 0;\n  border-radius: 6px;\n  background-color: #fff;\n  box-shadow: 0 -1px 4px 0 rgba(0, 0, 0, 0.05);\n}\n\n.footer .info {\n  color: #8d8d8d;\n  display: flex;\n}\n\n.footer .info .save-time {\n  margin-right: 24px;\n}\n\n.footer .operation {\n  display: flex;\n}\n\n.footer .operation .btn {\n  width: 96px;\n  height: 34px;\n  margin-left: 6px;\n  line-height: 34px;\n  text-align: center;\n  border-radius: 4px;\n  border: 1px solid #e7e7e8;\n  cursor: pointer;\n}\n\n.footer .operation .btn:hover {\n  background: #e7e7e8;\n  transition: all 0.3s;\n}";
 styleInject(css_248z$3);
-
-var css_248z$2 = "/* header头部样式 */\n.header {\n  display: flex;\n  width: 100%;\n  padding: 8px;\n  position: fixed;\n  top: 0;\n  background-color: #fff;\n  z-index: 1;\n}\n\n.header .modules {\n  margin: 0 auto;\n  display: flex;\n}\n\n.header .modules .module-group {\n  display: flex;\n  background-color: rgba(0, 0, 0, 0.03);\n  border-radius: 4px;\n}\n\n.header .modules .module-group.left {\n  margin-right: 24px;\n}\n\n.header .modules .module-item {\n  position: relative;\n  padding: 8px 12px;\n  cursor: pointer;\n}\n\n.header .modules .module-item:hover {\n  background-color: rgba(0, 0, 0, 0.04);\n  transition: all .2s;\n}\n\n#image_uploader {\n  width: 100%;\n  height: 100%;\n  position: absolute;\n  top: 0;\n  left: 0;\n  opacity: 0;\n  cursor: pointer;\n}\n\n/* toolbar工具栏样式 */\n.toolbar-wrapper {\n  display: flex;\n  width: 100%;\n  padding: 8px;\n  position: fixed;\n  top: 50px;\n  background-color: #fafafa;\n  z-index: 1;\n}\n\n#toolbar {\n  display: flex;\n  margin: 0 auto;\n}\n\n#toolbar .btn-group {\n  display: flex;\n  padding: 0 6px;\n}\n\n#toolbar .btn-group+.btn-group {\n  border-left: 1px solid #ddd;\n}\n\n#toolbar .edit-btn {\n  height: 24px;\n  padding: 0 3px;\n  color: #4A4A51;\n  font-size: 18px;\n  line-height: 1;\n  border-radius: 2px;\n}\n\n#toolbar .edit-btn:hover {\n  background-color: rgba(0, 0, 0, 0.07);\n}\n\n#toolbar .edit-btn.active {\n  color: rgb(7, 193, 96);\n}\n\n#toolbar .edit-btn+.edit-btn {\n  margin-left: 6px;\n}\n\n#toolbar .picker {\n  position: relative;\n}\n\n#toolbar .picker .colorlump {\n  position: absolute;\n  display: inline-block;\n  height: 2px;\n  width: 18px;\n  left: 3px;\n  bottom: 3px;\n  border-radius: 1px;\n}\n\n#toolbar .dropdown {\n  cursor: default;\n}\n\n#toolbar .dropdown .dropdown-toggle {\n  border: none;\n  background-color: unset;\n}\n\n#toolbar .dropdown .dropdown-toggle .icon-arrow {\n  display: inline-block;\n  width: 0;\n  height: 0px;\n  border-width: 4px 4px 0 4px;\n  border-style: solid;\n  vertical-align: middle;\n  border-color: currentColor transparent transparent transparent;\n}\n\n\n#toolbar .dropdown .dropdown-menu {\n  width: 140px;\n  padding: 10px 0;\n  line-height: 1.2;\n  background-color: #fff;\n}\n\n#toolbar .dropdown .dropdown-menu .menu-item {\n  padding: 0 8px;\n}\n\n#toolbar .dropdown .dropdown-menu .menu-item:hover {\n  background-color: #fafafa;\n}\n\n/* 编辑器栏 */\n.editor-wrapper {\n  height: 100%;\n  overflow: auto;\n  padding-top: 120px;\n}\n\n.editor-container {\n  position: relative;\n  width: 768px;\n  margin: 0 auto;\n}\n\n.editor {\n  height: 1200px;\n  padding: 70px 95px;\n  position: relative;\n  border-radius: 6px;\n  background-color: #fff;\n  box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.05);\n}\n\n.tiptap.ProseMirror {\n  outline: none;\n}\n\n.ProseMirror img {\n  height: auto;\n  max-width: 100%;\n}\n\n.ProseMirror img.ProseMirror-selectednode {\n  outline: 2px solid rgb(7, 193, 96);\n}\n\n/* 底部栏 */\n.footer {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  width: 768px;\n  padding: 20px 20px 15px;\n  position: fixed;\n  bottom: 0;\n  border-radius: 6px;\n  background-color: #fff;\n  box-shadow: 0 -1px 4px 0 rgba(0, 0, 0, 0.05);\n}\n\n.footer .info {\n  color: #8d8d8d;\n  display: flex;\n}\n\n.footer .info .save-time {\n  margin-right: 24px;\n}\n\n.footer .operation {\n  display: flex;\n}\n\n.footer .operation .btn {\n  width: 96px;\n  height: 34px;\n  margin-left: 6px;\n  line-height: 34px;\n  text-align: center;\n  border-radius: 4px;\n  border: 1px solid #e7e7e8;\n  cursor: pointer;\n}\n\n.footer .operation .btn:hover {\n  background: #e7e7e8;\n  transition: all 0.3s;\n}";
-styleInject(css_248z$2);
 
 var undo$1 = "<symbol id=\"undo\" viewBox=\"0 0 1024 1024\"><path fill=\"currentColor\" d=\"M289.638 256H614.4a307.2 307.2 0 110 614.4H204.8a51.2 51.2 0 010-102.4h409.6a204.8 204.8 0 100-409.6H286.003l59.239 59.238a51.2 51.2 0 11-72.448 72.346L128 345.242a51.2 51.2 0 010-72.448L272.794 128a51.2 51.2 0 0172.448 72.397L289.638 256z\"/></symbol>";
 
@@ -19492,6 +19492,64 @@ const Highlight = Mark.create({
     },
 });
 
+function nodeEqualsType({ types, node }) {
+  return (
+    (Array.isArray(types) && types.includes(node.type)) || node.type === types
+  );
+}
+
+var TrailingNode = Extension.create({
+  name: "trailingNode",
+
+  addOptions() {
+    return {
+      node: "paragraph",
+      notAfter: ["paragraph"],
+    };
+  },
+
+  addProseMirrorPlugins() {
+    const plugin = new PluginKey(this.name);
+    const disabledNodes = Object.entries(this.editor.schema.nodes)
+      .map(([, value]) => value)
+      .filter((node) => this.options.notAfter.includes(node.name));
+
+    return [
+      new Plugin({
+        key: plugin,
+        appendTransaction: (_, __, state) => {
+          const { doc, tr, schema } = state;
+          const shouldInsertNodeAtEnd = plugin.getState(state);
+          const endPosition = doc.content.size;
+          const type = schema.nodes[this.options.node];
+
+          if (!shouldInsertNodeAtEnd) {
+            return;
+          }
+
+          return tr.insert(endPosition, type.create());
+        },
+        state: {
+          init: (_, state) => {
+            const lastNode = state.tr.doc.lastChild;
+
+            return !nodeEqualsType({ node: lastNode, types: disabledNodes });
+          },
+          apply: (tr, value) => {
+            if (!tr.docChanged) {
+              return value;
+            }
+
+            const lastNode = tr.doc.lastChild;
+
+            return !nodeEqualsType({ node: lastNode, types: disabledNodes });
+          },
+        },
+      }),
+    ];
+  },
+});
+
 var Section = Node.create({
   name: "section",
   group: "block",
@@ -19518,6 +19576,7 @@ var Section = Node.create({
 const editor = new Editor({
   element: document.querySelector(".editor"),
   extensions: [
+    TrailingNode,
     StarterKit,
     Underline,
     TextStyle,
@@ -19531,15 +19590,7 @@ const editor = new Editor({
   ],
 });
 
-// const module = await import("../templates/test.html");
-const module = await import('./graphic-7b9701e0.js');
-const template = await fetch(module.default);
-const html = await template.text();
-editor.commands.insertContentAt(0, html, {
-  parseOptions: {
-    preserveWhitespace: false,
-  },
-});
+console.log(editor);
 
 function getDefaultExportFromCjs (x) {
 	return x && x.__esModule && Object.prototype.hasOwnProperty.call(x, 'default') ? x['default'] : x;
@@ -19557,11 +19608,11 @@ var pickr_min = {exports: {}};
 var pickr_minExports = pickr_min.exports;
 var Pickr = /*@__PURE__*/getDefaultExportFromCjs(pickr_minExports);
 
-var css_248z$1 = "/*! Pickr 1.9.0 MIT | https://github.com/Simonwep/pickr */\n.pickr{position:relative;overflow:visible;transform:translateY(0)}.pickr *{box-sizing:border-box;outline:none;border:none;-webkit-appearance:none}.pickr .pcr-button{position:relative;height:2em;width:2em;padding:.5em;cursor:pointer;font-family:-apple-system,BlinkMacSystemFont,\"Segoe UI\",\"Roboto\",\"Helvetica Neue\",Arial,sans-serif;border-radius:.15em;background:url(\"data:image/svg+xml;utf8, <svg xmlns=\\\"http://www.w3.org/2000/svg\\\" viewBox=\\\"0 0 50 50\\\" stroke=\\\"%2342445A\\\" stroke-width=\\\"5px\\\" stroke-linecap=\\\"round\\\"><path d=\\\"M45,45L5,5\\\"></path><path d=\\\"M45,5L5,45\\\"></path></svg>\") no-repeat center;background-size:0;transition:all .3s}.pickr .pcr-button::before{position:absolute;content:\"\";top:0;left:0;width:100%;height:100%;background:url(\"data:image/svg+xml;utf8, <svg xmlns=\\\"http://www.w3.org/2000/svg\\\" viewBox=\\\"0 0 2 2\\\"><path fill=\\\"white\\\" d=\\\"M1,0H2V1H1V0ZM0,1H1V2H0V1Z\\\"/><path fill=\\\"gray\\\" d=\\\"M0,0H1V1H0V0ZM1,1H2V2H1V1Z\\\"/></svg>\");background-size:.5em;border-radius:.15em;z-index:-1}.pickr .pcr-button::before{z-index:initial}.pickr .pcr-button::after{position:absolute;content:\"\";top:0;left:0;height:100%;width:100%;transition:background .3s;background:var(--pcr-color);border-radius:.15em}.pickr .pcr-button.clear{background-size:70%}.pickr .pcr-button.clear::before{opacity:0}.pickr .pcr-button.clear:focus{box-shadow:0 0 0 1px rgba(255,255,255,.85),0 0 0 3px var(--pcr-color)}.pickr .pcr-button.disabled{cursor:not-allowed}.pickr *,.pcr-app *{box-sizing:border-box;outline:none;border:none;-webkit-appearance:none}.pickr input:focus,.pickr input.pcr-active,.pickr button:focus,.pickr button.pcr-active,.pcr-app input:focus,.pcr-app input.pcr-active,.pcr-app button:focus,.pcr-app button.pcr-active{box-shadow:0 0 0 1px rgba(255,255,255,.85),0 0 0 3px var(--pcr-color)}.pickr .pcr-palette,.pickr .pcr-slider,.pcr-app .pcr-palette,.pcr-app .pcr-slider{transition:box-shadow .3s}.pickr .pcr-palette:focus,.pickr .pcr-slider:focus,.pcr-app .pcr-palette:focus,.pcr-app .pcr-slider:focus{box-shadow:0 0 0 1px rgba(255,255,255,.85),0 0 0 3px rgba(0,0,0,.25)}.pcr-app{position:fixed;display:flex;flex-direction:column;z-index:10000;border-radius:.1em;background:#fff;opacity:0;visibility:hidden;transition:opacity .3s,visibility 0s .3s;font-family:-apple-system,BlinkMacSystemFont,\"Segoe UI\",\"Roboto\",\"Helvetica Neue\",Arial,sans-serif;box-shadow:0 .15em 1.5em 0 rgba(0,0,0,.1),0 0 1em 0 rgba(0,0,0,.03);left:0;top:0}.pcr-app.visible{transition:opacity .3s;visibility:visible;opacity:1}.pcr-app .pcr-swatches{display:flex;flex-wrap:wrap;margin-top:.75em}.pcr-app .pcr-swatches.pcr-last{margin:0}@supports(display: grid){.pcr-app .pcr-swatches{display:grid;align-items:center;grid-template-columns:repeat(auto-fit, 1.75em)}}.pcr-app .pcr-swatches>button{font-size:1em;position:relative;width:calc(1.75em - 5px);height:calc(1.75em - 5px);border-radius:.15em;cursor:pointer;margin:2.5px;flex-shrink:0;justify-self:center;transition:all .15s;overflow:hidden;background:rgba(0,0,0,0);z-index:1}.pcr-app .pcr-swatches>button::before{position:absolute;content:\"\";top:0;left:0;width:100%;height:100%;background:url(\"data:image/svg+xml;utf8, <svg xmlns=\\\"http://www.w3.org/2000/svg\\\" viewBox=\\\"0 0 2 2\\\"><path fill=\\\"white\\\" d=\\\"M1,0H2V1H1V0ZM0,1H1V2H0V1Z\\\"/><path fill=\\\"gray\\\" d=\\\"M0,0H1V1H0V0ZM1,1H2V2H1V1Z\\\"/></svg>\");background-size:6px;border-radius:.15em;z-index:-1}.pcr-app .pcr-swatches>button::after{content:\"\";position:absolute;top:0;left:0;width:100%;height:100%;background:var(--pcr-color);border:1px solid rgba(0,0,0,.05);border-radius:.15em;box-sizing:border-box}.pcr-app .pcr-swatches>button:hover{filter:brightness(1.05)}.pcr-app .pcr-swatches>button:not(.pcr-active){box-shadow:none}.pcr-app .pcr-interaction{display:flex;flex-wrap:wrap;align-items:center;margin:0 -0.2em 0 -0.2em}.pcr-app .pcr-interaction>*{margin:0 .2em}.pcr-app .pcr-interaction input{letter-spacing:.07em;font-size:.75em;text-align:center;cursor:pointer;color:#75797e;background:#f1f3f4;border-radius:.15em;transition:all .15s;padding:.45em .5em;margin-top:.75em}.pcr-app .pcr-interaction input:hover{filter:brightness(0.975)}.pcr-app .pcr-interaction input:focus{box-shadow:0 0 0 1px rgba(255,255,255,.85),0 0 0 3px rgba(66,133,244,.75)}.pcr-app .pcr-interaction .pcr-result{color:#75797e;text-align:left;flex:1 1 8em;min-width:8em;transition:all .2s;border-radius:.15em;background:#f1f3f4;cursor:text}.pcr-app .pcr-interaction .pcr-result::-moz-selection{background:#4285f4;color:#fff}.pcr-app .pcr-interaction .pcr-result::selection{background:#4285f4;color:#fff}.pcr-app .pcr-interaction .pcr-type.active{color:#fff;background:#4285f4}.pcr-app .pcr-interaction .pcr-save,.pcr-app .pcr-interaction .pcr-cancel,.pcr-app .pcr-interaction .pcr-clear{color:#fff;width:auto}.pcr-app .pcr-interaction .pcr-save,.pcr-app .pcr-interaction .pcr-cancel,.pcr-app .pcr-interaction .pcr-clear{color:#fff}.pcr-app .pcr-interaction .pcr-save:hover,.pcr-app .pcr-interaction .pcr-cancel:hover,.pcr-app .pcr-interaction .pcr-clear:hover{filter:brightness(0.925)}.pcr-app .pcr-interaction .pcr-save{background:#4285f4}.pcr-app .pcr-interaction .pcr-clear,.pcr-app .pcr-interaction .pcr-cancel{background:#f44250}.pcr-app .pcr-interaction .pcr-clear:focus,.pcr-app .pcr-interaction .pcr-cancel:focus{box-shadow:0 0 0 1px rgba(255,255,255,.85),0 0 0 3px rgba(244,66,80,.75)}.pcr-app .pcr-selection .pcr-picker{position:absolute;height:18px;width:18px;border:2px solid #fff;border-radius:100%;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pcr-app .pcr-selection .pcr-color-palette,.pcr-app .pcr-selection .pcr-color-chooser,.pcr-app .pcr-selection .pcr-color-opacity{position:relative;-webkit-user-select:none;-moz-user-select:none;user-select:none;display:flex;flex-direction:column;cursor:grab;cursor:-webkit-grab}.pcr-app .pcr-selection .pcr-color-palette:active,.pcr-app .pcr-selection .pcr-color-chooser:active,.pcr-app .pcr-selection .pcr-color-opacity:active{cursor:grabbing;cursor:-webkit-grabbing}.pcr-app[data-theme=monolith]{width:14.25em;max-width:95vw;padding:.8em}.pcr-app[data-theme=monolith] .pcr-selection{display:flex;flex-direction:column;justify-content:space-between;flex-grow:1}.pcr-app[data-theme=monolith] .pcr-selection .pcr-color-preview{position:relative;z-index:1;width:100%;height:1em;display:flex;flex-direction:row;justify-content:space-between;margin-bottom:.5em}.pcr-app[data-theme=monolith] .pcr-selection .pcr-color-preview::before{position:absolute;content:\"\";top:0;left:0;width:100%;height:100%;background:url(\"data:image/svg+xml;utf8, <svg xmlns=\\\"http://www.w3.org/2000/svg\\\" viewBox=\\\"0 0 2 2\\\"><path fill=\\\"white\\\" d=\\\"M1,0H2V1H1V0ZM0,1H1V2H0V1Z\\\"/><path fill=\\\"gray\\\" d=\\\"M0,0H1V1H0V0ZM1,1H2V2H1V1Z\\\"/></svg>\");background-size:.5em;border-radius:.15em;z-index:-1}.pcr-app[data-theme=monolith] .pcr-selection .pcr-color-preview .pcr-last-color{cursor:pointer;transition:background-color .3s,box-shadow .3s;border-radius:.15em 0 0 .15em;z-index:2}.pcr-app[data-theme=monolith] .pcr-selection .pcr-color-preview .pcr-current-color{border-radius:0 .15em .15em 0}.pcr-app[data-theme=monolith] .pcr-selection .pcr-color-preview .pcr-last-color,.pcr-app[data-theme=monolith] .pcr-selection .pcr-color-preview .pcr-current-color{background:var(--pcr-color);width:50%;height:100%}.pcr-app[data-theme=monolith] .pcr-selection .pcr-color-palette{width:100%;height:8em;z-index:1}.pcr-app[data-theme=monolith] .pcr-selection .pcr-color-palette .pcr-palette{border-radius:.15em;width:100%;height:100%}.pcr-app[data-theme=monolith] .pcr-selection .pcr-color-palette .pcr-palette::before{position:absolute;content:\"\";top:0;left:0;width:100%;height:100%;background:url(\"data:image/svg+xml;utf8, <svg xmlns=\\\"http://www.w3.org/2000/svg\\\" viewBox=\\\"0 0 2 2\\\"><path fill=\\\"white\\\" d=\\\"M1,0H2V1H1V0ZM0,1H1V2H0V1Z\\\"/><path fill=\\\"gray\\\" d=\\\"M0,0H1V1H0V0ZM1,1H2V2H1V1Z\\\"/></svg>\");background-size:.5em;border-radius:.15em;z-index:-1}.pcr-app[data-theme=monolith] .pcr-selection .pcr-color-chooser,.pcr-app[data-theme=monolith] .pcr-selection .pcr-color-opacity{height:.5em;margin-top:.75em}.pcr-app[data-theme=monolith] .pcr-selection .pcr-color-chooser .pcr-picker,.pcr-app[data-theme=monolith] .pcr-selection .pcr-color-opacity .pcr-picker{top:50%;transform:translateY(-50%)}.pcr-app[data-theme=monolith] .pcr-selection .pcr-color-chooser .pcr-slider,.pcr-app[data-theme=monolith] .pcr-selection .pcr-color-opacity .pcr-slider{flex-grow:1;border-radius:50em}.pcr-app[data-theme=monolith] .pcr-selection .pcr-color-chooser .pcr-slider{background:linear-gradient(to right, hsl(0, 100%, 50%), hsl(60, 100%, 50%), hsl(120, 100%, 50%), hsl(180, 100%, 50%), hsl(240, 100%, 50%), hsl(300, 100%, 50%), hsl(0, 100%, 50%))}.pcr-app[data-theme=monolith] .pcr-selection .pcr-color-opacity .pcr-slider{background:linear-gradient(to right, transparent, black),url(\"data:image/svg+xml;utf8, <svg xmlns=\\\"http://www.w3.org/2000/svg\\\" viewBox=\\\"0 0 2 2\\\"><path fill=\\\"white\\\" d=\\\"M1,0H2V1H1V0ZM0,1H1V2H0V1Z\\\"/><path fill=\\\"gray\\\" d=\\\"M0,0H1V1H0V0ZM1,1H2V2H1V1Z\\\"/></svg>\");background-size:100%,.25em}\n";
-styleInject(css_248z$1);
+var css_248z$2 = "/*! Pickr 1.9.0 MIT | https://github.com/Simonwep/pickr */\n.pickr{position:relative;overflow:visible;transform:translateY(0)}.pickr *{box-sizing:border-box;outline:none;border:none;-webkit-appearance:none}.pickr .pcr-button{position:relative;height:2em;width:2em;padding:.5em;cursor:pointer;font-family:-apple-system,BlinkMacSystemFont,\"Segoe UI\",\"Roboto\",\"Helvetica Neue\",Arial,sans-serif;border-radius:.15em;background:url(\"data:image/svg+xml;utf8, <svg xmlns=\\\"http://www.w3.org/2000/svg\\\" viewBox=\\\"0 0 50 50\\\" stroke=\\\"%2342445A\\\" stroke-width=\\\"5px\\\" stroke-linecap=\\\"round\\\"><path d=\\\"M45,45L5,5\\\"></path><path d=\\\"M45,5L5,45\\\"></path></svg>\") no-repeat center;background-size:0;transition:all .3s}.pickr .pcr-button::before{position:absolute;content:\"\";top:0;left:0;width:100%;height:100%;background:url(\"data:image/svg+xml;utf8, <svg xmlns=\\\"http://www.w3.org/2000/svg\\\" viewBox=\\\"0 0 2 2\\\"><path fill=\\\"white\\\" d=\\\"M1,0H2V1H1V0ZM0,1H1V2H0V1Z\\\"/><path fill=\\\"gray\\\" d=\\\"M0,0H1V1H0V0ZM1,1H2V2H1V1Z\\\"/></svg>\");background-size:.5em;border-radius:.15em;z-index:-1}.pickr .pcr-button::before{z-index:initial}.pickr .pcr-button::after{position:absolute;content:\"\";top:0;left:0;height:100%;width:100%;transition:background .3s;background:var(--pcr-color);border-radius:.15em}.pickr .pcr-button.clear{background-size:70%}.pickr .pcr-button.clear::before{opacity:0}.pickr .pcr-button.clear:focus{box-shadow:0 0 0 1px rgba(255,255,255,.85),0 0 0 3px var(--pcr-color)}.pickr .pcr-button.disabled{cursor:not-allowed}.pickr *,.pcr-app *{box-sizing:border-box;outline:none;border:none;-webkit-appearance:none}.pickr input:focus,.pickr input.pcr-active,.pickr button:focus,.pickr button.pcr-active,.pcr-app input:focus,.pcr-app input.pcr-active,.pcr-app button:focus,.pcr-app button.pcr-active{box-shadow:0 0 0 1px rgba(255,255,255,.85),0 0 0 3px var(--pcr-color)}.pickr .pcr-palette,.pickr .pcr-slider,.pcr-app .pcr-palette,.pcr-app .pcr-slider{transition:box-shadow .3s}.pickr .pcr-palette:focus,.pickr .pcr-slider:focus,.pcr-app .pcr-palette:focus,.pcr-app .pcr-slider:focus{box-shadow:0 0 0 1px rgba(255,255,255,.85),0 0 0 3px rgba(0,0,0,.25)}.pcr-app{position:fixed;display:flex;flex-direction:column;z-index:10000;border-radius:.1em;background:#fff;opacity:0;visibility:hidden;transition:opacity .3s,visibility 0s .3s;font-family:-apple-system,BlinkMacSystemFont,\"Segoe UI\",\"Roboto\",\"Helvetica Neue\",Arial,sans-serif;box-shadow:0 .15em 1.5em 0 rgba(0,0,0,.1),0 0 1em 0 rgba(0,0,0,.03);left:0;top:0}.pcr-app.visible{transition:opacity .3s;visibility:visible;opacity:1}.pcr-app .pcr-swatches{display:flex;flex-wrap:wrap;margin-top:.75em}.pcr-app .pcr-swatches.pcr-last{margin:0}@supports(display: grid){.pcr-app .pcr-swatches{display:grid;align-items:center;grid-template-columns:repeat(auto-fit, 1.75em)}}.pcr-app .pcr-swatches>button{font-size:1em;position:relative;width:calc(1.75em - 5px);height:calc(1.75em - 5px);border-radius:.15em;cursor:pointer;margin:2.5px;flex-shrink:0;justify-self:center;transition:all .15s;overflow:hidden;background:rgba(0,0,0,0);z-index:1}.pcr-app .pcr-swatches>button::before{position:absolute;content:\"\";top:0;left:0;width:100%;height:100%;background:url(\"data:image/svg+xml;utf8, <svg xmlns=\\\"http://www.w3.org/2000/svg\\\" viewBox=\\\"0 0 2 2\\\"><path fill=\\\"white\\\" d=\\\"M1,0H2V1H1V0ZM0,1H1V2H0V1Z\\\"/><path fill=\\\"gray\\\" d=\\\"M0,0H1V1H0V0ZM1,1H2V2H1V1Z\\\"/></svg>\");background-size:6px;border-radius:.15em;z-index:-1}.pcr-app .pcr-swatches>button::after{content:\"\";position:absolute;top:0;left:0;width:100%;height:100%;background:var(--pcr-color);border:1px solid rgba(0,0,0,.05);border-radius:.15em;box-sizing:border-box}.pcr-app .pcr-swatches>button:hover{filter:brightness(1.05)}.pcr-app .pcr-swatches>button:not(.pcr-active){box-shadow:none}.pcr-app .pcr-interaction{display:flex;flex-wrap:wrap;align-items:center;margin:0 -0.2em 0 -0.2em}.pcr-app .pcr-interaction>*{margin:0 .2em}.pcr-app .pcr-interaction input{letter-spacing:.07em;font-size:.75em;text-align:center;cursor:pointer;color:#75797e;background:#f1f3f4;border-radius:.15em;transition:all .15s;padding:.45em .5em;margin-top:.75em}.pcr-app .pcr-interaction input:hover{filter:brightness(0.975)}.pcr-app .pcr-interaction input:focus{box-shadow:0 0 0 1px rgba(255,255,255,.85),0 0 0 3px rgba(66,133,244,.75)}.pcr-app .pcr-interaction .pcr-result{color:#75797e;text-align:left;flex:1 1 8em;min-width:8em;transition:all .2s;border-radius:.15em;background:#f1f3f4;cursor:text}.pcr-app .pcr-interaction .pcr-result::-moz-selection{background:#4285f4;color:#fff}.pcr-app .pcr-interaction .pcr-result::selection{background:#4285f4;color:#fff}.pcr-app .pcr-interaction .pcr-type.active{color:#fff;background:#4285f4}.pcr-app .pcr-interaction .pcr-save,.pcr-app .pcr-interaction .pcr-cancel,.pcr-app .pcr-interaction .pcr-clear{color:#fff;width:auto}.pcr-app .pcr-interaction .pcr-save,.pcr-app .pcr-interaction .pcr-cancel,.pcr-app .pcr-interaction .pcr-clear{color:#fff}.pcr-app .pcr-interaction .pcr-save:hover,.pcr-app .pcr-interaction .pcr-cancel:hover,.pcr-app .pcr-interaction .pcr-clear:hover{filter:brightness(0.925)}.pcr-app .pcr-interaction .pcr-save{background:#4285f4}.pcr-app .pcr-interaction .pcr-clear,.pcr-app .pcr-interaction .pcr-cancel{background:#f44250}.pcr-app .pcr-interaction .pcr-clear:focus,.pcr-app .pcr-interaction .pcr-cancel:focus{box-shadow:0 0 0 1px rgba(255,255,255,.85),0 0 0 3px rgba(244,66,80,.75)}.pcr-app .pcr-selection .pcr-picker{position:absolute;height:18px;width:18px;border:2px solid #fff;border-radius:100%;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pcr-app .pcr-selection .pcr-color-palette,.pcr-app .pcr-selection .pcr-color-chooser,.pcr-app .pcr-selection .pcr-color-opacity{position:relative;-webkit-user-select:none;-moz-user-select:none;user-select:none;display:flex;flex-direction:column;cursor:grab;cursor:-webkit-grab}.pcr-app .pcr-selection .pcr-color-palette:active,.pcr-app .pcr-selection .pcr-color-chooser:active,.pcr-app .pcr-selection .pcr-color-opacity:active{cursor:grabbing;cursor:-webkit-grabbing}.pcr-app[data-theme=monolith]{width:14.25em;max-width:95vw;padding:.8em}.pcr-app[data-theme=monolith] .pcr-selection{display:flex;flex-direction:column;justify-content:space-between;flex-grow:1}.pcr-app[data-theme=monolith] .pcr-selection .pcr-color-preview{position:relative;z-index:1;width:100%;height:1em;display:flex;flex-direction:row;justify-content:space-between;margin-bottom:.5em}.pcr-app[data-theme=monolith] .pcr-selection .pcr-color-preview::before{position:absolute;content:\"\";top:0;left:0;width:100%;height:100%;background:url(\"data:image/svg+xml;utf8, <svg xmlns=\\\"http://www.w3.org/2000/svg\\\" viewBox=\\\"0 0 2 2\\\"><path fill=\\\"white\\\" d=\\\"M1,0H2V1H1V0ZM0,1H1V2H0V1Z\\\"/><path fill=\\\"gray\\\" d=\\\"M0,0H1V1H0V0ZM1,1H2V2H1V1Z\\\"/></svg>\");background-size:.5em;border-radius:.15em;z-index:-1}.pcr-app[data-theme=monolith] .pcr-selection .pcr-color-preview .pcr-last-color{cursor:pointer;transition:background-color .3s,box-shadow .3s;border-radius:.15em 0 0 .15em;z-index:2}.pcr-app[data-theme=monolith] .pcr-selection .pcr-color-preview .pcr-current-color{border-radius:0 .15em .15em 0}.pcr-app[data-theme=monolith] .pcr-selection .pcr-color-preview .pcr-last-color,.pcr-app[data-theme=monolith] .pcr-selection .pcr-color-preview .pcr-current-color{background:var(--pcr-color);width:50%;height:100%}.pcr-app[data-theme=monolith] .pcr-selection .pcr-color-palette{width:100%;height:8em;z-index:1}.pcr-app[data-theme=monolith] .pcr-selection .pcr-color-palette .pcr-palette{border-radius:.15em;width:100%;height:100%}.pcr-app[data-theme=monolith] .pcr-selection .pcr-color-palette .pcr-palette::before{position:absolute;content:\"\";top:0;left:0;width:100%;height:100%;background:url(\"data:image/svg+xml;utf8, <svg xmlns=\\\"http://www.w3.org/2000/svg\\\" viewBox=\\\"0 0 2 2\\\"><path fill=\\\"white\\\" d=\\\"M1,0H2V1H1V0ZM0,1H1V2H0V1Z\\\"/><path fill=\\\"gray\\\" d=\\\"M0,0H1V1H0V0ZM1,1H2V2H1V1Z\\\"/></svg>\");background-size:.5em;border-radius:.15em;z-index:-1}.pcr-app[data-theme=monolith] .pcr-selection .pcr-color-chooser,.pcr-app[data-theme=monolith] .pcr-selection .pcr-color-opacity{height:.5em;margin-top:.75em}.pcr-app[data-theme=monolith] .pcr-selection .pcr-color-chooser .pcr-picker,.pcr-app[data-theme=monolith] .pcr-selection .pcr-color-opacity .pcr-picker{top:50%;transform:translateY(-50%)}.pcr-app[data-theme=monolith] .pcr-selection .pcr-color-chooser .pcr-slider,.pcr-app[data-theme=monolith] .pcr-selection .pcr-color-opacity .pcr-slider{flex-grow:1;border-radius:50em}.pcr-app[data-theme=monolith] .pcr-selection .pcr-color-chooser .pcr-slider{background:linear-gradient(to right, hsl(0, 100%, 50%), hsl(60, 100%, 50%), hsl(120, 100%, 50%), hsl(180, 100%, 50%), hsl(240, 100%, 50%), hsl(300, 100%, 50%), hsl(0, 100%, 50%))}.pcr-app[data-theme=monolith] .pcr-selection .pcr-color-opacity .pcr-slider{background:linear-gradient(to right, transparent, black),url(\"data:image/svg+xml;utf8, <svg xmlns=\\\"http://www.w3.org/2000/svg\\\" viewBox=\\\"0 0 2 2\\\"><path fill=\\\"white\\\" d=\\\"M1,0H2V1H1V0ZM0,1H1V2H0V1Z\\\"/><path fill=\\\"gray\\\" d=\\\"M0,0H1V1H0V0ZM1,1H2V2H1V1Z\\\"/></svg>\");background-size:100%,.25em}\n";
+styleInject(css_248z$2);
 
-var css_248z = ".dropdown {\n  position: relative;\n}\n\n.dropdown-menu {\n  position: absolute;\n  top: 100%;\n  left: 0;\n  display: none;\n}";
-styleInject(css_248z);
+var css_248z$1 = ".dropdown {\n  position: relative;\n}\n\n.dropdown-menu {\n  position: absolute;\n  top: 100%;\n  left: 0;\n  display: none;\n}";
+styleInject(css_248z$1);
 
 const nodeList = [];
 let clickStart;
@@ -19778,3 +19829,112 @@ const checkActiveState = () => {
 };
 editor.on("focus", checkActiveState);
 editor.on("selectionUpdate", checkActiveState);
+
+var css_248z = ".tabs-content .tab-pane {\n  display: none;\n}\n\n.tabs-content .tab-pane.active {\n  display: block;\n}";
+styleInject(css_248z);
+
+class Tabs {
+  activeName;
+  constructor({ el, activated }) {
+    this.activeName = activated || undefined;
+    this.$tabs_nav = el.querySelector(".tabs-nav");
+    this.$tabs_content = el.querySelector(".tabs-content");
+    this.tabChange(this.activeName);
+
+    this.$tabs_nav.addEventListener("click", (e) => {
+      if (e.target.classList.contains("tab-item")) {
+        const name = e.target.dataset.name || null;
+        this.tabChange(name, e.target);
+      }
+    });
+  }
+
+  tabChange(name) {
+    if (!name) return;
+    this.activeName = name;
+    const $tab_items = this.$tabs_nav.querySelectorAll(".tab-item");
+    const $tab_panel = this.$tabs_content.querySelectorAll(".tab-pane");
+    // 清除选中
+    $tab_items.forEach(function (item) {
+      item.classList.remove("active");
+    });
+    $tab_panel.forEach(function (item) {
+      item.classList.remove("active");
+    });
+    // 选中
+    this.$tabs_nav
+      .querySelector(`.tab-item[data-name="${name}"]`)
+      .classList.add("active");
+    this.$tabs_content
+      .querySelector(`.tab-pane[data-id="${name}"]`)
+      .classList.add("active");
+  }
+}
+
+// Tabs
+const $sidebar_tabs = document.querySelector(".sidebar .tabs");
+new Tabs({ el: $sidebar_tabs, activated: "graphic" });
+
+// 图文列表
+const graphicList = [
+  import('./graphic-7b9701e0.js'),
+  import('./test-cc5c354f.js'),
+];
+
+// 渲染图文列表
+const $graphic_list = document.querySelector(".sidebar .graphic-list");
+for (let graphic of graphicList) {
+  try {
+    const module = await graphic;
+    const template = await fetch(module.default);
+    const html = await template.text();
+    const $item = document.createElement("div");
+    $item.classList.add("graphic-item");
+    $item.addEventListener("click", handleInsert);
+    $item.innerHTML = html;
+    $graphic_list.appendChild($item);
+  } catch (error) {
+    console.warn(error);
+  }
+}
+
+// 插入图文/模板
+function handleInsert() {
+  editor
+    .chain()
+    .focus()
+    .createParagraphNear()
+    .insertContent(this.innerHTML, {
+      parseOptions: {
+        preserveWhitespace: false,
+      },
+    })
+    .run();
+}
+
+// $graphic_list.innerHTML = graphicList.reduce(
+//   (html, curr) => {
+//     // `<div class="graphic-item">${curr.default}</div>`
+//     import('../templates/' + curr + '.html').then((res) => {
+//       console.log(res.default);
+//       html += `<div class="graphic-item">${res.default}</div>`;
+//   },
+//   ""
+// );
+
+// const graphic = await fetch(graphicTemplate.default);
+// const graphicHTML = await graphic.text();
+// editor.commands.insertContentAt(0, graphicHTML, {
+//   parseOptions: {
+//     preserveWhitespace: false,
+//   },
+// });
+
+// const testTemplate = await import("../templates/test.html");
+// const test = await fetch(testTemplate.default);
+// const testHTML = await test.text();
+// editor.commands.insertContentAt(0, testHTML, {
+//   parseOptions: {
+//     preserveWhitespace: false,
+//   },
+// });

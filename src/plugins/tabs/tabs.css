@@ -1,0 +1,7 @@
+.tabs-content .tab-pane {
+  display: none;
+}
+
+.tabs-content .tab-pane.active {
+  display: block;
+}

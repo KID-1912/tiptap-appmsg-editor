@@ -1,3 +1,0 @@
-var graphic = "data:text/html;base64,PHNlY3Rpb24+CiAgPGltZwogICAgc3JjPSJodHRwczovL3d3dy5iYWlkdS5jb20vaW1nL1BDdG1fZDljODc1MGJlZDBiM2M3ZDA4OWZhN2Q1NTcyMGQ2Y2YucG5nIgogICAgc3R5bGU9IndpZHRoOiAxMDAlIgogIC8+CiAgPHNlY3Rpb24gc3R5bGU9Im1hcmdpbi10b3A6IDI0cHgiPgogICAgPHAgc3R5bGU9Im1hcmdpbi10b3A6IDI0cHgiPui/mTxzdHJvbmc+6YeMPC9zdHJvbmc+5pivPHN0cm9uZz7mloflrZc8L3N0cm9uZz48L3A+CiAgPC9zZWN0aW9uPgo8L3NlY3Rpb24+Cg==";
-
-export { graphic as default };

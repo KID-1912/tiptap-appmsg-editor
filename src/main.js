@@ -9,5 +9,8 @@ import "./js/svg.js";
 // toolbar
 import "./js/toolbar.js";
 
+// sidebar
+import "./js/sidebar.js";
+
 // editor
 import "./js/editor.js";

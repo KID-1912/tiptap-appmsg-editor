@@ -140,7 +140,45 @@
   background-color: #fafafa;
 }
 
-/* 编辑器栏 */
+/* 侧壁栏 */
+.sidebar {
+  position: fixed;
+  width: 360px;
+  top: 90px;
+  bottom: 0;
+  left: 0;
+  overflow: auto;
+  background-color: #fff;
+}
+
+.sidebar .tabs-nav {
+  display: flex;
+  border-bottom: 1px solid #eee;
+}
+
+.sidebar .tabs-nav .tab-item {
+  flex: 1;
+  padding: 15px;
+  font-size: 16px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.sidebar .tabs-nav .tab-item:hover,
+.sidebar .tabs-nav .tab-item.active {
+  color: rgb(7, 193, 96);
+  transition: all 0.3s;
+}
+
+.sidebar .tabs-nav .tab-item.active {
+  font-weight: bold;
+}
+
+.sidebar .graphic-list .graphic-item {
+  padding: 5px 15px;
+}
+
+/* 编辑器 */
 .editor-wrapper {
   height: 100%;
   overflow: auto;
@@ -164,6 +202,7 @@
 
 .tiptap.ProseMirror {
   outline: none;
+  height: 100%;
 }
 
 .ProseMirror img {

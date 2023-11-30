@@ -6,11 +6,13 @@ import TextStyle from "@tiptap/extension-text-style";
 import Color from "@tiptap/extension-color";
 import FontSize from "tiptap-extension-font-size";
 import Highlight from "@tiptap/extension-highlight";
+import TrailingNode from "../extension/trailingNode.js";
 import Section from "../extension/section.js";
 
 const editor = new Editor({
   element: document.querySelector(".editor"),
   extensions: [
+    TrailingNode,
     StarterKit,
     Underline,
     TextStyle,
@@ -24,14 +26,5 @@ const editor = new Editor({
   ],
 });
 
-// const module = await import("../templates/test.html");
-const module = await import("../templates/graphic.html");
-const template = await fetch(module.default);
-const html = await template.text();
-editor.commands.insertContentAt(0, html, {
-  parseOptions: {
-    preserveWhitespace: false,
-  },
-});
-
+console.log(editor);
 export default editor;
