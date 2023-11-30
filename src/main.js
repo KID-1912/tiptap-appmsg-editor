@@ -14,3 +14,6 @@ import "./js/sidebar.js";
 
 // editor
 import "./js/editor.js";
+
+// function
+import "./js/function.js";

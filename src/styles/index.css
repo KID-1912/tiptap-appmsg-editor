@@ -143,7 +143,8 @@
 /* 侧壁栏 */
 .sidebar {
   position: fixed;
-  width: 360px;
+  width: 25vw;
+  min-width: 250px;
   top: 90px;
   bottom: 0;
   left: 0;
@@ -181,6 +182,7 @@
 /* 编辑器 */
 .editor-wrapper {
   height: 100%;
+  padding-left: 10vw;
   overflow: auto;
   padding-top: 120px;
 }
@@ -193,7 +195,7 @@
 
 .editor {
   height: 1200px;
-  padding: 70px 95px;
+  padding: 4vw 7vw;
   position: relative;
   border-radius: 6px;
   background-color: #fff;

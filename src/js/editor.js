@@ -26,5 +26,4 @@ const editor = new Editor({
   ],
 });
 
-console.log(editor);
 export default editor;

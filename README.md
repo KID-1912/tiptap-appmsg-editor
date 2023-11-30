@@ -27,6 +27,8 @@ addAttributes 到 HTMLAttributes
 
 - 公众号图文内容库
 
+- 一键复制使用
+
 - 持续更新中...
 
 ## 测验
@@ -35,9 +37,9 @@ addAttributes 到 HTMLAttributes
 
 **Task List**
 
-- 一键复制使用
-
 - 侧边栏插入样式与模板
+
+- 公众号图文模板开发规范
 
 - 上传图片
 
