@@ -19,8 +19,6 @@ addAttributes 到 HTMLAttributes
 
 - 添加文字样式
 
-- 内容排版支持
-
 - 清除内容格式
 
 - 历史记录撤销/重做
@@ -29,18 +27,23 @@ addAttributes 到 HTMLAttributes
 
 - 一键复制使用
 
+- 上传图片（base64 为例）
+
 - 持续更新中...
 
 ## 测验
 
-- 尝试实现简单图文
+- 尝试实现简单图文（待支持排版）
 
 **Task List**
+
+- 内容排版操作
 
 - 侧边栏插入样式与模板
 
 - 公众号图文模板开发规范
 
-- 上传图片
-
 - 对接微信
+
+ProseMirror-separator 修复掉
+image style.width 宽度可解析

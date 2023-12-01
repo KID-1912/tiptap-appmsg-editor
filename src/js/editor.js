@@ -21,6 +21,7 @@ const editor = new Editor({
     Highlight.configure({ multicolor: true }),
     Image.configure({
       inline: true,
+      allowBase64: true,
     }),
     Section,
   ],
