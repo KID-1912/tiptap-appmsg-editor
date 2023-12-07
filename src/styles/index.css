@@ -152,6 +152,12 @@
   background-color: #fff;
 }
 
+.sidebar .tabs {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
 .sidebar .tabs-nav {
   display: flex;
   border-bottom: 1px solid #eee;
@@ -177,6 +183,10 @@
 
 .sidebar .graphic-list .graphic-item {
   padding: 5px 15px;
+}
+
+.sidebar .tabs-content {
+  overflow: auto;
 }
 
 /* 编辑器 */
@@ -214,6 +224,10 @@
 
 .ProseMirror img.ProseMirror-selectednode {
   outline: 2px solid rgb(7, 193, 96);
+}
+
+.ProseMirror img.ProseMirror-separator {
+  width: 0 !important;
 }
 
 /* 底部栏 */

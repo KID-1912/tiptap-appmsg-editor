@@ -2,10 +2,6 @@
 
 ## 笔记
 
-getAttrs 过滤作用
-addAttributes 到 HTMLAttributes
-尾部空行，prosemirror 插件注入
-
 ## 功能完善
 
 - 完成样式操作控件，支持所有微信操作
@@ -45,5 +41,6 @@ addAttributes 到 HTMLAttributes
 
 - 对接微信
 
-ProseMirror-separator 修复掉
+一般公众号样式链接：https://yiban.io/style_center/0_1_0
+
 image style.width 宽度可解析
