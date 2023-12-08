@@ -182,11 +182,23 @@
 }
 
 .sidebar .graphic-list .graphic-item {
+  margin: 12px;
   padding: 5px 15px;
+  border-radius: 4px;
+}
+
+.sidebar .graphic-list .graphic-item:hover {
+  box-shadow: inset 0 0 10px 0px #ccc;
+  transition: all 0.3s;
+
 }
 
 .sidebar .tabs-content {
   overflow: auto;
+}
+
+.sidebar .tabs-content img {
+  max-width: 100%;
 }
 
 /* 编辑器 */
@@ -222,9 +234,9 @@
   max-width: 100%;
 }
 
-.ProseMirror img.ProseMirror-selectednode {
+/* .ProseMirror img.ProseMirror-selectednode {
   outline: 2px solid rgb(7, 193, 96);
-}
+} */
 
 .ProseMirror img.ProseMirror-separator {
   width: 0 !important;

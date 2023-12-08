@@ -8,6 +8,8 @@ import FontSize from "tiptap-extension-font-size";
 import Highlight from "@tiptap/extension-highlight";
 import TrailingNode from "../extension/trailingNode.js";
 import Section from "../extension/section.js";
+import Style from "../extension/style.js";
+import Resizable from "../extension/resizable.js";
 
 const editor = new Editor({
   element: document.querySelector(".editor"),
@@ -24,6 +26,8 @@ const editor = new Editor({
       allowBase64: true,
     }),
     Section,
+    Style,
+    Resizable,
   ],
 });
 
