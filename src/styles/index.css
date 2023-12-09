@@ -84,7 +84,7 @@
 }
 
 #toolbar .edit-btn.active {
-  color: rgb(7, 193, 96);
+  color: #07c160;
 }
 
 #toolbar .edit-btn+.edit-btn {
@@ -173,7 +173,7 @@
 
 .sidebar .tabs-nav .tab-item:hover,
 .sidebar .tabs-nav .tab-item.active {
-  color: rgb(7, 193, 96);
+  color: #07c160;
   transition: all 0.3s;
 }
 
@@ -197,7 +197,7 @@
   overflow: auto;
 }
 
-.sidebar .tabs-content img {
+.sidebar .tabs-content * {
   max-width: 100%;
 }
 
@@ -229,13 +229,12 @@
   height: 100%;
 }
 
-.ProseMirror img {
-  height: auto;
+.ProseMirror * {
   max-width: 100%;
 }
 
 /* .ProseMirror img.ProseMirror-selectednode {
-  outline: 2px solid rgb(7, 193, 96);
+  outline: 2px solid #07c160;
 } */
 
 .ProseMirror img.ProseMirror-separator {
