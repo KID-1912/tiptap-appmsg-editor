@@ -5,8 +5,10 @@ import editor from "./editor";
 const $sidebar_tabs = document.querySelector(".sidebar .tabs");
 const tabs = new Tabs({ el: $sidebar_tabs, activated: "graphic" });
 
-// 图文列表
+// 图文列表数据
 const graphicList = [
+  import("../templates/template.html"),
+  import("../templates/custom.html"),
   import("../templates/No.html"),
   import("../templates/title.html"),
   import("../templates/text.html"),
@@ -22,7 +24,7 @@ for (let graphic of graphicList) {
     const html = await template.text();
     const $item = document.createElement("div");
     $item.classList.add("graphic-item");
-    $item.addEventListener("click", handleInsert);
+    $item.addEventListener("click", () => handleInsert(html));
     $item.innerHTML = html;
     $graphic_list.appendChild($item);
   } catch (error) {
@@ -31,11 +33,11 @@ for (let graphic of graphicList) {
 }
 
 // 插入图文/模板
-function handleInsert() {
+function handleInsert(html) {
   editor
     .chain()
     .focus()
-    .insertContent(this.innerHTML, {
+    .insertContent(html, {
       parseOptions: {
         preserveWhitespace: false,
       },
