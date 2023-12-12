@@ -6,8 +6,13 @@ import bold from "../images/svg/bold.svg";
 import italic from "../images/svg/italic.svg";
 import underline from "../images/svg/underline.svg";
 import strike from "../images/svg/strike.svg";
-import highlight from "../images/svg/highlight.svg";
 import font from "../images/svg/font.svg";
+import highlight from "../images/svg/highlight.svg";
+import left from "../images/svg/left.svg";
+import center from "../images/svg/center.svg";
+import right from "../images/svg/right.svg";
+import justify from "../images/svg/justify.svg";
+import topRowSpacing from "../images/svg/topRowSpacing.svg";
 
 const symbols = [
   undo,
@@ -18,8 +23,13 @@ const symbols = [
   italic,
   underline,
   strike,
-  highlight,
   font,
+  highlight,
+  left,
+  center,
+  right,
+  justify,
+  topRowSpacing,
 ].join("");
 
 document.body.insertAdjacentHTML(

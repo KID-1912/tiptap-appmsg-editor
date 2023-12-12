@@ -7,13 +7,14 @@ const tabs = new Tabs({ el: $sidebar_tabs, activated: "graphic" });
 
 // 图文列表数据
 const graphicList = [
-  import("../templates/template.html"),
   import("../templates/custom.html"),
   import("../templates/No.html"),
   import("../templates/title.html"),
   import("../templates/text.html"),
   import("../templates/graphic.html"),
 ];
+
+const templateList = [import("../templates/template.html")];
 
 // 渲染图文列表
 const $graphic_list = document.querySelector(".sidebar .graphic-list");
@@ -27,6 +28,26 @@ for (let graphic of graphicList) {
     $item.addEventListener("click", () => handleInsert(html));
     $item.innerHTML = html;
     $graphic_list.appendChild($item);
+  } catch (error) {
+    console.warn(error);
+  }
+}
+
+// 渲染模板列表
+const $template_list = document.querySelector(".sidebar .template-list");
+for (let tpl of templateList) {
+  try {
+    const module = await tpl;
+    const template = await fetch(module.default);
+    const html = await template.text();
+    const $item = document.createElement("div");
+    $item.classList.add("template-item");
+    $item.addEventListener("click", () => {
+      editor.commands.clearContent(); // 清除原内容
+      handleInsert(html);
+    });
+    $item.innerHTML = html;
+    $template_list.appendChild($item);
   } catch (error) {
     console.warn(error);
   }

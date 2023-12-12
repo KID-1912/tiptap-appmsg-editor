@@ -49,7 +49,11 @@ export default Extension.create({
           resizeElement.style.width = total + "px";
           const clientWidth = resizeElement.clientWidth;
           const clientHeight = resizeElement.clientHeight;
-          resizeElement.style.width = clientWidth + "px"; // max width
+          resizeElement.style.setProperty(
+            "width",
+            `${clientWidth}px`,
+            "important"
+          ); // max width
           // resizeLayer
           const pos = getRelativePosition(resizeElement, element);
           resizeLayer.style.top = pos.top + "px";
@@ -91,7 +95,6 @@ export default Extension.create({
     const node = transaction.curSelection.node;
     const resizeLayer = editor.resizeLayer;
 
-    console.log("selection");
     if (node && this.options.types.includes(node.type.name)) {
       // resizeLayer位置大小
       resizeLayer.style.display = "block";
@@ -106,7 +109,6 @@ export default Extension.create({
       resizeLayer.style.width = dom.width + "px";
       resizeLayer.style.height = dom.height + "px";
     } else {
-      console.log("no node");
       resizeLayer.style.display = "none";
     }
   },

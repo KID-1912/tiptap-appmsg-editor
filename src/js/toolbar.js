@@ -127,6 +127,37 @@ $highlightPicker.picker.on("save", (color, instance) => {
   $highlightColorlump.style.backgroundColor = hexValue;
 });
 
+// 对齐
+const $dropdownAlign = $toolbar.querySelector(".dropdown-align");
+new Dropdown({ el: $dropdownAlign });
+$dropdownAlign
+  .querySelector(".dropdown-menu")
+  .addEventListener("click", (e) => {
+    const menuItem = e.target.closest(".menu-item");
+    if (!menuItem) return;
+    const align = menuItem.dataset.align;
+    editor.chain().focus().setTextAlign(align).run();
+    $dropdownAlign
+      .querySelector(".dropdown-toggle svg use")
+      .setAttribute("href", `#${align}`);
+  });
+
+// 段前距
+const $dropdownTopRowSpacing = $toolbar.querySelector(
+  ".dropdown-topRowSpacing"
+);
+new Dropdown({ el: $dropdownTopRowSpacing });
+$dropdownTopRowSpacing
+  .querySelector(".dropdown-menu")
+  .addEventListener("click", (e) => {
+    // const align = menuItem.dataset.align;
+    // if (!align) return;
+    // editor.chain().focus().setTextAlign(align).run();
+    // $dropdownTopRowSpacing
+    //   .querySelector(".dropdown-toggle svg use")
+    //   .setAttribute("href", `#${align}`);
+  });
+
 // 按钮激活状态回显
 const btnStateMap = new Map([
   ["bold", $boldBtn],
@@ -136,6 +167,7 @@ const btnStateMap = new Map([
   ["highlight", $highlightPicker],
   ["color", $colorPicker],
   ["fontSize", $dropdownSize],
+  ["textAlign", $dropdownAlign],
 ]);
 const checkActiveState = () => {
   for (let [state, btn] of btnStateMap) {
@@ -143,9 +175,12 @@ const checkActiveState = () => {
     if (btn.classList.contains("picker")) {
       const $colorlump = btn.querySelector(".colorlump");
       let colorValue;
+      // 字色
       if (state === "color") {
         colorValue = editor.getAttributes("textStyle").color;
-      } else {
+      }
+      // 背景色
+      else {
         const attribute = editor.getAttributes(state);
         colorValue = attribute.color;
       }
@@ -158,14 +193,30 @@ const checkActiveState = () => {
       }
       continue;
     }
-    // 字号选择按钮
+    // 下拉菜单类型按钮
     if (btn.classList.contains("dropdown")) {
-      let fontSizeValue = editor.getAttributes("textStyle").fontSize;
-      fontSizeValue = fontSizeValue || defaultFontSize;
-      btn.querySelector(".dropdown-toggle .size").textContent = fontSizeValue;
+      // 字号选择按钮
+      if (btn.classList.contains("dropdown-size")) {
+        let fontSizeValue = editor.getAttributes("textStyle").fontSize;
+        fontSizeValue = fontSizeValue || defaultFontSize;
+        btn.querySelector(".dropdown-toggle .size").textContent = fontSizeValue;
+      }
+      // 对齐方式按钮
+      if (btn.classList.contains("dropdown-align")) {
+        const align = editor.isActive({ [state]: "left" })
+          ? "left"
+          : editor.isActive({ [state]: "center" })
+          ? "center"
+          : editor.isActive({ [state]: "right" })
+          ? "right"
+          : "justify";
+        btn
+          .querySelector(".dropdown-toggle svg use")
+          .setAttribute("href", `#${align}`);
+      }
       continue;
     }
-    // 普通按钮
+    // 普通激活按钮
     if (editor.isActive(state)) {
       btn.classList.add("active");
     } else {

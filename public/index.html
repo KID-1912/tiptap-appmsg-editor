@@ -98,6 +98,43 @@
             <i class="colorlump"></i>
           </button>
         </div>
+        <div class="btn-group">
+          <div class="dropdown dropdown-align edit-btn">
+            <button class="dropdown-toggle">
+              <svg style="color: #07c160"><use href="#justify" /></svg>&nbsp;
+              <i class="icon-arrow"></i>
+            </button>
+            <div class="dropdown-menu">
+              <div class="menu-item" data-align="left">
+                <svg><use href="#left" /></svg>左对齐
+              </div>
+              <div class="menu-item" data-align="center">
+                <svg><use href="#center" /></svg>居中对齐
+              </div>
+              <div class="menu-item" data-align="right">
+                <svg><use href="#right" /></svg>右对齐
+              </div>
+              <div class="menu-item" data-align="justify">
+                <svg><use href="#justify" /></svg>两端对齐
+              </div>
+            </div>
+          </div>
+          <div class="dropdown dropdown-topRowSpacing edit-btn">
+            <button class="dropdown-toggle">
+              <svg><use href="#topRowSpacing" /></svg>&nbsp;
+              <i class="icon-arrow"></i>
+            </button>
+            <div class="dropdown-menu">
+              <div class="menu-item" data-align="0">0（默认）</div>
+              <div class="menu-item" data-align="8">8</div>
+              <div class="menu-item" data-align="16">16</div>
+              <div class="menu-item" data-align="24">24</div>
+              <div class="menu-item" data-align="32">32</div>
+              <div class="menu-item" data-align="40">40</div>
+              <div class="menu-item" data-align="48">48</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <div class="sidebar">
@@ -110,7 +147,9 @@
           <div class="tab-pane" data-id="graphic">
             <div class="graphic-list"></div>
           </div>
-          <div class="tab-pane" data-id="template">这是模板内容</div>
+          <div class="tab-pane" data-id="template">
+            <div class="template-list"></div>
+          </div>
         </div>
       </div>
     </div>

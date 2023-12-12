@@ -5,6 +5,7 @@ import Underline from "@tiptap/extension-underline";
 import TextStyle from "@tiptap/extension-text-style";
 import Color from "@tiptap/extension-color";
 import FontSize from "tiptap-extension-font-size";
+import TextAlign from "@tiptap/extension-text-align";
 import Highlight from "@tiptap/extension-highlight";
 import TrailingNode from "../extension/trailingNode.js";
 import Section from "../extension/section.js";
@@ -20,6 +21,10 @@ const editor = new Editor({
     TextStyle,
     Color,
     FontSize,
+    TextAlign.configure({
+      types: ["paragraph", "section"],
+      defaultAlignment: "justify",
+    }),
     Highlight.configure({ multicolor: true }),
     Image.configure({
       inline: true,
