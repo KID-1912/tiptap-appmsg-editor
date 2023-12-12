@@ -150,12 +150,30 @@ new Dropdown({ el: $dropdownTopRowSpacing });
 $dropdownTopRowSpacing
   .querySelector(".dropdown-menu")
   .addEventListener("click", (e) => {
-    // const align = menuItem.dataset.align;
-    // if (!align) return;
-    // editor.chain().focus().setTextAlign(align).run();
-    // $dropdownTopRowSpacing
-    //   .querySelector(".dropdown-toggle svg use")
-    //   .setAttribute("href", `#${align}`);
+    const value = e.target.dataset.value;
+    if (!value) return;
+    editor
+      .chain()
+      .focus()
+      .setMargin({ top: `${+value}px` })
+      .run();
+  });
+
+// 段前距
+const $dropdownBottomRowSpacing = $toolbar.querySelector(
+  ".dropdown-bottomRowSpacing"
+);
+new Dropdown({ el: $dropdownBottomRowSpacing });
+$dropdownBottomRowSpacing
+  .querySelector(".dropdown-menu")
+  .addEventListener("click", (e) => {
+    const value = e.target.dataset.value;
+    if (!value) return;
+    editor
+      .chain()
+      .focus()
+      .setMargin({ bottom: `${+value}px` })
+      .run();
   });
 
 // 按钮激活状态回显

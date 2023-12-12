@@ -10,6 +10,7 @@ import Highlight from "@tiptap/extension-highlight";
 import TrailingNode from "../extension/trailingNode.js";
 import Section from "../extension/section.js";
 import Style from "../extension/style.js";
+import Margin from "../extension/margin.js";
 import Resizable from "../extension/resizable.js";
 
 const editor = new Editor({
@@ -32,6 +33,7 @@ const editor = new Editor({
     }),
     Section,
     Style,
+    Margin,
     Resizable,
   ],
 });

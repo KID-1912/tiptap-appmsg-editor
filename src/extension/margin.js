@@ -8,16 +8,15 @@ export default Extension.create({
         types: ["paragraph"],
         attributes: {
           margin: {
-            default: null,
+            default: {},
             renderHTML: (attributes) => {
-              const obj = {};
-              const { marginTop, marginBottom, marginLeft, marginRight } =
-                attributes;
-              if (marginTop) obj.marginTop = marginTop;
-              if (marginBottom) obj.marginBottom = marginBottom;
-              if (marginLeft) obj.marginLeft = marginLeft;
-              if (marginRight) obj.marginRight = marginRight;
-              return obj;
+              const {
+                top: top = 0,
+                bottom: bottom = 0,
+                left: left = 0,
+                right: right = 0,
+              } = attributes.margin;
+              return { style: `margin: ${top} ${left} ${bottom} ${right}` };
             },
             parseHTML: (element) => {
               const computedStyle = window.getComputedStyle(element);
@@ -37,8 +36,11 @@ export default Extension.create({
     return {
       setMargin:
         (options) =>
-        ({ commands }) => {
-          return commands.setNode("paragraph");
+        ({ commands, editor }) => {
+          const margin = editor.getAttributes("paragraph").margin;
+          return commands.updateAttributes("paragraph", {
+            margin: Object.assign({}, margin, options),
+          });
         },
     };
   },
