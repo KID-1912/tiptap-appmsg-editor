@@ -74,7 +74,7 @@
 #toolbar .edit-btn {
   height: 24px;
   padding: 0 3px;
-  color: #4A4A51 !important;
+  color: #4A4A51;
   font-size: 18px;
   line-height: 1;
   border-radius: 2px;
@@ -146,6 +146,10 @@
   background-color: #fafafa;
 }
 
+#toolbar .dropdown .menu-item.active {
+  color: #07c160;
+}
+
 #toolbar .dropdown-align .menu-item svg {
   color: inherit;
   margin-right: 10px;
@@ -213,6 +217,7 @@
 
 .sidebar .tabs-content {
   overflow: auto;
+  color: rgba(0, 0, 0, 0.9);
   font-size: 17px;
   line-height: 1.6;
 }
@@ -221,6 +226,12 @@
   max-width: 100%;
   box-sizing: border-box !important;
 }
+
+.sidebar .tabs-content>p {
+  margin-top: 0;
+  margin-bottom: 24px;
+}
+
 
 /* 编辑器 */
 .editor-wrapper {
@@ -246,14 +257,21 @@
 
 .tiptap.ProseMirror {
   min-height: 960px;
-  line-height: 1.6;
   outline: none;
+  color: rgba(0, 0, 0, 0.9);
+  font-size: 17px;
+  line-height: 1.6;
   text-align: justify;
 }
 
 .ProseMirror * {
   max-width: 100%;
   box-sizing: border-box !important;
+}
+
+.ProseMirror>p {
+  margin-top: 0;
+  margin-bottom: 24px;
 }
 
 .ProseMirror img.ProseMirror-separator {

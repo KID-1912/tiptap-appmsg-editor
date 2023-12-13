@@ -48,6 +48,8 @@
 ```css
 /* 编辑区样式 */
 .tiptap.ProseMirror {
+  color: rgba(0, 0, 0, 0.9);
+  font-size: 17px;
   line-height: 1.6;
   text-align: justify;
 }
@@ -56,6 +58,11 @@
 .ProseMirror * {
   max-width: 100%;
   box-sizing: border-box !important;
+}
+
+.ProseMirror > p {
+  margin-top: 0;
+  margin-bottom: 24px;
 }
 ```
 

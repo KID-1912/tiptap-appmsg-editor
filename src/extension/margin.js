@@ -10,6 +10,8 @@ export default Extension.create({
           margin: {
             default: {},
             renderHTML: (attributes) => {
+              if (!Object.keys(attributes.margin).length) return {};
+              console.log(attributes.margin);
               const {
                 top: top = 0,
                 bottom: bottom = 0,
@@ -19,13 +21,17 @@ export default Extension.create({
               return { style: `margin: ${top} ${left} ${bottom} ${right}` };
             },
             parseHTML: (element) => {
+              const margin = {};
               const computedStyle = window.getComputedStyle(element);
-              return {
-                marginTop: computedStyle.getPropertyValue("margin-top"),
-                marginBottom: computedStyle.getPropertyValue("margin-bottom"),
-                marginLeft: computedStyle.getPropertyValue("margin-left"),
-                marginRight: computedStyle.getPropertyValue("margin-right"),
-              };
+              const top = computedStyle.getPropertyValue("margin-top");
+              const bottom = computedStyle.getPropertyValue("margin-bottom");
+              const left = computedStyle.getPropertyValue("margin-left");
+              const right = computedStyle.getPropertyValue("margin-right");
+              top && (margin.top = top);
+              bottom && (margin.bottom = bottom);
+              left && (margin.left = left);
+              right && (margin.right = right);
+              return margin;
             },
           },
         },

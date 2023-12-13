@@ -5,6 +5,14 @@ import { Dropdown } from "../plugins/dropdown";
 
 const $toolbar = document.querySelector("#toolbar");
 
+// toolbar状态维护
+const toolbarListeners = [];
+const updateToolbarState = () => {
+  toolbarListeners.forEach((fn) => fn());
+};
+editor.on("focus", updateToolbarState);
+editor.on("selectionUpdate", updateToolbarState);
+
 // 历史记录
 const $undoBtn = $toolbar.querySelector(".undo");
 const $redoBtn = $toolbar.querySelector(".redo");
@@ -24,11 +32,25 @@ const $boldBtn = $toolbar.querySelector("button.bold");
 $boldBtn.addEventListener("click", () => {
   editor.chain().focus().toggleBold().run();
 });
+toolbarListeners.push(() => {
+  if (editor.isActive("bold")) {
+    $boldBtn.classList.add("active");
+  } else {
+    $boldBtn.classList.remove("active");
+  }
+});
 
 // 斜体
 const $italicBtn = $toolbar.querySelector("button.italic");
 $italicBtn.addEventListener("click", () => {
   editor.chain().focus().toggleItalic().run();
+});
+toolbarListeners.push(() => {
+  if (editor.isActive("italic")) {
+    $italicBtn.classList.add("active");
+  } else {
+    $italicBtn.classList.remove("active");
+  }
 });
 
 // 下划线
@@ -36,27 +58,41 @@ const $underlineBtn = $toolbar.querySelector("button.underline");
 $underlineBtn.addEventListener("click", () => {
   editor.chain().focus().toggleUnderline().run();
 });
+toolbarListeners.push(() => {
+  if (editor.isActive("underline")) {
+    $underlineBtn.classList.add("active");
+  } else {
+    $underlineBtn.classList.remove("active");
+  }
+});
 
 // 中划线
 const $strikeBtn = $toolbar.querySelector("button.strike");
 $strikeBtn.addEventListener("click", () => {
   editor.chain().focus().toggleStrike().run();
 });
+toolbarListeners.push(() => {
+  if (editor.isActive("strike")) {
+    $strikeBtn.classList.add("active");
+  } else {
+    $strikeBtn.classList.remove("active");
+  }
+});
 
 // 字号
 const $dropdownSize = $toolbar.querySelector(".dropdown-size");
-const defaultFontSize = "17px"; // 默认字号
-editor.options.element.style.fontSize = defaultFontSize;
-$dropdownSize.querySelector(".dropdown-toggle .size").textContent =
-  defaultFontSize;
 new Dropdown({ el: $dropdownSize });
 $dropdownSize.querySelector(".dropdown-menu").addEventListener("click", (e) => {
   const size = e.target.dataset.size;
   if (!size) return;
-  editor.chain().focus().setFontSize(`${size}px`).run();
-  $dropdownSize.querySelector(
-    ".dropdown-toggle .size"
-  ).textContent = `${size}px`;
+  editor.chain().focus().setFontSize(size).run();
+  $dropdownSize.querySelector(".dropdown-toggle .size").textContent = size;
+});
+toolbarListeners.push(() => {
+  let fontSizeValue = editor.getAttributes("textStyle").fontSize;
+  console.log(fontSizeValue);
+  $dropdownSize.querySelector(".dropdown-toggle .size").textContent =
+    fontSizeValue;
 });
 
 // 颜色列表
@@ -101,6 +137,16 @@ $colorPicker.picker.on("save", (color, instance) => {
   editor.chain().focus().setColor(hexValue).run();
   $colorlump.style.backgroundColor = hexValue;
 });
+toolbarListeners.push(() => {
+  const colorValue = editor.getAttributes("textStyle").color;
+  if (colorValue) {
+    $colorPicker.picker.setColor(colorValue, true);
+    $colorlump.style.backgroundColor = colorValue;
+  } else {
+    $colorPicker.picker.setColor(null, true);
+    $colorlump.style.backgroundColor = "transparent";
+  }
+});
 
 // 高亮颜色
 const $highlightPicker = $toolbar.querySelector(".highlight-picker");
@@ -126,6 +172,16 @@ $highlightPicker.picker.on("save", (color, instance) => {
   editor.chain().focus().toggleHighlight({ color: hexValue }).run();
   $highlightColorlump.style.backgroundColor = hexValue;
 });
+toolbarListeners.push(() => {
+  const colorValue = editor.getAttributes("highlight").color;
+  if (colorValue) {
+    $highlightPicker.picker.setColor(colorValue, true);
+    $highlightColorlump.style.backgroundColor = colorValue;
+  } else {
+    $highlightPicker.picker.setColor(null, true);
+    $highlightColorlump.style.backgroundColor = "transparent";
+  }
+});
 
 // 对齐
 const $dropdownAlign = $toolbar.querySelector(".dropdown-align");
@@ -141,6 +197,18 @@ $dropdownAlign
       .querySelector(".dropdown-toggle svg use")
       .setAttribute("href", `#${align}`);
   });
+toolbarListeners.push(() => {
+  const align = editor.isActive({ textAlign: "left" })
+    ? "left"
+    : editor.isActive({ textAlign: "center" })
+    ? "center"
+    : editor.isActive({ textAlign: "right" })
+    ? "right"
+    : "justify";
+  $dropdownAlign
+    .querySelector(".dropdown-toggle svg use")
+    .setAttribute("href", `#${align}`);
+});
 
 // 段前距
 const $dropdownTopRowSpacing = $toolbar.querySelector(
@@ -152,14 +220,21 @@ $dropdownTopRowSpacing
   .addEventListener("click", (e) => {
     const value = e.target.dataset.value;
     if (!value) return;
-    editor
-      .chain()
-      .focus()
-      .setMargin({ top: `${+value}px` })
-      .run();
+    editor.chain().focus().setMargin({ top: value }).run();
   });
+toolbarListeners.push(() => {
+  const top = editor.getAttributes("paragraph").margin.top || "0px";
+  const menuItems = $dropdownTopRowSpacing.querySelectorAll(".menu-item");
+  for (let item of menuItems) {
+    if (item.dataset.value === top) {
+      item.classList.add("active");
+    } else {
+      item.classList.remove("active");
+    }
+  }
+});
 
-// 段前距
+// 段后距
 const $dropdownBottomRowSpacing = $toolbar.querySelector(
   ".dropdown-bottomRowSpacing"
 );
@@ -169,78 +244,17 @@ $dropdownBottomRowSpacing
   .addEventListener("click", (e) => {
     const value = e.target.dataset.value;
     if (!value) return;
-    editor
-      .chain()
-      .focus()
-      .setMargin({ bottom: `${+value}px` })
-      .run();
+    editor.chain().focus().setMargin({ bottom: value }).run();
   });
 
-// 按钮激活状态回显
-const btnStateMap = new Map([
-  ["bold", $boldBtn],
-  ["italic", $italicBtn],
-  ["underline", $underlineBtn],
-  ["strike", $strikeBtn],
-  ["highlight", $highlightPicker],
-  ["color", $colorPicker],
-  ["fontSize", $dropdownSize],
-  ["textAlign", $dropdownAlign],
-]);
-const checkActiveState = () => {
-  for (let [state, btn] of btnStateMap) {
-    // 颜色选择按钮
-    if (btn.classList.contains("picker")) {
-      const $colorlump = btn.querySelector(".colorlump");
-      let colorValue;
-      // 字色
-      if (state === "color") {
-        colorValue = editor.getAttributes("textStyle").color;
-      }
-      // 背景色
-      else {
-        const attribute = editor.getAttributes(state);
-        colorValue = attribute.color;
-      }
-      if (colorValue) {
-        btn.picker.setColor(colorValue, true);
-        $colorlump.style.backgroundColor = colorValue;
-      } else {
-        btn.picker.setColor(null, true);
-        $colorlump.style.backgroundColor = "transparent";
-      }
-      continue;
-    }
-    // 下拉菜单类型按钮
-    if (btn.classList.contains("dropdown")) {
-      // 字号选择按钮
-      if (btn.classList.contains("dropdown-size")) {
-        let fontSizeValue = editor.getAttributes("textStyle").fontSize;
-        fontSizeValue = fontSizeValue || defaultFontSize;
-        btn.querySelector(".dropdown-toggle .size").textContent = fontSizeValue;
-      }
-      // 对齐方式按钮
-      if (btn.classList.contains("dropdown-align")) {
-        const align = editor.isActive({ [state]: "left" })
-          ? "left"
-          : editor.isActive({ [state]: "center" })
-          ? "center"
-          : editor.isActive({ [state]: "right" })
-          ? "right"
-          : "justify";
-        btn
-          .querySelector(".dropdown-toggle svg use")
-          .setAttribute("href", `#${align}`);
-      }
-      continue;
-    }
-    // 普通激活按钮
-    if (editor.isActive(state)) {
-      btn.classList.add("active");
+toolbarListeners.push(() => {
+  const bottom = editor.getAttributes("paragraph").margin.bottom || "24px";
+  const menuItems = $dropdownBottomRowSpacing.querySelectorAll(".menu-item");
+  for (let item of menuItems) {
+    if (item.dataset.value === bottom) {
+      item.classList.add("active");
     } else {
-      btn.classList.remove("active");
+      item.classList.remove("active");
     }
   }
-};
-editor.on("focus", checkActiveState);
-editor.on("selectionUpdate", checkActiveState);
+});
