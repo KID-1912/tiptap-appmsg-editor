@@ -7,10 +7,10 @@ const $toolbar = document.querySelector("#toolbar");
 
 // toolbar状态维护
 const toolbarListeners = [];
-const updateToolbarState = () => {
-  toolbarListeners.forEach((fn) => fn());
+const updateToolbarState = (arg) => {
+  toolbarListeners.forEach((fn) => fn(arg));
 };
-editor.on("focus", updateToolbarState);
+// editor.on("focus", updateToolbarState);
 editor.on("selectionUpdate", updateToolbarState);
 
 // 历史记录
@@ -88,9 +88,16 @@ $dropdownSize.querySelector(".dropdown-menu").addEventListener("click", (e) => {
   editor.chain().focus().setFontSize(size).run();
   $dropdownSize.querySelector(".dropdown-toggle .size").textContent = size;
 });
-toolbarListeners.push(() => {
+toolbarListeners.push(({ editor, transaction }) => {
   let fontSizeValue = editor.getAttributes("textStyle").fontSize;
-  console.log(fontSizeValue);
+  if (!fontSizeValue) {
+    const pos = transaction.curSelection.from;
+    let node = editor.view.domAtPos(pos).node;
+    while (node.nodeType !== 1) {
+      node = node.parentNode;
+    }
+    fontSizeValue = window.getComputedStyle(node).fontSize;
+  }
   $dropdownSize.querySelector(".dropdown-toggle .size").textContent =
     fontSizeValue;
 });
@@ -223,10 +230,10 @@ $dropdownTopRowSpacing
     editor.chain().focus().setMargin({ top: value }).run();
   });
 toolbarListeners.push(() => {
-  const top = editor.getAttributes("paragraph").margin.top || "0px";
+  const marginTop = editor.getAttributes("paragraph").margin.top || "0px";
   const menuItems = $dropdownTopRowSpacing.querySelectorAll(".menu-item");
   for (let item of menuItems) {
-    if (item.dataset.value === top) {
+    if (item.dataset.value === marginTop) {
       item.classList.add("active");
     } else {
       item.classList.remove("active");
@@ -247,11 +254,19 @@ $dropdownBottomRowSpacing
     editor.chain().focus().setMargin({ bottom: value }).run();
   });
 
-toolbarListeners.push(() => {
-  const bottom = editor.getAttributes("paragraph").margin.bottom || "24px";
+toolbarListeners.push(({ editor, transaction }) => {
+  let marginBottom = editor.getAttributes("paragraph").margin.bottom;
+  if (!marginBottom) {
+    const pos = transaction.curSelection.from;
+    let node = editor.view.domAtPos(pos).node;
+    while (node.nodeType !== 1 && node.tagName !== "P") {
+      node = node.parentNode;
+    }
+    marginBottom = window.getComputedStyle(node).marginBottom;
+  }
   const menuItems = $dropdownBottomRowSpacing.querySelectorAll(".menu-item");
   for (let item of menuItems) {
-    if (item.dataset.value === bottom) {
+    if (item.dataset.value === marginBottom) {
       item.classList.add("active");
     } else {
       item.classList.remove("active");
