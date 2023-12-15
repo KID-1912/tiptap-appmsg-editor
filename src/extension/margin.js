@@ -11,7 +11,6 @@ export default Extension.create({
             default: {},
             renderHTML: (attributes) => {
               if (!Object.keys(attributes.margin).length) return {};
-              console.log(attributes.margin);
               const {
                 top: top = 0,
                 bottom: bottom = 0,

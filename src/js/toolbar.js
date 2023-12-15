@@ -2,6 +2,7 @@ import editor from "./editor.js";
 import Pickr from "@simonwep/pickr";
 import "@simonwep/pickr/dist/themes/monolith.min.css";
 import { Dropdown } from "../plugins/dropdown";
+import throttle from "lodash-es/throttle";
 
 const $toolbar = document.querySelector("#toolbar");
 
@@ -10,8 +11,10 @@ const toolbarListeners = [];
 const updateToolbarState = (arg) => {
   toolbarListeners.forEach((fn) => fn(arg));
 };
-// editor.on("focus", updateToolbarState);
-editor.on("selectionUpdate", updateToolbarState);
+editor.on(
+  "transaction",
+  throttle(updateToolbarState, 100, { trailing: false })
+);
 
 // 历史记录
 const $undoBtn = $toolbar.querySelector(".undo");

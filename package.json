@@ -33,6 +33,7 @@
     "@tiptap/starter-kit": "^2.1.12",
     "@types/clipboard": "^2.0.7",
     "clipboard": "^2.0.11",
+    "lodash-es": "^4.17.20",
     "tiptap-extension-font-size": "^1.2.0"
   },
   "devDependencies": {
