@@ -267,6 +267,12 @@
 .ProseMirror * {
   max-width: 100%;
   box-sizing: border-box !important;
+  word-wrap: break-word !important;
+}
+
+.ProseMirror p {
+  clear: both;
+  min-height: 1em;
 }
 
 .ProseMirror>p {
