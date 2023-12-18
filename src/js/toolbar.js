@@ -262,7 +262,7 @@ toolbarListeners.push(({ editor, transaction }) => {
   if (!marginBottom) {
     const pos = transaction.curSelection.from;
     let node = editor.view.domAtPos(pos).node;
-    while (node.nodeType !== 1 && node.tagName !== "P") {
+    while (!(node.nodeType === 1 && node.tagName === "P")) {
       node = node.parentNode;
     }
     marginBottom = window.getComputedStyle(node).marginBottom;
@@ -270,6 +270,47 @@ toolbarListeners.push(({ editor, transaction }) => {
   const menuItems = $dropdownBottomRowSpacing.querySelectorAll(".menu-item");
   for (let item of menuItems) {
     if (item.dataset.value === marginBottom) {
+      item.classList.add("active");
+    } else {
+      item.classList.remove("active");
+    }
+  }
+});
+
+// 行高
+const $dropdownLineHeight = $toolbar.querySelector(".dropdown-lineHeight");
+
+new Dropdown({ el: $dropdownLineHeight });
+$dropdownLineHeight
+  .querySelector(".dropdown-menu")
+  .addEventListener("click", (e) => {
+    const value = e.target.dataset.value;
+    if (!value) return;
+    editor.chain().focus().setLineHeight(value).run();
+  });
+
+toolbarListeners.push(({ editor, transaction }) => {
+  let lineHeight = editor.getAttributes("paragraph").lineHeight;
+  if (!lineHeight) {
+    const pos = transaction.curSelection.from;
+    let node = editor.view.domAtPos(pos).node;
+    while (true) {
+      if (node.tagName === "SECTION" && node.style.lineHeight) {
+        lineHeight = node.style.lineHeight;
+        console.warn("section");
+        break;
+      } else if (node === editor.view.dom) {
+        lineHeight = "1.6em"; // 默认行高
+        console.warn("未找到行高");
+        break;
+      }
+      node = node.parentNode;
+    }
+  }
+  console.log(lineHeight);
+  const menuItems = $dropdownLineHeight.querySelectorAll(".menu-item");
+  for (let item of menuItems) {
+    if (item.dataset.value === lineHeight) {
       item.classList.add("active");
     } else {
       item.classList.remove("active");

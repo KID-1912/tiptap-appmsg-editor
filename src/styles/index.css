@@ -7,7 +7,7 @@
   position: fixed;
   top: 0;
   background-color: #fff;
-  z-index: 1;
+  z-index: 2;
 }
 
 .header .modules {
@@ -54,7 +54,7 @@
   position: fixed;
   top: 50px;
   background-color: #fafafa;
-  z-index: 1;
+  z-index: 3;
 }
 
 #toolbar {
@@ -155,7 +155,6 @@
   margin-right: 10px;
 }
 
-
 /* 侧壁栏 */
 .sidebar {
   position: fixed;
@@ -166,6 +165,7 @@
   left: 0;
   overflow: auto;
   background-color: #fff;
+  z-index: 2;
 }
 
 .sidebar .tabs {
@@ -245,6 +245,7 @@
   position: relative;
   width: 768px;
   margin: 0 auto;
+  z-index: 1;
 }
 
 .editor {
