@@ -9,6 +9,7 @@ import TextAlign from "@tiptap/extension-text-align";
 import Highlight from "@tiptap/extension-highlight";
 import TrailingNode from "../extension/trailingNode.js";
 import Section from "../extension/section.js";
+import Hr from "../extension/hr.js";
 import Style from "../extension/style.js";
 import LineHeight from "../extension/lineHeight.js";
 import Margin from "../extension/margin.js";
@@ -33,6 +34,7 @@ const editor = new Editor({
       allowBase64: true,
     }),
     Section,
+    Hr,
     Style,
     LineHeight,
     Margin,

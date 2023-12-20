@@ -233,7 +233,7 @@ $dropdownTopRowSpacing
     editor.chain().focus().setMargin({ top: value }).run();
   });
 toolbarListeners.push(() => {
-  const marginTop = editor.getAttributes("paragraph").margin.top || "0px";
+  const marginTop = editor.getAttributes("paragraph")?.margin?.top || "0px";
   const menuItems = $dropdownTopRowSpacing.querySelectorAll(".menu-item");
   for (let item of menuItems) {
     if (item.dataset.value === marginTop) {
@@ -258,14 +258,20 @@ $dropdownBottomRowSpacing
   });
 
 toolbarListeners.push(({ editor, transaction }) => {
-  let marginBottom = editor.getAttributes("paragraph").margin.bottom;
+  let marginBottom = editor.getAttributes("paragraph")?.margin?.bottom;
   if (!marginBottom) {
     const pos = transaction.curSelection.from;
     let node = editor.view.domAtPos(pos).node;
-    while (!(node.nodeType === 1 && node.tagName === "P")) {
+    while (true) {
+      if (node.nodeType === 1 && node.tagName === "P") {
+        marginBottom = window.getComputedStyle(node).marginBottom;
+        break;
+      } else if (node === editor.view.dom) {
+        marginBottom = "24px"; // 默认段后距
+        break;
+      }
       node = node.parentNode;
     }
-    marginBottom = window.getComputedStyle(node).marginBottom;
   }
   const menuItems = $dropdownBottomRowSpacing.querySelectorAll(".menu-item");
   for (let item of menuItems) {
@@ -279,7 +285,6 @@ toolbarListeners.push(({ editor, transaction }) => {
 
 // 行高
 const $dropdownLineHeight = $toolbar.querySelector(".dropdown-lineHeight");
-
 new Dropdown({ el: $dropdownLineHeight });
 $dropdownLineHeight
   .querySelector(".dropdown-menu")
@@ -288,26 +293,22 @@ $dropdownLineHeight
     if (!value) return;
     editor.chain().focus().setLineHeight(value).run();
   });
-
 toolbarListeners.push(({ editor, transaction }) => {
-  let lineHeight = editor.getAttributes("paragraph").lineHeight;
+  let lineHeight = editor.getAttributes("paragraph")?.lineHeight;
   if (!lineHeight) {
     const pos = transaction.curSelection.from;
     let node = editor.view.domAtPos(pos).node;
     while (true) {
       if (node.tagName === "SECTION" && node.style.lineHeight) {
         lineHeight = node.style.lineHeight;
-        console.warn("section");
         break;
       } else if (node === editor.view.dom) {
         lineHeight = "1.6em"; // 默认行高
-        console.warn("未找到行高");
         break;
       }
       node = node.parentNode;
     }
   }
-  console.log(lineHeight);
   const menuItems = $dropdownLineHeight.querySelectorAll(".menu-item");
   for (let item of menuItems) {
     if (item.dataset.value === lineHeight) {
@@ -317,3 +318,20 @@ toolbarListeners.push(({ editor, transaction }) => {
     }
   }
 });
+
+// 分割线
+const $dividerBtn = $toolbar.querySelector("button.divider");
+$dividerBtn.addEventListener("click", () => {
+  editor
+    .chain()
+    .focus()
+    .insertContent([{ type: "hr" }])
+    .run();
+});
+// toolbarListeners.push(() => {
+//   if (editor.isActive("bold")) {
+//     $dividerBtn.classList.add("active");
+//   } else {
+//     $dividerBtn.classList.remove("active");
+//   }
+// });

@@ -15,6 +15,7 @@ import justify from "../images/svg/justify.svg";
 import rowSpacingTop from "../images/svg/rowSpacingTop.svg";
 import rowSpacingBottom from "../images/svg/rowSpacingBottom.svg";
 import lineHeight from "../images/svg/lineHeight.svg";
+import divider from "../images/svg/divider.svg";
 
 const symbols = [
   undo,
@@ -34,6 +35,7 @@ const symbols = [
   rowSpacingTop,
   rowSpacingBottom,
   lineHeight,
+  divider,
 ].join("");
 
 document.body.insertAdjacentHTML(

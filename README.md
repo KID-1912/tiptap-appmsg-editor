@@ -10,6 +10,7 @@
 - 支持导入文章
 - 接入微信生态授权，微信授权登录，获取微信公众号信息，文章列表，添加文章到微信
 - svg 编辑器插件（需开发 svg 编辑器）
+- rollup 打包，clear、css 注入
 
 ## 功能点罗列
 
@@ -57,6 +58,8 @@
 /* 内容样式 */
 .ProseMirror * {
   max-width: 100%;
+  margin: 0;
+  padding: 0;
   box-sizing: border-box !important;
   word-wrap: break-word !important;
 }
