@@ -1,4 +1,4 @@
-import { Node } from "@tiptap/core";
+import { Node, mergeAttributes } from "@tiptap/core";
 
 export default Node.create({
   name: "hr",
@@ -9,17 +9,14 @@ export default Node.create({
         "border-style: solid;border-width: 1px 0 0;border-color: rgba(0,0,0,0.1);transform-origin: 0 0;transform: scale(1, 0.5);",
     };
   },
-  addAttributes() {
-    return {
-      style: {
-        default: this.options.style,
-      },
-    };
-  },
   parseHTML() {
     return [{ tag: "hr" }];
   },
   renderHTML({ HTMLAttributes }) {
-    return ["hr", HTMLAttributes, 0];
+    return [
+      "hr",
+      mergeAttributes(HTMLAttributes, { style: this.options.style }),
+      0,
+    ];
   },
 });

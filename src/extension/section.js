@@ -5,20 +5,11 @@ export default Node.create({
   group: "block",
   content: "block+",
 
-  // addAttributes() {
-  //   return {
-  //     style: {
-  //       parseHTML: (element) => element.style.cssText,
-  //       renderHTML: (attributes) => ({ style: attributes.style }),
-  //     },
-  //   };
-  // },
-
   parseHTML() {
     return [{ tag: "section" }];
   },
 
   renderHTML({ HTMLAttributes }) {
-    return ["section", mergeAttributes(HTMLAttributes), 0];
+    return ["section", HTMLAttributes, 0];
   },
 });

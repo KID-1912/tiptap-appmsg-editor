@@ -8,6 +8,7 @@ import underline from "../images/svg/underline.svg";
 import strike from "../images/svg/strike.svg";
 import font from "../images/svg/font.svg";
 import highlight from "../images/svg/highlight.svg";
+import list from "../images/svg/list.svg";
 import left from "../images/svg/left.svg";
 import center from "../images/svg/center.svg";
 import right from "../images/svg/right.svg";
@@ -28,6 +29,7 @@ const symbols = [
   strike,
   font,
   highlight,
+  list,
   left,
   center,
   right,

@@ -10,6 +10,8 @@ import Highlight from "@tiptap/extension-highlight";
 import TrailingNode from "../extension/trailingNode.js";
 import Section from "../extension/section.js";
 import Hr from "../extension/hr.js";
+import BulletList from "../extension/bulletList.js";
+import OrderedList from "../extension/orderedList.js";
 import Style from "../extension/style.js";
 import LineHeight from "../extension/lineHeight.js";
 import Margin from "../extension/margin.js";
@@ -19,7 +21,7 @@ const editor = new Editor({
   element: document.querySelector(".editor"),
   extensions: [
     TrailingNode,
-    StarterKit,
+    StarterKit.configure({ bulletList: false, orderedList: false }),
     Underline,
     TextStyle,
     Color,
@@ -35,6 +37,8 @@ const editor = new Editor({
     }),
     Section,
     Hr,
+    BulletList,
+    OrderedList,
     Style,
     LineHeight,
     Margin,

@@ -113,6 +113,7 @@
 #toolbar .dropdown .dropdown-toggle {
   padding: 0 2px;
   border: none;
+  color: inherit;
   background-color: unset;
 }
 
@@ -281,6 +282,10 @@
 .ProseMirror>p {
   margin-top: 0;
   margin-bottom: 24px;
+}
+
+.list-paddingleft-1 {
+  padding-left: 1.2em;
 }
 
 .ProseMirror img.ProseMirror-separator {

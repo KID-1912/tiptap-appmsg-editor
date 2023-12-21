@@ -328,10 +328,32 @@ $dividerBtn.addEventListener("click", () => {
     .insertContent([{ type: "hr" }])
     .run();
 });
-// toolbarListeners.push(() => {
-//   if (editor.isActive("bold")) {
-//     $dividerBtn.classList.add("active");
-//   } else {
-//     $dividerBtn.classList.remove("active");
-//   }
-// });
+
+// 列表
+const $dropdownList = $toolbar.querySelector(".dropdown-list");
+new Dropdown({ el: $dropdownList });
+const typeMap = new Map([
+  ["bulletList", "toggleBulletList"],
+  ["orderedList", "toggleOrderedList"],
+]);
+$dropdownList.querySelector(".dropdown-menu").addEventListener("click", (e) => {
+  const listType = e.target.dataset.listType;
+  const toggleCommandName = typeMap.get(listType);
+  const listStyleType = e.target.dataset.listStyleType;
+  console.log(listType, toggleCommandName, listStyleType);
+  if (!toggleCommandName) return;
+  let chain = editor.chain().focus();
+  // 开启列表类型
+  if (!editor.isActive(listType)) {
+    chain[toggleCommandName]().updateAttributes(listType, { listStyleType });
+  }
+  // 切换列表类型
+  else if (editor.getAttributes(listType).listStyleType !== listStyleType) {
+    chain.updateAttributes(listType, { listStyleType });
+  }
+  // 关闭列表类型
+  else {
+    chain[toggleCommandName]();
+  }
+  chain.run();
+});

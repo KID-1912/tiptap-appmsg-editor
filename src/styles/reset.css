@@ -55,10 +55,10 @@ i {
 }
 
 /* 列表 */
-ul,
+/* ul,
 ol {
   list-style: none;
-}
+} */
 
 /* 去掉蓝色边框 */
 fieldset,
