@@ -7,6 +7,7 @@ import Color from "@tiptap/extension-color";
 import FontSize from "tiptap-extension-font-size";
 import TextAlign from "@tiptap/extension-text-align";
 import Highlight from "@tiptap/extension-highlight";
+import CodeBlock from "@tiptap/extension-code-block";
 import TrailingNode from "../extension/trailingNode.js";
 import Section from "../extension/section.js";
 import Hr from "../extension/hr.js";
@@ -31,6 +32,11 @@ const editor = new Editor({
       defaultAlignment: "justify",
     }),
     Highlight.configure({ multicolor: true }),
+    CodeBlock.configure({
+      HTMLAttributes: {
+        class: 'code-snippet',
+      },
+    }),
     Image.configure({
       inline: true,
       allowBase64: true,
