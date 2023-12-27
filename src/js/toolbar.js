@@ -11,11 +11,7 @@ const toolbarListeners = [];
 const updateToolbarState = (arg) => {
   toolbarListeners.forEach((fn) => fn(arg));
 };
-<<<<<<< HEAD
-editor.on("transaction", updateToolbarState);
-=======
 editor.on("transaction", throttle(updateToolbarState, 200, { leading: false }));
->>>>>>> da0efeda321febcb1e520e645615b16647e4e1f7
 
 // 历史记录
 const $undoBtn = $toolbar.querySelector(".undo");
@@ -377,7 +373,7 @@ toolbarListeners.push(({ editor }) => {
     dropdownFloat.disable();
     $dropdownFloatToggle
       .querySelector("svg use")
-      .setAttribute("href", "floatLeft");
+      .setAttribute("href", "#floatLeft");
     return;
   }
   dropdownFloat.enable();
@@ -390,8 +386,9 @@ toolbarListeners.push(({ editor }) => {
       item.classList.add("active");
     } else {
       item.classList.remove("active");
-    }  }
-  });
+    }
+  }
+});
 
 // 代码块
 const $codeBtn = $toolbar.querySelector(".edit-btn.code");
