@@ -17,6 +17,8 @@ import rowSpacingTop from "../images/svg/rowSpacingTop.svg";
 import rowSpacingBottom from "../images/svg/rowSpacingBottom.svg";
 import lineHeight from "../images/svg/lineHeight.svg";
 import divider from "../images/svg/divider.svg";
+import floatLeft from "../images/svg/floatLeft.svg";
+import floatRight from "../images/svg/floatRight.svg";
 
 const symbols = [
   undo,
@@ -38,6 +40,8 @@ const symbols = [
   rowSpacingBottom,
   lineHeight,
   divider,
+  floatLeft,
+  floatRight,
 ].join("");
 
 document.body.insertAdjacentHTML(

@@ -11,10 +11,7 @@ const toolbarListeners = [];
 const updateToolbarState = (arg) => {
   toolbarListeners.forEach((fn) => fn(arg));
 };
-editor.on(
-  "transaction",
-  throttle(updateToolbarState, 100, { trailing: false })
-);
+editor.on("transaction", updateToolbarState);
 
 // 历史记录
 const $undoBtn = $toolbar.querySelector(".undo");
@@ -340,7 +337,6 @@ $dropdownList.querySelector(".dropdown-menu").addEventListener("click", (e) => {
   const listType = e.target.dataset.listType;
   const toggleCommandName = typeMap.get(listType);
   const listStyleType = e.target.dataset.listStyleType;
-  console.log(listType, toggleCommandName, listStyleType);
   if (!toggleCommandName) return;
   let chain = editor.chain().focus();
   // 开启列表类型
@@ -356,4 +352,40 @@ $dropdownList.querySelector(".dropdown-menu").addEventListener("click", (e) => {
     chain[toggleCommandName]();
   }
   chain.run();
+});
+
+// 浮动
+const $dropdownFloat = $toolbar.querySelector(".dropdown-float");
+const dropdownFloat = new Dropdown({ el: $dropdownFloat });
+$dropdownFloat
+  .querySelector(".dropdown-menu")
+  .addEventListener("click", (e) => {
+    const menuItem = e.target.closest(".menu-item");
+    if (!menuItem) return;
+    const float = menuItem.dataset.float || null;
+    editor.chain().focus().updateAttributes("image", { float }).run();
+  });
+const $dropdownFloatToggle = $dropdownFloat.querySelector(".dropdown-toggle");
+toolbarListeners.push(({ editor }) => {
+  let float = editor.getAttributes("image").float;
+  // 无可浮动的 Node
+  if (!float) {
+    dropdownFloat.disable();
+    $dropdownFloatToggle
+      .querySelector("svg use")
+      .setAttribute("href", "floatLeft");
+    return;
+  }
+  dropdownFloat.enable();
+  $dropdownFloatToggle
+    .querySelector("svg use")
+    .setAttribute("href", `#${float === "right" ? "floatRight" : "floatLeft"}`);
+  const menuItems = $dropdownFloat.querySelectorAll(".menu-item");
+  for (let item of menuItems) {
+    if (item.dataset.float === float) {
+      item.classList.add("active");
+    } else {
+      item.classList.remove("active");
+    }
+  }
 });

@@ -14,6 +14,7 @@ import BulletList from "../extension/bulletList.js";
 import OrderedList from "../extension/orderedList.js";
 import Style from "../extension/style.js";
 import LineHeight from "../extension/lineHeight.js";
+import Float from "../extension/float.js";
 import Margin from "../extension/margin.js";
 import Resizable from "../extension/resizable.js";
 
@@ -41,6 +42,7 @@ const editor = new Editor({
     OrderedList,
     Style,
     LineHeight,
+    Float,
     Margin,
     Resizable,
   ],
