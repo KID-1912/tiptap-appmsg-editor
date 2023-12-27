@@ -19,6 +19,7 @@ import lineHeight from "../images/svg/lineHeight.svg";
 import divider from "../images/svg/divider.svg";
 import floatLeft from "../images/svg/floatLeft.svg";
 import floatRight from "../images/svg/floatRight.svg";
+import code from "../images/svg/code.svg";
 
 const symbols = [
   undo,
@@ -42,6 +43,7 @@ const symbols = [
   divider,
   floatLeft,
   floatRight,
+  code,
 ].join("");
 
 document.body.insertAdjacentHTML(

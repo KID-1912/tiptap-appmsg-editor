@@ -11,7 +11,11 @@ const toolbarListeners = [];
 const updateToolbarState = (arg) => {
   toolbarListeners.forEach((fn) => fn(arg));
 };
+<<<<<<< HEAD
 editor.on("transaction", updateToolbarState);
+=======
+editor.on("transaction", throttle(updateToolbarState, 200, { leading: false }));
+>>>>>>> da0efeda321febcb1e520e645615b16647e4e1f7
 
 // 历史记录
 const $undoBtn = $toolbar.querySelector(".undo");
@@ -32,7 +36,7 @@ const $boldBtn = $toolbar.querySelector("button.bold");
 $boldBtn.addEventListener("click", () => {
   editor.chain().focus().toggleBold().run();
 });
-toolbarListeners.push(() => {
+toolbarListeners.push(({ editor }) => {
   if (editor.isActive("bold")) {
     $boldBtn.classList.add("active");
   } else {
@@ -45,7 +49,7 @@ const $italicBtn = $toolbar.querySelector("button.italic");
 $italicBtn.addEventListener("click", () => {
   editor.chain().focus().toggleItalic().run();
 });
-toolbarListeners.push(() => {
+toolbarListeners.push(({ editor }) => {
   if (editor.isActive("italic")) {
     $italicBtn.classList.add("active");
   } else {
@@ -58,7 +62,7 @@ const $underlineBtn = $toolbar.querySelector("button.underline");
 $underlineBtn.addEventListener("click", () => {
   editor.chain().focus().toggleUnderline().run();
 });
-toolbarListeners.push(() => {
+toolbarListeners.push(({ editor }) => {
   if (editor.isActive("underline")) {
     $underlineBtn.classList.add("active");
   } else {
@@ -71,7 +75,7 @@ const $strikeBtn = $toolbar.querySelector("button.strike");
 $strikeBtn.addEventListener("click", () => {
   editor.chain().focus().toggleStrike().run();
 });
-toolbarListeners.push(() => {
+toolbarListeners.push(({ editor }) => {
   if (editor.isActive("strike")) {
     $strikeBtn.classList.add("active");
   } else {
@@ -144,7 +148,7 @@ $colorPicker.picker.on("save", (color, instance) => {
   editor.chain().focus().setColor(hexValue).run();
   $colorlump.style.backgroundColor = hexValue;
 });
-toolbarListeners.push(() => {
+toolbarListeners.push(({ editor }) => {
   const colorValue = editor.getAttributes("textStyle").color;
   if (colorValue) {
     $colorPicker.picker.setColor(colorValue, true);
@@ -179,7 +183,7 @@ $highlightPicker.picker.on("save", (color, instance) => {
   editor.chain().focus().toggleHighlight({ color: hexValue }).run();
   $highlightColorlump.style.backgroundColor = hexValue;
 });
-toolbarListeners.push(() => {
+toolbarListeners.push(({ editor }) => {
   const colorValue = editor.getAttributes("highlight").color;
   if (colorValue) {
     $highlightPicker.picker.setColor(colorValue, true);
@@ -204,7 +208,7 @@ $dropdownAlign
       .querySelector(".dropdown-toggle svg use")
       .setAttribute("href", `#${align}`);
   });
-toolbarListeners.push(() => {
+toolbarListeners.push(({ editor }) => {
   const align = editor.isActive({ textAlign: "left" })
     ? "left"
     : editor.isActive({ textAlign: "center" })
@@ -229,7 +233,7 @@ $dropdownTopRowSpacing
     if (!value) return;
     editor.chain().focus().setMargin({ top: value }).run();
   });
-toolbarListeners.push(() => {
+toolbarListeners.push(({ editor }) => {
   const marginTop = editor.getAttributes("paragraph")?.margin?.top || "0px";
   const menuItems = $dropdownTopRowSpacing.querySelectorAll(".menu-item");
   for (let item of menuItems) {
@@ -386,6 +390,24 @@ toolbarListeners.push(({ editor }) => {
       item.classList.add("active");
     } else {
       item.classList.remove("active");
-    }
+    }  }
+  });
+
+// 代码块
+const $codeBtn = $toolbar.querySelector(".edit-btn.code");
+$codeBtn.addEventListener("click", () => {
+  if (editor.isActive("codeBlock")) {
+    editor.chain().focus().toggleCodeBlock().run();
+  } else {
+    editor.chain().focus().insertContent({ type: "codeBlock" }).run();
+  }
+});
+toolbarListeners.push(({ editor }) => {
+  if (editor.isActive("codeBlock")) {
+    console.log("存在触发");
+    $codeBtn.classList.add("active");
+  } else {
+    console.log("失去触发");
+    $codeBtn.classList.remove("active");
   }
 });

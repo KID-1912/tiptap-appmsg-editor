@@ -293,6 +293,31 @@
   padding-left: 1.2em;
 }
 
+.ProseMirror .code-snippet {
+  margin: 10px 0;
+  display: block;
+  overflow-x: auto;
+  font-size: 14px;
+  padding: 1em 1em 1em 3em;
+  color: #333;
+  position: relative;
+  background-color: #fafafa;
+  border: 1px solid #f0f0f0;
+  border-radius: 2px;
+  counter-reset: line;
+  white-space: normal;
+  -webkit-overflow-scrolling: touch;
+}
+
+.ProseMirror .code-snippet code {
+  display: flex;
+  position: relative;
+  text-align: left;
+  white-space: pre;
+  font-size: 14px;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+
 .ProseMirror img.ProseMirror-separator {
   width: 0 !important;
 }
