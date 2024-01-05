@@ -1,6 +1,7 @@
 import { Editor } from "@tiptap/core";
 import StarterKit from "@tiptap/starter-kit";
-import Image from "@tiptap/extension-image";
+// import Image from "@tiptap/extension-image";
+import Image from "../extension/image.js";
 import Underline from "@tiptap/extension-underline";
 import TextStyle from "@tiptap/extension-text-style";
 import Color from "@tiptap/extension-color";
@@ -13,7 +14,6 @@ import Section from "../extension/section.js";
 import Hr from "../extension/hr.js";
 import BulletList from "../extension/bulletList.js";
 import OrderedList from "../extension/orderedList.js";
-import Style from "../extension/style.js";
 import LineHeight from "../extension/lineHeight.js";
 import Float from "../extension/float.js";
 import Margin from "../extension/margin.js";
@@ -29,13 +29,13 @@ const editor = new Editor({
     Color,
     FontSize,
     TextAlign.configure({
-      types: ["paragraph", "section"],
+      types: ["paragraph"],
       defaultAlignment: "justify",
     }),
     Highlight.configure({ multicolor: true }),
     CodeBlock.configure({
       HTMLAttributes: {
-        class: 'code-snippet',
+        class: "code-snippet",
       },
     }),
     Image.configure({
@@ -46,7 +46,6 @@ const editor = new Editor({
     Hr,
     BulletList,
     OrderedList,
-    Style,
     LineHeight,
     Float,
     Margin,

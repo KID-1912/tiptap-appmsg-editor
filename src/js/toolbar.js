@@ -401,10 +401,8 @@ $codeBtn.addEventListener("click", () => {
 });
 toolbarListeners.push(({ editor }) => {
   if (editor.isActive("codeBlock")) {
-    console.log("存在触发");
     $codeBtn.classList.add("active");
   } else {
-    console.log("失去触发");
     $codeBtn.classList.remove("active");
   }
 });

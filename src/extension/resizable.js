@@ -19,7 +19,27 @@ export default Extension.create({
   addStorage() {
     return {
       resizeElement: null,
+      resizeNode: null,
     };
+  },
+
+  addGlobalAttributes() {
+    return [
+      {
+        types: this.options.types,
+        attributes: {
+          width: {
+            default: null,
+            parseHTML: (element) => element.style.width,
+            renderHTML: (attributes) => {
+              console.log("width", attributes);
+              if (!attributes.width) return {};
+              return { style: `width: ${attributes.width}` };
+            },
+          },
+        },
+      },
+    ];
   },
 
   onCreate({ editor }) {
@@ -54,7 +74,7 @@ export default Extension.create({
             `${clientWidth}px`,
             "important"
           ); // max width
-          // resizeLayer
+          resizeLayer;
           const pos = getRelativePosition(resizeElement, element);
           resizeLayer.style.top = pos.top + "px";
           resizeLayer.style.left = pos.left + "px";
@@ -63,9 +83,15 @@ export default Extension.create({
           startX = e.screenX;
         };
         document.addEventListener("mousemove", mousemoveHandle);
-        document.addEventListener("mouseup", () =>
-          document.removeEventListener("mousemove", mousemoveHandle)
-        );
+        document.addEventListener("mouseup", () => {
+          // const resizeElement = this.storage.resizeElement;
+          // const resizeNode = this.storage.resizeNode;
+          // const clientWidth = resizeElement.clientWidth;
+          // editor.commands.updateAttributes(resizeNode.type.name, {
+          //   width: `${clientWidth}px`,
+          // });
+          document.removeEventListener("mousemove", mousemoveHandle);
+        });
       }
     });
 
@@ -103,6 +129,7 @@ export default Extension.create({
         dom = dom.querySelector(`[src="${node.attrs.src}"]`);
       }
       this.storage.resizeElement = dom;
+      this.storage.resizeNode = node;
       const pos = getRelativePosition(dom, element);
       resizeLayer.style.top = pos.top + "px";
       resizeLayer.style.left = pos.left + "px";
