@@ -32,7 +32,6 @@ export default Extension.create({
             default: null,
             parseHTML: (element) => element.style.width,
             renderHTML: (attributes) => {
-              console.log("width", attributes);
               if (!attributes.width) return {};
               return { style: `width: ${attributes.width}` };
             },
@@ -51,11 +50,15 @@ export default Extension.create({
     resizeLayer.className = "resize-layer";
     resizeLayer.style.display = "none";
     resizeLayer.style.position = "absolute";
+    // 设置样式
     Object.entries(this.options.layerStyle).forEach(([key, value]) => {
       resizeLayer.style[key] = value;
     });
+    // 事件处理
     resizeLayer.addEventListener("mousedown", (e) => {
+      e.preventDefault();
       const resizeElement = this.storage.resizeElement;
+      const resizeNode = this.storage.resizeNode;
       if (!resizeElement) return;
       if (/bottom/.test(e.target.className)) {
         let startX = e.screenX;
@@ -67,14 +70,10 @@ export default Extension.create({
           const total = width + dir * distanceX;
           // resizeElement
           resizeElement.style.width = total + "px";
+          resizeNode.attrs.width = total + "px";
+          // resizeLayer
           const clientWidth = resizeElement.clientWidth;
           const clientHeight = resizeElement.clientHeight;
-          resizeElement.style.setProperty(
-            "width",
-            `${clientWidth}px`,
-            "important"
-          ); // max width
-          resizeLayer;
           const pos = getRelativePosition(resizeElement, element);
           resizeLayer.style.top = pos.top + "px";
           resizeLayer.style.left = pos.left + "px";
@@ -84,17 +83,11 @@ export default Extension.create({
         };
         document.addEventListener("mousemove", mousemoveHandle);
         document.addEventListener("mouseup", () => {
-          // const resizeElement = this.storage.resizeElement;
-          // const resizeNode = this.storage.resizeNode;
-          // const clientWidth = resizeElement.clientWidth;
-          // editor.commands.updateAttributes(resizeNode.type.name, {
-          //   width: `${clientWidth}px`,
-          // });
           document.removeEventListener("mousemove", mousemoveHandle);
         });
       }
     });
-
+    // 句柄
     const handlers = ["top-left", "top-right", "bottom-left", "bottom-right"];
     const fragment = document.createDocumentFragment();
     for (let name of handlers) {
@@ -115,13 +108,26 @@ export default Extension.create({
     editor.resizeLayer = resizeLayer;
     element.appendChild(resizeLayer);
   },
+  onTransaction({ editor }) {
+    const resizeLayer = editor.resizeLayer;
+    if (resizeLayer && resizeLayer.style.display === "block") {
+      const dom = this.storage.resizeElement;
+      const element = editor.options.element;
+      const pos = getRelativePosition(dom, element);
+      resizeLayer.style.top = pos.top + "px";
+      resizeLayer.style.left = pos.left + "px";
+      resizeLayer.style.width = dom.width + "px";
+      resizeLayer.style.height = dom.height + "px";
+    }
+  },
 
   onSelectionUpdate({ editor, transaction }) {
     const element = editor.options.element;
     const node = transaction.curSelection.node;
     const resizeLayer = editor.resizeLayer;
-
+    //选中 resizable node 时
     if (node && this.options.types.includes(node.type.name)) {
+      console.log("onSelect");
       // resizeLayer位置大小
       resizeLayer.style.display = "block";
       let dom = editor.view.domAtPos(transaction.curSelection.from).node;
@@ -139,6 +145,11 @@ export default Extension.create({
       resizeLayer.style.display = "none";
     }
   },
+
+  // onBlur({ editor }) {
+  //   console.log(11);
+  //   editor.resizeLayer.style.display = "none";
+  // },
 });
 
 // 计算相对位置

@@ -38,6 +38,7 @@ const editor = new Editor({
         class: "code-snippet",
       },
     }),
+    Resizable,
     Image.configure({
       inline: true,
       allowBase64: true,
@@ -49,7 +50,6 @@ const editor = new Editor({
     LineHeight,
     Float,
     Margin,
-    Resizable,
   ],
 });
 

@@ -1,22 +1,47 @@
 import Image from "@tiptap/extension-image";
 import { mergeAttributes } from "@tiptap/core";
-import { mergeDuplicateStyles } from "../js/utils.js";
+
+function mergeStyles(...styleStrings) {
+  let styleObject = {};
+  for (let styleString of styleStrings) {
+    let styleArray = styleString
+      .split(";")
+      .map((s) => s.trim())
+      .filter(Boolean);
+
+    for (let style of styleArray) {
+      let [property, value] = style.split(":");
+      styleObject[property.trim()] = value.trim();
+    }
+  }
+
+  let finalStyleString = Object.entries(styleObject)
+    .map(([property, value]) => `${property}: ${value}`)
+    .join("; ");
+
+  return finalStyleString;
+}
 
 export default Image.extend({
   name: "image",
+
   addAttributes() {
     return {
       ...this.parent?.(),
-      style: {
-        default: null,
+      baseStyle: {
+        default: "",
+        rendered: false,
         parseHTML: (element) => element.getAttribute("style"),
-        renderHTML: (attributes) => ({ style: attributes.style }),
       },
     };
   },
 
-  renderHTML({ HTMLAttributes }) {
-    HTMLAttributes = mergeDuplicateStyles(HTMLAttributes);
+  renderHTML({ node, HTMLAttributes }) {
+    const baseStyle = node.attrs.baseStyle;
+    const style = HTMLAttributes.style || "";
+    if (style || baseStyle) {
+      HTMLAttributes.style = mergeStyles(baseStyle, HTMLAttributes.style);
+    }
     return [
       "img",
       mergeAttributes(this.options.HTMLAttributes, HTMLAttributes),

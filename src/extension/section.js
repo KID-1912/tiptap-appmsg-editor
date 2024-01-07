@@ -1,5 +1,4 @@
 import { Node, mergeAttributes } from "@tiptap/core";
-import { mergeDuplicateStyles } from "../js/utils.js";
 
 export default Node.create({
   name: "section",
@@ -21,6 +20,6 @@ export default Node.create({
   },
 
   renderHTML({ HTMLAttributes }) {
-    return ["section", mergeDuplicateStyles(HTMLAttributes), 0];
+    return ["section", HTMLAttributes, 0];
   },
 });
