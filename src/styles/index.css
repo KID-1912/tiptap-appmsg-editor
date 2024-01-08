@@ -114,6 +114,7 @@
   padding: 0 2px;
   border: none;
   color: inherit;
+  font-size: inherit;
   background-color: unset;
 }
 
@@ -130,6 +131,8 @@
   border-style: solid;
   vertical-align: middle;
   border-color: currentColor transparent transparent transparent;
+  transform: scale(0.8);
+  margin-left: 4px;
 }
 
 #toolbar .dropdown .dropdown-menu {

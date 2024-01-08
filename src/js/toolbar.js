@@ -11,7 +11,7 @@ const toolbarListeners = [];
 const updateToolbarState = (arg) => {
   toolbarListeners.forEach((fn) => fn(arg));
 };
-editor.on("transaction", throttle(updateToolbarState, 200, { leading: false }));
+editor.on("transaction", throttle(updateToolbarState, 240, { leading: false }));
 
 // 历史记录
 const $undoBtn = $toolbar.querySelector(".undo");

@@ -20,6 +20,7 @@ import divider from "../images/svg/divider.svg";
 import floatLeft from "../images/svg/floatLeft.svg";
 import floatRight from "../images/svg/floatRight.svg";
 import code from "../images/svg/code.svg";
+import emoji from "../images/svg/emoji.svg";
 
 const symbols = [
   undo,
@@ -44,6 +45,7 @@ const symbols = [
   floatLeft,
   floatRight,
   code,
+  emoji,
 ].join("");
 
 document.body.insertAdjacentHTML(

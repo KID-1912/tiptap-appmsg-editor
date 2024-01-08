@@ -1,4 +1,5 @@
 import { Extension } from "@tiptap/core";
+import throttle from "lodash-es/throttle";
 
 export default Extension.create({
   name: "resizable",
@@ -64,7 +65,6 @@ export default Extension.create({
         let startX = e.screenX;
         const dir = e.target.classList.contains("bottom-left") ? -1 : 1;
         const mousemoveHandle = (e) => {
-          e.preventDefault();
           const width = resizeElement.clientWidth;
           const distanceX = e.screenX - startX;
           const total = width + dir * distanceX;
@@ -108,7 +108,8 @@ export default Extension.create({
     editor.resizeLayer = resizeLayer;
     element.appendChild(resizeLayer);
   },
-  onTransaction({ editor }) {
+
+  onTransaction: throttle(function ({ editor }) {
     const resizeLayer = editor.resizeLayer;
     if (resizeLayer && resizeLayer.style.display === "block") {
       const dom = this.storage.resizeElement;
@@ -116,10 +117,10 @@ export default Extension.create({
       const pos = getRelativePosition(dom, element);
       resizeLayer.style.top = pos.top + "px";
       resizeLayer.style.left = pos.left + "px";
-      resizeLayer.style.width = dom.width + "px";
-      resizeLayer.style.height = dom.height + "px";
+      resizeLayer.style.width = dom.clientWidth + "px";
+      resizeLayer.style.height = dom.clientHeight + "px";
     }
-  },
+  }, 240),
 
   onSelectionUpdate({ editor, transaction }) {
     const element = editor.options.element;
@@ -145,11 +146,6 @@ export default Extension.create({
       resizeLayer.style.display = "none";
     }
   },
-
-  // onBlur({ editor }) {
-  //   console.log(11);
-  //   editor.resizeLayer.style.display = "none";
-  // },
 });
 
 // 计算相对位置
