@@ -1,15 +1,14 @@
 import fs from "fs";
 import commonjs from "@rollup/plugin-commonjs";
 import resolver from "@rollup/plugin-node-resolve";
-// import globImport from "rollup-plugin-glob-import";
 import url from "@rollup/plugin-url";
-// import { string } from "rollup-plugin-string";
 import postcss from "rollup-plugin-postcss";
 import svgToSymbol from "rollup-plugin-svg-to-symbol";
 import html, { makeHtmlAttributes } from "@rollup/plugin-html";
-import clear from "rollup-plugin-clear";
 import watch from "rollup-plugin-watch";
+import livereload from "rollup-plugin-livereload";
 import serve from "rollup-plugin-serve";
+import clear from "rollup-plugin-clear";
 
 export default {
   input: "src/main.js",
@@ -17,12 +16,15 @@ export default {
     dir: "dist",
   },
   plugins: [
+    clear({ targets: ["dist"] }),
     resolver(),
     commonjs({ sourceMap: false }),
-    // string({ include: ["src/templates/*.html"] }),
-    url({ include: ["src/templates/*.html"], limit: 0 }),
-    // globImport(),
-    postcss({ plugins: [] }),
+    url({
+      include: ["src/templates/*.html", "src/images/**"],
+      exclude: ["src/images/svg/*.svg"],
+      limit: 0,
+    }),
+    postcss({ extract: true, to: "dist/main.css" }),
     svgToSymbol(),
     html({
       template: ({ files, attributes, publicPath }) => {
@@ -45,7 +47,8 @@ export default {
         return htmlString;
       },
     }),
-    watch({ dir: "public" }),
+    watch({ dir: "public" }), // 额外监听public目录
+    livereload("dist"),
     serve("dist"),
   ],
 };

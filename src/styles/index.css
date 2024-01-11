@@ -92,6 +92,7 @@
   margin-left: 6px;
 }
 
+/* 颜色选择器 */
 #toolbar .picker {
   position: relative;
 }
@@ -106,6 +107,7 @@
   border-radius: 1px;
 }
 
+/* 下拉菜单 */
 #toolbar .dropdown {
   cursor: default;
 }
@@ -136,7 +138,7 @@
 }
 
 #toolbar .dropdown .dropdown-menu {
-  width: 140px;
+  min-width: 120px;
   padding: 6px 0;
   line-height: 1.2;
   border-radius: 4px;
@@ -162,6 +164,34 @@
 #toolbar .dropdown .menu-item svg {
   color: inherit;
   margin-right: 10px;
+}
+
+/* 表情菜单 start*/
+#toolbar .dropdown-emoji .emoji-list {
+  display: flex;
+  flex-wrap: wrap;
+  width: 408px;
+  max-height: 440px;
+  padding: 6px 12px;
+  overflow-y: auto;
+}
+
+#toolbar .dropdown-emoji .emoji-item {
+  padding: 5px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#toolbar .dropdown-emoji .emoji-item:hover {
+  transition: all 0.3s;
+  background-color: rgba(0 0 0 / 5%);
+}
+
+#toolbar .dropdown-emoji .emoji-item .icon-emoji {
+  width: 32px;
+  height: 32px;
+  background-size: 100% auto;
+  background-image: url("@/src/images/sprite/emoji_sprite.png")
 }
 
 /* 侧壁栏 */

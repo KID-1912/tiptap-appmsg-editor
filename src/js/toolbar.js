@@ -406,3 +406,38 @@ toolbarListeners.push(({ editor }) => {
     $codeBtn.classList.remove("active");
   }
 });
+
+// emoji表情
+const $emojiBtn = $toolbar.querySelector(".edit-btn.dropdown-emoji");
+new Dropdown({ el: $emojiBtn });
+
+const $emojiList = $emojiBtn.querySelector(".emoji-list");
+let emojiHTML = "";
+for (let i = 0; i < 148; i++) {
+  emojiHTML += `<div class="emoji-item" data-index="${i}">
+    <div class="icon-emoji" style="background-position-y: ${-100 * i}%"></div>
+  </div>`;
+}
+$emojiList.innerHTML = emojiHTML;
+
+$emojiList.addEventListener("click", (e) => {
+  const emoji = e.target.closest(".emoji-item");
+  if (!emoji) return;
+  const index = emoji.dataset.index;
+  const emojiHTML = `
+    <img
+      src="https://res.wx.qq.com/t/wx_fed/we-emoji/res/v1.3.10/assets/Expression/Expression_${
+        +index + 1
+      }@2x.png"
+      style="width: 20px;background-size: cover;"
+    >`;
+  editor
+    .chain()
+    .focus()
+    .insertContent(emojiHTML, {
+      parseOptions: {
+        preserveWhitespace: false,
+      },
+    })
+    .run();
+});
