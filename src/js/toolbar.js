@@ -413,7 +413,7 @@ new Dropdown({ el: $emojiBtn });
 
 const $emojiList = $emojiBtn.querySelector(".emoji-list");
 let emojiHTML = "";
-for (let i = 0; i < 148; i++) {
+for (let i = 0; i < 105; i++) {
   emojiHTML += `<div class="emoji-item" data-index="${i}">
     <div class="icon-emoji" style="background-position-y: ${-100 * i}%"></div>
   </div>`;

@@ -9,17 +9,29 @@
   <body>
     <!-- header -->
     <div class="header">
-      <div class="modules">
+      <div class="modules-wrapper">
         <ul class="module-group left">
-          <button class="module-item">
-            图片
-            <input id="image_uploader" type="file" />
-          </button>
+          <div class="dropdown dropdown-image">
+            <div class="dropdown-toggle">
+              <button class="module-item">
+                图片<i class="icon-arrow"></i>
+              </button>
+            </div>
+            <div class="dropdown-menu">
+              <div class="menu-item">
+                本地图片<input id="image_uploader" type="file" />
+              </div>
+              <div class="menu-item">
+                <div id="image_link">图片链接</div>
+              </div>
+            </div>
+          </div>
+
           <button class="module-item">视频</button>
-          <button class="module-item">音媒体</button>
+          <button class="module-item">超链接</button>
         </ul>
         <ul class="module-group main">
-          <button class="module-item">超链接</button>
+          <button class="module-item">音媒体</button>
           <button class="module-item">小程序</button>
           <button class="module-item">模板</button>
           <button class="module-item">视频号</button>

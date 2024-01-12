@@ -1,7 +1,11 @@
 import Clipboard from "clipboard";
 import editor from "./editor.js";
+import { Dropdown } from "../plugins/dropdown/index.js";
 
-// 上传图片
+// 图片
+const $imageDropdown = document.querySelector(".header .dropdown-image");
+new Dropdown({ el: $imageDropdown });
+// 插入本地图片
 const $image_uploader = document.querySelector("#image_uploader");
 $image_uploader.addEventListener("change", (e) => {
   const [file] = $image_uploader.files;
@@ -17,6 +21,18 @@ $image_uploader.addEventListener("change", (e) => {
     $image_uploader.value = "";
   };
   fileReader.readAsDataURL(file);
+});
+// 插入链接图片
+const $image_link = document.querySelector("#image_link");
+$image_link.addEventListener("click", () => {
+  const imageUrl = window.prompt("请输入图片链接", "");
+  try {
+    new URL(imageUrl);
+  } catch (error) {
+    console.warn(error);
+    return;
+  }
+  editor.chain().focus().setImage({ src: imageUrl }).run();
 });
 
 // 一键复制
