@@ -19,15 +19,18 @@
             </div>
             <div class="dropdown-menu">
               <div class="menu-item">
-                本地图片<input id="image_uploader" type="file" />
+                本地图片<input
+                  id="image_uploader"
+                  type="file"
+                  accept="image/bmp, image/png, image/jpeg, image/jpg, image/gif, image/webp"
+                />
               </div>
               <div class="menu-item">
                 <div id="image_link">图片链接</div>
               </div>
             </div>
           </div>
-
-          <button class="module-item">视频</button>
+          <button class="module-item btn-upload-video">视频</button>
           <button class="module-item">超链接</button>
         </ul>
         <ul class="module-group main">
@@ -314,6 +317,34 @@
               一键复制
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+    <!-- modal -->
+    <div id="video_modal" class="modal">
+      <div class="modal-dialog">
+        <div class="modal-header">
+          <div class="modal-title">插入视频</div>
+          <button type="button" class="btn-close">×</button>
+        </div>
+        <div class="modal-body">
+          <div>
+            <label for="video_uploader" class="btn-upload-video">
+              <input
+                id="video_uploader"
+                type="file"
+                accept="video/mp4,video/webm,video/ogg"
+              />
+              上传视频
+            </label>
+          </div>
+          <div class="tip">
+            注：公众号文章不支持直接上传视频（请自行上传到官方公众号平台素材库），此处仅用于模拟预览
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-save">确定</button>
+          <button type="button" class="btn btn-close">取消</button>
         </div>
       </div>
     </div>

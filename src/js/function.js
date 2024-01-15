@@ -1,6 +1,7 @@
 import Clipboard from "clipboard";
 import editor from "./editor.js";
 import { Dropdown } from "../plugins/dropdown/index.js";
+import { Modal } from "../plugins/modal/index.js";
 
 // 图片
 const $imageDropdown = document.querySelector(".header .dropdown-image");
@@ -33,6 +34,13 @@ $image_link.addEventListener("click", () => {
     return;
   }
   editor.chain().focus().setImage({ src: imageUrl }).run();
+});
+
+// 视频
+const $uploadVideoBtn = document.querySelector(".header .btn-upload-video");
+const videoModal = new Modal({ el: "#video_modal" });
+$uploadVideoBtn.addEventListener("click", () => {
+  videoModal.show();
 });
 
 // 一键复制

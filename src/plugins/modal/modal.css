@@ -1,0 +1,103 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1001;
+  display: none;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  opacity: 0;
+}
+
+.modal.show {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.3s;
+}
+
+.modal.fade {
+  opacity: 1;
+}
+
+.modal .modal-dialog {
+  border-radius: 4px;
+  background-color: #fff;
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-bottom: 1px solid #ebebeb;
+}
+
+.modal-header .modal-title {
+  font-size: 16px;
+}
+
+.modal-header .btn-close {
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.modal-body {
+  padding: 16px;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: center;
+  padding: 12px 16px;
+  border-top: 1px solid #ebebeb;
+}
+
+.modal-footer .btn {
+  min-width: 92px;
+  margin: 0 12px;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.modal-footer .btn-save {
+  color: #fff;
+  border: 1px solid #07C160;
+  background-color: #07C160;
+}
+
+.modal-footer .btn-save:hover {
+  color: #AFDAAC;
+  border-color: #06AD56;
+  background-color: #06AD56;
+}
+
+.modal-footer .btn-close {
+  border: 1px solid #E3E4E5;
+  background-color: #F6F7F8;
+}
+
+.modal-footer .btn-close:hover {
+  color: #858585;
+  border-color: #E4E8EB;
+  background-color: #EFF0F2;
+}
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000;
+  opacity: 0;
+  z-index: 1000;
+  transition: opacity 0.3s;
+}
+
+.modal-backdrop.fade {
+  opacity: 0.5;
+}

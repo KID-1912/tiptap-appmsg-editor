@@ -13,6 +13,7 @@ body {
 
 button {
   border: none;
+  font-size: 14px;
   background-color: unset;
 }
 
