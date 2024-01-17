@@ -458,6 +458,14 @@
   background-color: #EFF0F2;
 }
 
+#video_modal #video_uploader~.filename {
+  max-width: 240px;
+  margin-left: 12px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 #video_modal .tip {
   margin-top: 12px;
   color: #b1b2b3;

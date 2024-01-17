@@ -42,6 +42,43 @@ const videoModal = new Modal({ el: "#video_modal" });
 $uploadVideoBtn.addEventListener("click", () => {
   videoModal.show();
 });
+const handleResetVideoModal = () => {
+  $video_uploader.value = "";
+  $video_filename.innerText = "";
+  fileInfo = { name: "", dataString: "" };
+};
+videoModal.on("close", handleResetVideoModal);
+videoModal.on("save", () => {
+  if (!fileInfo.dataString) {
+    window.alert("请先上传视频");
+    return;
+  }
+  const { name, dataString } = fileInfo;
+  console.log(name, dataString);
+  // editor.chain().focus().setVideo({ src: dataString, name }).run();
+  handleResetVideoModal();
+});
+// 插入本地视频
+let fileInfo = { name: "", dataString: "" };
+const $video_uploader = document.querySelector("#video_uploader");
+$video_uploader.addEventListener("change", (e) => {
+  const [file] = $video_uploader.files;
+  const fileReader = new FileReader();
+  fileReader.onload = () => {
+    if (fileReader.error) {
+      console.warn(fileReader.error);
+      window.alert("视频上传失败");
+      return;
+    }
+    fileInfo = {
+      name: file.name,
+      dataString: fileReader.result,
+    };
+    $video_filename.innerText = fileInfo.name;
+  };
+  fileReader.readAsDataURL(file);
+});
+const $video_filename = document.querySelector("#video_uploader~.filename");
 
 // 一键复制
 const $btn_copy = document.querySelector(".btn-copy");

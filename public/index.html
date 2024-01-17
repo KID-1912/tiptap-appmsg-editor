@@ -328,15 +328,17 @@
           <button type="button" class="btn-close">×</button>
         </div>
         <div class="modal-body">
-          <div>
+          <div style="display: flex; align-items: center">
+            <!-- <input id="video_upload_url" type="text" /> -->
+            <input
+              id="video_uploader"
+              type="file"
+              accept="video/mp4, video/ogg, video/webm"
+            />
             <label for="video_uploader" class="btn-upload-video">
-              <input
-                id="video_uploader"
-                type="file"
-                accept="video/mp4,video/webm,video/ogg"
-              />
               上传视频
             </label>
+            <div class="filename"></div>
           </div>
           <div class="tip">
             注：公众号文章不支持直接上传视频（请自行上传到官方公众号平台素材库），此处仅用于模拟预览
