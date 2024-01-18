@@ -328,21 +328,31 @@
           <button type="button" class="btn-close">×</button>
         </div>
         <div class="modal-body">
-          <div style="display: flex; align-items: center">
-            <!-- <input id="video_upload_url" type="text" /> -->
-            <input
-              id="video_uploader"
-              type="file"
-              accept="video/mp4, video/ogg, video/webm"
-            />
-            <label for="video_uploader" class="btn-upload-video">
-              上传视频
-            </label>
-            <div class="filename"></div>
-          </div>
-          <div class="tip">
-            注：公众号文章不支持直接上传视频（请自行上传到官方公众号平台素材库），此处仅用于模拟预览
-          </div>
+          <div class="tabs">
+            <div class="tabs-nav">
+              <div class="tab-item" data-name="local">本地文件</div>
+              <div class="tab-item" data-name="link">视频链接</div>
+            </div>
+            <div class="tabs-content">
+              <div class="tab-pane" data-id="local">
+                <div style="display: flex; align-items: center">
+                  <!-- <input id="video_upload_url" type="text" /> -->
+                  <input
+                    id="video_uploader"
+                    type="file"
+                    accept="video/mp4, video/ogg, video/webm"
+                  />
+                  <label for="video_uploader" class="btn-upload-video">
+                    上传视频
+                  </label>
+                  <div class="filename"></div>
+                </div>
+                <div class="tip">
+                  注：公众号文章不支持直接上传视频（请自行上传到官方公众号平台素材库），此处仅用于模拟预览
+                </div>
+              </div>
+              <div class="tab-pane" data-id="link"></div>
+            </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-save">确定</button>

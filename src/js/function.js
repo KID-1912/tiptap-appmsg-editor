@@ -1,6 +1,7 @@
 import Clipboard from "clipboard";
 import editor from "./editor.js";
 import { Dropdown } from "../plugins/dropdown/index.js";
+import { Tabs } from "../plugins/tabs/index.js";
 import { Modal } from "../plugins/modal/index.js";
 
 // 图片
@@ -37,6 +38,7 @@ $image_link.addEventListener("click", () => {
 });
 
 // 视频
+// 视频弹窗
 const $uploadVideoBtn = document.querySelector(".header .btn-upload-video");
 const videoModal = new Modal({ el: "#video_modal" });
 $uploadVideoBtn.addEventListener("click", () => {
@@ -58,6 +60,9 @@ videoModal.on("save", () => {
   // editor.chain().focus().setVideo({ src: dataString, name }).run();
   handleResetVideoModal();
 });
+// 视频tabs
+const $videoTabs = document.querySelector("#video_modal .tabs");
+new Tabs({ el: $videoTabs, activated: "local" });
 // 插入本地视频
 let fileInfo = { name: "", dataString: "" };
 const $video_uploader = document.querySelector("#video_uploader");

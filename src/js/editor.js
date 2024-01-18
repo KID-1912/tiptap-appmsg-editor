@@ -34,9 +34,7 @@ const editor = new Editor({
     }),
     Highlight.configure({ multicolor: true }),
     CodeBlock.configure({
-      HTMLAttributes: {
-        class: "code-snippet",
-      },
+      HTMLAttributes: { class: "code-snippet" },
     }),
     Resizable,
     Image.configure({
