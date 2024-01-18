@@ -2,6 +2,7 @@ import { Editor } from "@tiptap/core";
 import StarterKit from "@tiptap/starter-kit";
 // import Image from "@tiptap/extension-image";
 import Image from "../extension/image.js";
+import Video from "../extension/video.js";
 import Underline from "@tiptap/extension-underline";
 import TextStyle from "@tiptap/extension-text-style";
 import Color from "@tiptap/extension-color";
@@ -38,11 +39,14 @@ const editor = new Editor({
         class: "code-snippet",
       },
     }),
-    Resizable,
+    Resizable.configure({
+      types: ["image", "video"],
+    }),
     Image.configure({
       inline: true,
       allowBase64: true,
     }),
+    Video.configure({ allowBase64: true }),
     Section,
     Hr,
     BulletList,

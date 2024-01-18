@@ -138,3 +138,5 @@ u：下划线 node
 可以参考其他平台的样式，如 135Editor、壹伴等
 
 壹伴公众号样式平台：https://yiban.io/style_center/0_1_0
+
+video、image、margin、section、resizable、hr、float、lineHeight
