@@ -1,27 +1,6 @@
 import Image from "@tiptap/extension-image";
 import { mergeAttributes } from "@tiptap/core";
 
-function mergeStyles(...styleStrings) {
-  let styleObject = {};
-  for (let styleString of styleStrings) {
-    let styleArray = styleString
-      .split(";")
-      .map((s) => s.trim())
-      .filter(Boolean);
-
-    for (let style of styleArray) {
-      let [property, value] = style.split(":");
-      styleObject[property.trim()] = value.trim();
-    }
-  }
-
-  let finalStyleString = Object.entries(styleObject)
-    .map(([property, value]) => `${property}: ${value}`)
-    .join("; ");
-
-  return finalStyleString;
-}
-
 export default Image.extend({
   name: "image",
 
@@ -48,3 +27,25 @@ export default Image.extend({
     ];
   },
 });
+
+// 合并样式
+function mergeStyles(...styleStrings) {
+  let styleObject = {};
+  for (let styleString of styleStrings) {
+    let styleArray = styleString
+      .split(";")
+      .map((s) => s.trim())
+      .filter(Boolean);
+
+    for (let style of styleArray) {
+      let [property, value] = style.split(":");
+      styleObject[property.trim()] = value.trim();
+    }
+  }
+
+  let finalStyleString = Object.entries(styleObject)
+    .map(([property, value]) => `${property}: ${value}`)
+    .join("; ");
+
+  return finalStyleString;
+}

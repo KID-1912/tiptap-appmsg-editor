@@ -55,9 +55,7 @@ videoModal.on("save", () => {
     window.alert("请先上传视频");
     return;
   }
-  const { name, dataString } = fileInfo;
-  console.log(name, dataString);
-  // editor.chain().focus().setVideo({ src: dataString, name }).run();
+  editor.chain().focus().setVideo({ src: fileInfo.dataString }).run();
   handleResetVideoModal();
 });
 // 视频tabs

@@ -1,11 +1,12 @@
 import { Extension } from "@tiptap/core";
 import throttle from "lodash-es/throttle";
+import debounce from "lodash-es/debounce";
 
 export default Extension.create({
   name: "resizable",
   addOptions() {
     return {
-      types: ["image", "video"],
+      types: ["image"],
       handlerStyle: {
         width: "8px",
         height: "8px",
@@ -122,26 +123,23 @@ export default Extension.create({
     }
   }, 240),
 
-  onSelectionUpdate({ editor, transaction }) {
+  onSelectionUpdate: function ({ editor, transaction }) {
     const element = editor.options.element;
     const node = transaction.curSelection.node;
     const resizeLayer = editor.resizeLayer;
     //选中 resizable node 时
     if (node && this.options.types.includes(node.type.name)) {
-      console.log("onSelect");
       // resizeLayer位置大小
       resizeLayer.style.display = "block";
       let dom = editor.view.domAtPos(transaction.curSelection.from).node;
-      if (dom.getAttribute("src") !== node.attrs.src) {
-        dom = dom.querySelector(`[src="${node.attrs.src}"]`);
-      }
+      dom = dom.querySelector(".ProseMirror-selectednode");
       this.storage.resizeElement = dom;
       this.storage.resizeNode = node;
       const pos = getRelativePosition(dom, element);
       resizeLayer.style.top = pos.top + "px";
       resizeLayer.style.left = pos.left + "px";
-      resizeLayer.style.width = dom.width + "px";
-      resizeLayer.style.height = dom.height + "px";
+      resizeLayer.style.width = dom.clientWidth + "px";
+      resizeLayer.style.height = dom.clientHeight + "px";
     } else {
       resizeLayer.style.display = "none";
     }
