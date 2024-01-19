@@ -1,0 +1,66 @@
+/* 公众号文档样式 */
+.tiptap.ProseMirror {
+  min-height: 960px;
+  outline: none;
+  color: rgba(0, 0, 0, 0.9);
+  font-size: 17px;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+.ProseMirror * {
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box !important;
+  word-wrap: break-word !important;
+}
+
+.ProseMirror p {
+  clear: both;
+  min-height: 1em;
+}
+
+.ProseMirror>p {
+  margin-top: 0;
+  margin-bottom: 24px;
+}
+
+.list-paddingleft-1 {
+  padding-left: 1.2em;
+}
+
+.ProseMirror .code-snippet {
+  margin: 10px 0;
+  display: block;
+  overflow-x: auto;
+  font-size: 14px;
+  padding: 1em 1em 1em 3em;
+  color: #333;
+  position: relative;
+  background-color: #fafafa;
+  border: 1px solid #f0f0f0;
+  border-radius: 2px;
+  counter-reset: line;
+  white-space: normal;
+  -webkit-overflow-scrolling: touch;
+}
+
+.ProseMirror .code-snippet code {
+  display: flex;
+  position: relative;
+  text-align: left;
+  white-space: pre;
+  font-size: 14px;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+
+.ProseMirror img.ProseMirror-separator {
+  width: 0 !important;
+}
+
+.ProseMirror .video_iframe {
+  background-color: #000000;
+  width: 100% !important;
+  position: static;
+}

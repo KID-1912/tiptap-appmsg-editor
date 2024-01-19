@@ -336,7 +336,6 @@
             <div class="tabs-content">
               <div class="tab-pane" data-id="local">
                 <div style="display: flex; align-items: center">
-                  <!-- <input id="video_upload_url" type="text" /> -->
                   <input
                     id="video_uploader"
                     type="file"
@@ -351,7 +350,10 @@
                   注：公众号文章不支持直接上传视频（请自行上传到官方公众号平台素材库），此处仅用于模拟预览
                 </div>
               </div>
-              <div class="tab-pane" data-id="link"></div>
+              <div class="tab-pane" data-id="link">
+                <div><input id="video_link" type="text" placeholder="请输入腾讯视频链接"></div>
+                <div class="tip">注：公众号文章仅支持直接插入腾讯视频链接（部分视频受版权限制）</div>
+              </div>
             </div>
         </div>
         <div class="modal-footer">

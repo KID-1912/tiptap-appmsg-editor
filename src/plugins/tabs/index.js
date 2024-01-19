@@ -2,6 +2,7 @@ import "./tabs.css";
 
 class Tabs {
   activeName;
+  eventMap = {};
   constructor({ el, activated }) {
     this.activeName = activated || undefined;
     this.$tabs_nav = el.querySelector(".tabs-nav");
@@ -35,6 +36,21 @@ class Tabs {
     this.$tabs_content
       .querySelector(`.tab-pane[data-id="${name}"]`)
       .classList.add("active");
+    this.trigger("change");
+  }
+
+  on(event, callback) {
+    if (!this.eventMap[event]) this.eventMap[event] = [];
+    this.eventMap[event].push(callback);
+  }
+
+  off(event, callback) {
+    if (!this.eventMap[event]) return;
+    this.eventMap[event] = this.eventMap[event].filter((fn) => fn !== callback);
+  }
+
+  trigger(event) {
+    this.eventMap[event]?.forEach((fn) => fn.call(this));
   }
 }
 

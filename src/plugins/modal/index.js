@@ -22,7 +22,6 @@ export class Modal {
     const $btnSave = this.$modal.querySelector(".btn-save");
     $btnSave.addEventListener("click", () => {
       this.trigger("save");
-      this.hide();
     });
   }
 

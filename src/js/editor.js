@@ -3,6 +3,7 @@ import StarterKit from "@tiptap/starter-kit";
 // import Image from "@tiptap/extension-image";
 import Image from "../extension/image.js";
 import Video from "../extension/video.js";
+import Iframe from "../extension/iframe.js";
 import Underline from "@tiptap/extension-underline";
 import TextStyle from "@tiptap/extension-text-style";
 import Color from "@tiptap/extension-color";
@@ -24,27 +25,22 @@ const editor = new Editor({
   element: document.querySelector(".editor"),
   extensions: [
     TrailingNode,
-    StarterKit.configure({ bulletList: false, orderedList: false }),
+    StarterKit.configure({
+      bulletList: false,
+      orderedList: false,
+      codeBlock: false,
+    }),
     Underline,
     TextStyle,
     Color,
     FontSize,
-    TextAlign.configure({
-      types: ["paragraph"],
-      defaultAlignment: "justify",
-    }),
+    TextAlign.configure({ types: ["paragraph"], defaultAlignment: "justify" }),
     Highlight.configure({ multicolor: true }),
-    CodeBlock.configure({
-      HTMLAttributes: { class: "code-snippet" },
-    }),
-    Resizable.configure({
-      types: ["image", "video"],
-    }),
-    Image.configure({
-      inline: true,
-      allowBase64: true,
-    }),
+    CodeBlock.configure({ HTMLAttributes: { class: "code-snippet" } }),
+    Resizable.configure({ types: ["image", "video"] }),
+    Image.configure({ inline: true, allowBase64: true }),
     Video.configure({ allowBase64: true }),
+    Iframe,
     Section,
     Hr,
     BulletList,

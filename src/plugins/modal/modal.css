@@ -51,8 +51,8 @@
 .modal-footer {
   display: flex;
   justify-content: center;
+  margin-top: 12px;
   padding: 12px 16px;
-  border-top: 1px solid #ebebeb;
 }
 
 .modal-footer .btn {
