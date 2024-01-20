@@ -1,4 +1,4 @@
-import { Node } from "@tiptap/core";
+import { Node, mergeAttributes } from "@tiptap/core";
 
 export default Node.create({
   name: "video",
@@ -23,6 +23,12 @@ export default Node.create({
   addAttributes() {
     return {
       src: { default: null },
+      HTMLAttributes: {
+        default: null,
+        renderHTML: (attributes) => {
+          return attributes.HTMLAttributes || {};
+        },
+      },
     };
   },
 
@@ -30,14 +36,17 @@ export default Node.create({
     return [
       {
         tag: this.options.allowBase64
-          ? "img[src]"
-          : 'img[src]:not([src^="data:"])',
+          ? "video[src]"
+          : 'video[src]:not([src^="data:"])',
       },
     ];
   },
 
   renderHTML({ HTMLAttributes }) {
-    return ["video", HTMLAttributes];
+    return [
+      "video",
+      mergeAttributes(this.options.HTMLAttributes, HTMLAttributes),
+    ];
   },
 
   addCommands() {

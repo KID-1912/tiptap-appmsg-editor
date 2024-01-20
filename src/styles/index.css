@@ -375,37 +375,33 @@
   transition: all 0.3s;
 }
 
-/* 插入视频弹窗 */
-#video_modal .modal-dialog {
+/* 弹窗 */
+.modal .modal-dialog {
   width: 560px;
 }
 
-#video_modal .tabs-nav {
+.modal .tabs-nav {
   display: flex;
   margin-bottom: 24px;
   border-bottom: 1px solid #eee;
 }
 
-#video_modal .tab-item {
+.modal .tab-item {
   padding: 4px;
   margin-bottom: -1px;
   border-bottom: 2px solid transparent;
   cursor: pointer;
 }
 
-#video_modal .tab-item.active {
+.modal .tab-item.active {
   border-bottom-color: #07c160;
 }
 
-#video_modal .tab-item+.tab-item {
+.modal .tab-item+.tab-item {
   margin-left: 12px;
 }
 
-#video_uploader {
-  display: none;
-}
-
-#video_modal .btn-upload-video {
+.modal .btn-upload-video {
   display: inline-block;
   padding: 6px 12px;
   border-radius: 4px;
@@ -414,20 +410,16 @@
   cursor: pointer;
 }
 
-#video_modal .btn-upload-video:hover {
+.modal .btn-upload-video:hover {
   color: #858585;
   background-color: #EFF0F2;
 }
 
-#video_modal #video_uploader~.filename {
-  max-width: 240px;
-  margin-left: 12px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+.modal label {
+  margin-right: 12px;
 }
 
-#video_modal #video_link {
+.modal input[type="text"] {
   width: 320px;
   height: 32px;
   padding: 6px 12px;
@@ -435,12 +427,29 @@
   border: 1px solid #eee;
 }
 
-#video_modal #video_link:focus {
+.modal input[type="text"]:focus {
   border-color: #07c160;
+}
+
+/* 插入视频弹窗 */
+#video_uploader {
+  display: none;
+}
+
+#video_modal #video_uploader~.filename {
+  max-width: 240px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 #video_modal .tip {
   margin-top: 12px;
   color: #b1b2b3;
   font-size: 12px;
+}
+
+/* 插入超链接弹窗 */
+.link-url {
+  margin-top: 15px;
 }

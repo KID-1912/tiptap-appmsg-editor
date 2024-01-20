@@ -17,7 +17,7 @@ export default Node.create({
     return {
       src: { default: null },
       HTMLAttributes: {
-        default: {},
+        default: null,
         renderHTML: (attributes) => {
           return attributes.HTMLAttributes || {};
         },
