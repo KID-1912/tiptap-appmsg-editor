@@ -193,6 +193,7 @@ linkModal.on("save", () => {
           linktype: "image",
           tab: "innerlink",
           textvalue: "",
+          target: "_blank",
         },
       })
       .run();

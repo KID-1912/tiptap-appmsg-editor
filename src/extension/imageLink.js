@@ -43,11 +43,7 @@ const ImageLink = Node.create({
 
   renderHTML({ HTMLAttributes }) {
     let { src, ...attrs } = HTMLAttributes;
-    return [
-      "a",
-      mergeAttributes(this.options.HTMLAttributes, attrs),
-      ["img", { src: src }],
-    ];
+    return ["a", mergeAttributes(this.options.HTMLAttributes, attrs), 0];
   },
 
   addCommands() {
@@ -55,7 +51,6 @@ const ImageLink = Node.create({
       setImageLink:
         (options) =>
         ({ commands }) => {
-          console.log(options.src);
           return commands.insertContent({
             type: this.name,
             attrs: options,
