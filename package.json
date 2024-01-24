@@ -44,6 +44,7 @@
     "@simonwep/pickr": "^1.8.2",
     "@tiptap/extension-link": "^2.1.16",
     "@types/postcss-url": "^10.0.4",
+    "mime-types": "^2.1.35",
     "postcss": "^8.4.30",
     "postcss-url": "^10.1.3",
     "rollup": "^3.29.0",

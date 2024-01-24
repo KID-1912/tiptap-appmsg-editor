@@ -70,3 +70,21 @@
   text-decoration: none;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
+
+.ProseMirror .h5_image_link {
+  position: relative;
+  display: inline-block;
+  font-size: 0;
+}
+
+.ProseMirror .h5_image_link::after {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 9px;
+  right: 9px;
+  width: 26px;
+  height: 26px;
+  background: url("@/src/images/icon/icon-image-link.png") no-repeat center;
+  background-size: contain;
+}

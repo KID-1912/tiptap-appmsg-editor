@@ -182,7 +182,6 @@ linkModal.on("save", () => {
       window.alert("请先选择链接图片");
       return;
     }
-    console.log(linkPicture, linkUrl);
     editor
       .chain()
       .focus()
@@ -190,16 +189,18 @@ linkModal.on("save", () => {
         href: linkUrl,
         src: linkPicture,
         HTMLAttributes: {
+          class: "h5_image_link",
+          target: "_blank",
           linktype: "image",
           tab: "innerlink",
-          textvalue: "",
-          target: "_blank",
         },
       })
+      .enter()
       .run();
   }
   linkModal.hide();
   handleResetLinkModal();
+  console.log(editor.getHTML());
 });
 linkModal.on("close", () => {
   linkModalTabs.tabChange("text");
@@ -244,4 +245,5 @@ clipboard.on("success", function (e) {
 });
 clipboard.on("error", function (e) {
   window.alert("浏览器不支持按钮复制，请手动ctrl+c");
+  console.warn(e);
 });

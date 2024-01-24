@@ -3,6 +3,7 @@ const fs = require("fs");
 const url = require("url");
 const path = require("path");
 const crypto = require("crypto");
+const mime = require("mime-types");
 
 module.exports = {
   plugins: [
@@ -39,10 +40,10 @@ module.exports = {
         const fileSizeInBytes = stats.size;
         const fileSizeInKilobytes = fileSizeInBytes / 1024;
         if (maxSize && fileSizeInKilobytes < maxSize) {
-          const base64 = `data:${asset.mimeType};base64,${fileData.toString(
-            "base64"
-          )}`;
-          return base64;
+          const mimetype = mime.lookup(assetName);
+          const data = fileData.toString("base64");
+          console.log(mimetype);
+          return `data:${mimetype};base64,${data}`;
         }
         // copy文件
         const dirToCheck = path.dirname(targetPath);
