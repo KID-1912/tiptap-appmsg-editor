@@ -34,11 +34,11 @@
           <button class="module-item link">超链接</button>
         </ul>
         <ul class="module-group main">
-          <button class="module-item">音媒体</button>
-          <button class="module-item">小程序</button>
-          <button class="module-item">模板</button>
-          <button class="module-item">视频号</button>
-          <button class="module-item">公众号</button>
+          <button class="module-item weapp">小程序</button>
+          <button class="module-item disabled">音媒体</button>
+          <button class="module-item disabled">模板</button>
+          <button class="module-item disabled">视频号</button>
+          <button class="module-item disabled">公众号</button>
         </ul>
       </div>
     </div>
@@ -351,7 +351,7 @@
                 </div>
               </div>
               <div class="tab-pane" data-id="link">
-                <div>
+                <div class="form-item">
                   <input
                     id="video_link"
                     type="text"
@@ -385,7 +385,7 @@
             </div>
             <div class="tabs-content">
               <div class="tab-pane" data-id="text">
-                <div>
+                <div class="form-item">
                   <label>链接标题</label>
                   <input
                     class="link-title"
@@ -395,7 +395,7 @@
                 </div>
               </div>
               <div class="tab-pane" data-id="picture">
-                <div>
+                <div class="form-item">
                   <label for="link_picture_uploader"> 选择图片 </label>
                   <input
                     id="link_picture_uploader"
@@ -405,13 +405,83 @@
                 </div>
               </div>
             </div>
-            <div>
+            <div class="form-item">
               <label>文章链接</label>
               <input
                 class="link-url"
                 type="text"
                 placeholder="请输入http://或https://开头的公众号文章链接"
               />
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-save">确定</button>
+          <button type="button" class="btn btn-close">取消</button>
+        </div>
+      </div>
+    </div>
+    <div id="weapp_modal" class="modal">
+      <div class="modal-dialog">
+        <div class="modal-header">
+          <div class="modal-title">插入小程序</div>
+          <button type="button" class="btn-close">×</button>
+        </div>
+        <div class="modal-body">
+          <div class="tabs">
+            <div class="tabs-nav">
+              <div class="tab-item" data-name="text">文字展示</div>
+              <div class="tab-item" data-name="picture">图片展示</div>
+            </div>
+            <div class="tabs-content">
+              <div class="tab-pane" data-id="text">
+                <div class="form-item">
+                  <label>文字标题</label>
+                  <input
+                    class="weapp-title"
+                    type="text"
+                    placeholder="请输入链接标题"
+                  />
+                </div>
+              </div>
+              <div class="tab-pane" data-id="picture">
+                <div class="form-item">
+                  <label for="weapp_picture_uploader"> 选择图片 </label>
+                  <input
+                    id="weapp_picture_uploader"
+                    type="file"
+                    accept="image/png,image/bmp,image/jpg,image/gif"
+                  />
+                </div>
+              </div>
+              <div class="form-item">
+                <label>小程序名称</label>
+                <input class="weapp-name" type="text" placeholder="xxxx" />
+              </div>
+              <div class="form-item">
+                <label>小程序AppID</label>
+                <input
+                  class="weapp-appid"
+                  type="text"
+                  placeholder="wxdxxxxxxxxxxxxxxx"
+                />
+              </div>
+              <div class="form-item">
+                <label>小程序页面路径</label>
+                <input
+                  class="weapp-path"
+                  type="text"
+                  placeholder="pages/index/index"
+                />
+              </div>
+              <div class="tip">
+                <a
+                  href="https://www.135editor.com/books/chapter/1/366"
+                  target="_blank"
+                >
+                  获取教程
+                </a>
+              </div>
             </div>
           </div>
         </div>

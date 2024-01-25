@@ -10,7 +10,8 @@ import Color from "@tiptap/extension-color";
 import FontSize from "tiptap-extension-font-size";
 import TextAlign from "@tiptap/extension-text-align";
 import Highlight from "@tiptap/extension-highlight";
-import Link from "@tiptap/extension-link";
+// import Link from "@tiptap/extension-link";
+import Link from "../extension/link.js";
 import CodeBlock from "@tiptap/extension-code-block";
 import TrailingNode from "../extension/trailingNode.js";
 import Section from "../extension/section.js";
@@ -38,7 +39,7 @@ const editor = new Editor({
     FontSize,
     TextAlign.configure({ types: ["paragraph"], defaultAlignment: "justify" }),
     Highlight.configure({ multicolor: true }),
-    Link.configure({ openOnClick: false }),
+    Link.configure({ openOnClick: false, HTMLAttributes: { rel: "" } }),
     CodeBlock.configure({ HTMLAttributes: { class: "code-snippet" } }),
     Resizable.configure({ types: ["image", "video"] }),
     Image.configure({ inline: true, allowBase64: true }),

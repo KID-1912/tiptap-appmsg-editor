@@ -64,13 +64,13 @@
   cursor: pointer;
 }
 
+.header .module-item.disabled {
+  cursor: not-allowed;
+}
+
 .header .module-item:hover {
   background-color: rgba(0, 0, 0, 0.04);
   transition: all .2s;
-}
-
-.header .module-group.main .module-item {
-  cursor: not-allowed;
 }
 
 #image_uploader {
@@ -401,22 +401,15 @@
   margin-left: 12px;
 }
 
-.modal .btn-upload-video {
+.modal .form-item {
+  margin-bottom: 15px;
+}
+
+.modal .form-item label {
   display: inline-block;
-  padding: 6px 12px;
-  border-radius: 4px;
-  border: 1px solid #E3E4E5;
-  background-color: #F6F7F8;
-  cursor: pointer;
-}
-
-.modal .btn-upload-video:hover {
-  color: #858585;
-  background-color: #EFF0F2;
-}
-
-.modal label {
+  min-width: 102px;
   margin-right: 12px;
+  text-align: right;
 }
 
 .modal input[type="text"] {
@@ -443,6 +436,21 @@
   white-space: nowrap;
 }
 
+.modal .btn-upload-video {
+  display: inline-block;
+  margin-right: 12px;
+  padding: 6px 12px;
+  border-radius: 4px;
+  border: 1px solid #E3E4E5;
+  background-color: #F6F7F8;
+  cursor: pointer;
+}
+
+.modal .btn-upload-video:hover {
+  color: #858585;
+  background-color: #EFF0F2;
+}
+
 #video_modal .tip {
   margin-top: 12px;
   color: #b1b2b3;
@@ -450,6 +458,6 @@
 }
 
 /* 插入超链接弹窗 */
-.link-url {
-  margin-top: 15px;
-}
+
+
+/* 插入小程序弹窗 */

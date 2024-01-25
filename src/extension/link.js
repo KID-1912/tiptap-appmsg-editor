@@ -1,17 +1,15 @@
-import { Node } from "@tiptap/core";
+import Link from "@tiptap/extension-link";
 
-export default Node.create({
-  name: "link",
-  inline: true,
-  group: "inline",
-
+export default Link.extend({
   addAttributes() {
     return {
-      href: { default: null },
+      ...this.parent?.(),
+      HTMLAttributes: {
+        default: null,
+        renderHTML: (attributes) => {
+          return attributes.HTMLAttributes || {};
+        },
+      },
     };
-  },
-
-  parseHTML() {
-    return { tag: "a[href]" };
   },
 });

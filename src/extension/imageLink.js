@@ -1,5 +1,4 @@
 import { Node, mergeAttributes, getAttributes } from "@tiptap/core";
-import { Plugin, PluginKey } from "@tiptap/pm/state";
 
 const ImageLink = Node.create({
   name: "imageLink",

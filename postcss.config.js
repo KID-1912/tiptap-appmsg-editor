@@ -42,7 +42,6 @@ module.exports = {
         if (maxSize && fileSizeInKilobytes < maxSize) {
           const mimetype = mime.lookup(assetName);
           const data = fileData.toString("base64");
-          console.log(mimetype);
           return `data:${mimetype};base64,${data}`;
         }
         // copy文件

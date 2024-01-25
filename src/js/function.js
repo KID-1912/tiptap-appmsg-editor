@@ -206,7 +206,6 @@ linkModal.on("close", () => {
   linkModalTabs.tabChange("text");
   handleResetLinkModal();
 });
-
 // 链接标题
 let linkTitle = "";
 const $linkTitle = document.querySelector("#link_modal .link-title");
@@ -234,6 +233,136 @@ let linkUrl = "";
 const $linkUrl = document.querySelector("#link_modal .link-url");
 $linkUrl.addEventListener("change", (e) => {
   linkUrl = e.target.value;
+});
+
+// 小程序
+// 小程序弹窗
+const $insertWeappBtn = document.querySelector(".header .module-item.weapp");
+const weappModal = new Modal({ el: "#weapp_modal" });
+$insertWeappBtn.addEventListener("click", () => {
+  weappModal.show();
+});
+const handleResetWeappModal = () => {
+  weappTitle = "";
+  $weappTitle.value = "";
+  weappPicture = "";
+  $weappPictureUploader.value = "";
+};
+// 插入小程序tabs
+const $weappTabs = document.querySelector("#weapp_modal .tabs");
+const weappModalTabs = new Tabs({
+  el: $weappTabs,
+  activated: "text",
+});
+weappModal.on("save", () => {
+  const activeName = weappModalTabs.activeName;
+  if (!weappName) {
+    window.alert("小程序名称不可为空");
+    return;
+  }
+  if (!weappAppID) {
+    window.alert("小程序AppID不可为空");
+    return;
+  }
+  if (!weappPath) {
+    window.alert("小程序页面路径不可为空");
+    return;
+  }
+  if (activeName === "text") {
+    if (!weappTitle) {
+      window.alert("文字标题不可为空");
+      return;
+    }
+    let { state } = editor;
+    let weappMark = state.schema.text(weappTitle, [
+      state.schema.marks.link.create({
+        href: "",
+        HTMLAttributes: {
+          class: "weapp_text_link",
+          "data-miniprogram-nickname": weappName,
+          "data-miniprogram-appid": weappAppID,
+          "data-miniprogram-path": weappPath,
+          "data-miniprogram-type": "text",
+          "data-miniprogram-servicetype": "",
+          target: "",
+        },
+      }),
+    ]);
+    const tr = state.tr.insert(state.selection.from, weappMark);
+    editor.view.dispatch(tr);
+  }
+  if (activeName === "picture") {
+    if (!weappPicture) {
+      window.alert("请先选择小程序图片");
+      return;
+    }
+    editor
+      .chain()
+      .focus()
+      .setImageLink({
+        href: "",
+        src: weappPicture,
+        HTMLAttributes: {
+          class: "weapp_image_link",
+          "data-miniprogram-nickname": weappName,
+          "data-miniprogram-appid": weappAppID,
+          "data-miniprogram-path": weappPath,
+          "data-miniprogram-type": "image",
+          "data-miniprogram-servicetype": "",
+          target: "",
+        },
+      })
+      .enter()
+      .run();
+  }
+  weappModal.hide();
+  handleResetWeappModal();
+  console.log(editor.getHTML());
+});
+weappModal.on("close", () => {
+  weappModalTabs.tabChange("text");
+  handleResetWeappModal();
+});
+
+// 小程序标题
+let weappTitle = "";
+const $weappTitle = document.querySelector("#weapp_modal .weapp-title");
+$weappTitle.addEventListener("change", (e) => {
+  weappTitle = e.target.value;
+});
+// 小程序图片
+let weappPicture = "";
+const $weappPictureUploader = document.querySelector("#weapp_picture_uploader");
+$weappPictureUploader.addEventListener("change", (e) => {
+  const [file] = $weappPictureUploader.files;
+  const fileReader = new FileReader();
+  fileReader.onload = () => {
+    if (fileReader.error) {
+      console.warn(fileReader.error);
+      window.alert("图片上传失败");
+      return;
+    }
+    weappPicture = fileReader.result;
+  };
+  fileReader.readAsDataURL(file);
+});
+// 小程序名称
+let weappName = "";
+const $weappName = document.querySelector("#weapp_modal .weapp-name");
+$weappName.addEventListener("change", (e) => {
+  weappName = e.target.value;
+});
+// 小程序AppID
+let weappAppID = "";
+const $weappAppID = document.querySelector("#weapp_modal .weapp-appid");
+$weappAppID.addEventListener("change", (e) => {
+  weappAppID = e.target.value;
+});
+// 小程序页面路径
+let weappPath = "";
+const $weappPath = document.querySelector("#weapp_modal .weapp-path");
+$weappPath.addEventListener("change", (e) => {
+  weappPath = e.target.value;
 });
 
 // 一键复制
