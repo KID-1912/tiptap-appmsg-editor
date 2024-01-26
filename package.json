@@ -34,7 +34,8 @@
     "@types/clipboard": "^2.0.7",
     "clipboard": "^2.0.11",
     "lodash-es": "^4.17.20",
-    "tiptap-extension-font-size": "^1.2.0"
+    "tiptap-extension-font-size": "^1.2.0",
+    "tiptap-extension-resizable": "^1.1.1"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^25.0.4",

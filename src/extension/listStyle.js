@@ -9,12 +9,12 @@ export default Extension.create({
         attributes: {
           styleType: {
             default: null,
-            renderHTML: (attributes) => {
-              return { style: `list-style-type: ${attributes.style}` };
-            },
             parseHTML: (element) => {
               const style = element.style["list-style-type"];
               return { style };
+            },
+            renderHTML: (attributes) => {
+              return { style: `list-style-type: ${attributes.style}` };
             },
           },
         },

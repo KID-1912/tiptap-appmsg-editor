@@ -1,6 +1,5 @@
 import { Extension } from "@tiptap/core";
 import throttle from "lodash-es/throttle";
-import debounce from "lodash-es/debounce";
 
 export default Extension.create({
   name: "resizable",

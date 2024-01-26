@@ -1,6 +1,5 @@
 import { Editor } from "@tiptap/core";
 import StarterKit from "@tiptap/starter-kit";
-// import Image from "@tiptap/extension-image";
 import Image from "../extension/image.js";
 import Video from "../extension/video.js";
 import Iframe from "../extension/iframe.js";
@@ -10,7 +9,6 @@ import Color from "@tiptap/extension-color";
 import FontSize from "tiptap-extension-font-size";
 import TextAlign from "@tiptap/extension-text-align";
 import Highlight from "@tiptap/extension-highlight";
-// import Link from "@tiptap/extension-link";
 import Link from "../extension/link.js";
 import CodeBlock from "@tiptap/extension-code-block";
 import TrailingNode from "../extension/trailingNode.js";
@@ -22,7 +20,7 @@ import OrderedList from "../extension/orderedList.js";
 import LineHeight from "../extension/lineHeight.js";
 import Float from "../extension/float.js";
 import Margin from "../extension/margin.js";
-import Resizable from "../extension/resizable.js";
+import Resizable from "tiptap-extension-resizable";
 
 const editor = new Editor({
   element: document.querySelector(".editor"),
