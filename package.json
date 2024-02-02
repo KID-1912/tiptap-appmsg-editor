@@ -34,9 +34,13 @@
     "@types/clipboard": "^2.0.7",
     "clipboard": "^2.0.11",
     "lodash-es": "^4.17.20",
+    "tiptap-extension-float": "^1.0.0",
     "tiptap-extension-font-size": "^1.2.0",
+    "tiptap-extension-hr": "^1.0.0",
     "tiptap-extension-image-link": "^1.0.0",
+    "tiptap-extension-line-height": "^1.0.0",
     "tiptap-extension-link": "^1.0.0",
+    "tiptap-extension-margin": "^1.0.0",
     "tiptap-extension-resizable": "^1.1.1",
     "tiptap-extension-trailing-node": "^1.0.0"
   },

@@ -14,12 +14,12 @@ import CodeBlock from "@tiptap/extension-code-block";
 import TrailingNode from "tiptap-extension-trailing-node";
 import Section from "../extension/section.js";
 import ImageLink from "tiptap-extension-image-link";
-import Hr from "../extension/hr.js";
+import Hr from "tiptap-extension-hr";
 import BulletList from "../extension/bulletList.js";
 import OrderedList from "../extension/orderedList.js";
-import LineHeight from "../extension/lineHeight.js";
-import Float from "../extension/float.js";
-import Margin from "../extension/margin.js";
+import LineHeight from "tiptap-extension-line-height";
+import Float from "tiptap-extension-float";
+import Margin from "tiptap-extension-margin";
 import Resizable from "tiptap-extension-resizable";
 
 const editor = new Editor({
