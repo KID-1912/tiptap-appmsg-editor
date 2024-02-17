@@ -15,7 +15,7 @@ import TrailingNode from "tiptap-extension-trailing-node";
 import Section from "../extension/section.js";
 import ImageLink from "tiptap-extension-image-link";
 import Hr from "tiptap-extension-hr";
-import BulletList from "../extension/bulletList.js";
+import BulletList from "tiptap-extension-bullet-list";
 import OrderedList from "../extension/orderedList.js";
 import LineHeight from "tiptap-extension-line-height";
 import Float from "tiptap-extension-float";
@@ -46,7 +46,7 @@ const editor = new Editor({
     Section,
     ImageLink,
     Hr,
-    BulletList,
+    BulletList.configure({ HTMLAttributes: { class: "list-paddingleft-1" } }),
     OrderedList,
     LineHeight,
     Float,

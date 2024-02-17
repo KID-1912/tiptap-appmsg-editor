@@ -34,6 +34,7 @@
     "@types/clipboard": "^2.0.7",
     "clipboard": "^2.0.11",
     "lodash-es": "^4.17.20",
+    "tiptap-extension-bullet-list": "^1.0.0",
     "tiptap-extension-float": "^1.0.0",
     "tiptap-extension-font-size": "^1.2.0",
     "tiptap-extension-hr": "^1.0.0",
