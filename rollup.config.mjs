@@ -10,6 +10,15 @@ import livereload from "rollup-plugin-livereload";
 import serve from "rollup-plugin-serve";
 import clear from "rollup-plugin-clear";
 
+let devPlugins = [];
+if (process.env.NODE_ENV === "development") {
+  devPlugins = [
+    watch({ dir: "public" }), // 额外监听public目录
+    livereload("dist"),
+    serve("dist"),
+  ];
+}
+
 export default {
   input: "src/main.js",
   output: {
@@ -47,8 +56,6 @@ export default {
         return htmlString;
       },
     }),
-    watch({ dir: "public" }), // 额外监听public目录
-    livereload("dist"),
-    serve("dist"),
+    ...devPlugins,
   ],
 };
