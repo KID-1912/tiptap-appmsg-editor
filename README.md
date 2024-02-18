@@ -1,61 +1,103 @@
-# tiptap
+# tiptap-appmsg-editor
 
-## 笔记
+<h3 align="center">
+    基于 tiptap 搭建的微信公众号编辑器示例，支持开发者自己开发样式库、模板库作为内容插入；如 135Editor、壹伴等
+</h3>
 
-## 功能完善
+<br/>
 
-- 完成样式操作控件，支持所有微信操作
-- 考虑内容组件化，完善开发组件方式
-- 接入视频、图片上传（微信能力支持）
-- 支持导入文章
-- 接入微信生态授权，微信授权登录，获取微信公众号信息，文章列表，添加文章到微信
-- svg 编辑器插件（需开发 svg 编辑器）
-- rollup 打包，clear、css 注入
+[![](https://raw.githubusercontent.com/KID-1912/Github-PicGo-Images/master/2024/02/18/20240218183840.png)]()
+
+<br>
+
+---
 
 ## 功能点罗列
 
-- 添加文字样式
+- 文字样式（字号、颜色、高亮、加粗、行高...）
 
-- 清除内容格式
+- 清除文字样式
 
 - 内容排版（对齐、间距、缩进、浮动）
 
 - 历史记录撤销/重做
 
+- 图片插入
+
+- 代码块内容
+
+- 视频内容
+
+- 分割线
+
+- 有序/无序列表
+
+- 超链接
+
+- 图片超链接
+
+- 微信小程序
+
+- 表情插入
+
 - 图文样式库开发规范
 
-- 侧边栏插入样式与模板
+- 插入图文样式与模板
 
 - 一键复制使用
 
-- 上传图片（base64 为例）
+- 字数统计
 
-- 持续更新中...
+持续更新...
 
-## 测验
+## 文件目录
 
-- 尝试实现简单图文（待支持排版）
+```
+tiptap-appmsg-editor\src
+├─extensions // 自定义的tiptap拓展
+├─js
+| ├─editor.js // tiptap编辑器实例
+| ├─function.js // 编辑器功能实现
+| ├─sidebar.js // 侧边栏实现
+| ├─svg.js // svg图标插入
+| ├─toolbar.js // 工具栏实现
+├─images
+|   ├─svg
+|   ├─sprite
+|   |   └emoji_sprite.png // 表情雪碧图
+|   ├─icon
+|   |  ├─icon-image-link.png // 图片超链接标示图
+|   |  └icon-weapp-link.png // 小程序标示图
+├─main.js
+├─templates // 样式组件和内容模板
+├─styles
+|   ├─base.css
+|   ├─editor.css  // 编辑器默认样式
+|   ├─index.css // 页面主样式
+|   └reset.css
+├─plugins
+|    ├─tabs // tab实现
+|    ├─modal // 弹窗实现
+|    ├─dropdown // 下拉菜单实现
+|    ├─clickoutside // 点击外部关闭实现
+```
 
-**Task List**
+## 自定义编辑器
 
-- 对接微信
+基于本示例开发自定义样式的编辑器，需要注意内容样式
 
-一般
-
-## 关于开发样式
-
-微信默认样式
+由于文章内容默认样式存在，为了预览效果一致性，需要在 tiptap 编辑区与侧边栏保证以下样式存在
 
 ```css
-/* 编辑区样式 */
 .tiptap.ProseMirror {
+  min-height: 960px;
+  outline: none;
   color: rgba(0, 0, 0, 0.9);
   font-size: 17px;
   line-height: 1.6;
   text-align: justify;
 }
 
-/* 内容样式 */
 .ProseMirror * {
   max-width: 100%;
   margin: 0;
@@ -75,11 +117,11 @@
 }
 ```
 
-由于微信默认样式存在，为了预览效果一致性，需要在 tiptap 编辑区与侧边栏保证以上样式存在
+更多内容类的样式，可见公众号内容默认样式文件：`src/styles/editor.css`
 
-### 组件开发
+### 样式组件开发
 
-可用的、灵活的、自适应的组件，需要你按照一定的规范开发
+对于可用的、灵活的、自适应组件，需要你按照一定的规范开发
 
 **核心标签**
 
@@ -93,7 +135,7 @@ img：图片元素，允许 style 所有样式值
 
 **标记标签**
 
-以下标签为 tiptap 标记样式的 node，在插入内容被解析后自动追加，无需关注
+以下标签为 tiptap 标记样式的 node，在插入内容被解析后自动追加，无需额外关注
 
 如插入内容
 
@@ -133,10 +175,8 @@ u：下划线 node
 
 使用 br 实现段落内文字手动换行
 
-**参考**
+**借鉴样式**
 
-可以参考其他平台的样式，如 135Editor、壹伴等
+可以参考其他公众号编辑平台的样式，如 135Editor、壹伴等
 
 壹伴公众号样式平台：https://yiban.io/style_center/0_1_0
-
-video、image、margin、section、resizable、hr、float、lineHeight

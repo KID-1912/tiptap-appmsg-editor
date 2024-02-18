@@ -365,6 +365,13 @@ $weappPath.addEventListener("change", (e) => {
   weappPath = e.target.value;
 });
 
+// 字数统计
+const $wordCount = document.querySelector(".word-count");
+editor.on("update", () => {
+  const wordCount = editor.getText().length;
+  $wordCount.innerText = wordCount;
+});
+
 // 一键复制
 const $btn_copy = document.querySelector(".btn-copy");
 const clipboard = new Clipboard($btn_copy);

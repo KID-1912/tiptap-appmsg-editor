@@ -42,6 +42,7 @@
     "tiptap-extension-line-height": "^1.0.0",
     "tiptap-extension-link": "^1.0.0",
     "tiptap-extension-margin": "^1.0.0",
+    "tiptap-extension-ordered-list": "^1.0.0",
     "tiptap-extension-resizable": "^1.1.1",
     "tiptap-extension-trailing-node": "^1.0.0"
   },
