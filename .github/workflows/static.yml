@@ -25,13 +25,18 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: "14"
-
       - name: Install Dependencies
         run: npm install
 
       - name: Build
         run: npm run build
-
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # Upload entire repository
+          path: "./dist"
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@4.1.5
         with:

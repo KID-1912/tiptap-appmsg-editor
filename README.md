@@ -1,12 +1,14 @@
 # tiptap-appmsg-editor
 
 <h3 align="center">
-    基于 tiptap 搭建的微信公众号编辑器示例，支持开发者自己开发样式库、模板库作为内容插入；如 135Editor、壹伴等
+    基于 tiptap 搭建的微信公众号编辑器示例，支持排版后复制到微信公众平台，支持开发者自己开发样式库、模板库作为内容插入；如 135Editor、壹伴等
 </h3>
+
+[在线示例](https://kid-1912.github.io/tiptap-appmsg-editor/index.html)
 
 <br/>
 
-[![](https://raw.githubusercontent.com/KID-1912/Github-PicGo-Images/master/2024/02/18/20240218183840.png)]()
+[![](https://raw.githubusercontent.com/KID-1912/Github-PicGo-Images/master/2024/02/18/20240218183840.png)](https://kid-1912.github.io/tiptap-appmsg-editor/index.html)
 
 <br>
 
