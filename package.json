@@ -38,6 +38,7 @@
     "tiptap-extension-float": "^1.0.0",
     "tiptap-extension-font-size": "^1.2.0",
     "tiptap-extension-hr": "^1.0.0",
+    "tiptap-extension-iframe": "^1.0.0",
     "tiptap-extension-image-link": "^1.0.0",
     "tiptap-extension-line-height": "^1.0.0",
     "tiptap-extension-link": "^1.0.0",
