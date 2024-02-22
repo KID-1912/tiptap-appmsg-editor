@@ -2,9 +2,10 @@
 .header {
   display: flex;
   width: 100%;
+  min-width: 1400px;
   height: 50px;
-  padding: 8px;
-  position: fixed;
+  padding: 8px 8px 8px 20vw;
+  position: absolute;
   top: 0;
   background-color: #fff;
   z-index: 99;
@@ -87,8 +88,9 @@
 .toolbar-wrapper {
   display: flex;
   width: 100%;
-  padding: 8px;
-  position: fixed;
+  min-width: 1400px;
+  padding: 8px 8px 8px 20vw;
+  position: absolute;
   top: 50px;
   background-color: #fafafa;
   z-index: 9;
@@ -233,15 +235,16 @@
 
 /* 侧壁栏 */
 .sidebar {
-  position: fixed;
-  width: 25vw;
-  min-width: 250px;
+  position: absolute;
+  width: 24vw;
+  min-width: 320px;
   top: 90px;
   bottom: 0;
   left: 0;
   overflow: auto;
+  /* display: none; */
   background-color: #fff;
-  /* z-index: 2; */
+  z-index: 2;
 }
 
 .sidebar .tabs {
@@ -317,9 +320,9 @@
 /* 编辑器 */
 .editor-wrapper {
   height: 100%;
-  padding-left: 10vw;
-  overflow: auto;
+  /* overflow: auto; */
   padding-top: 120px;
+  padding-left: 20vw;
 }
 
 .editor-container {
@@ -330,8 +333,9 @@
 }
 
 .editor {
-  padding: 45px 95px;
+  padding: 95px 45px 165px;
   position: relative;
+  margin-bottom: -69px;
   border-radius: 6px;
   background-color: #fff;
   box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.05);
@@ -339,12 +343,12 @@
 
 /* 底部栏 */
 .footer {
+  position: sticky;
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 768px;
   padding: 20px 20px 15px;
-  position: fixed;
   bottom: 0;
   border-radius: 6px;
   background-color: #fff;
@@ -461,8 +465,3 @@
   color: #b1b2b3;
   font-size: 12px;
 }
-
-/* 插入超链接弹窗 */
-
-
-/* 插入小程序弹窗 */

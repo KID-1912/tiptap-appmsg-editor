@@ -3,7 +3,6 @@ import editor from "./editor.js";
 import { Dropdown } from "../plugins/dropdown/index.js";
 import { Tabs } from "../plugins/tabs/index.js";
 import { Modal } from "../plugins/modal/index.js";
-import video from "../extension/video.js";
 
 // 图片
 const $imageDropdown = document.querySelector(".header .dropdown-image");

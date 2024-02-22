@@ -1,7 +1,7 @@
 import { Editor } from "@tiptap/core";
 import StarterKit from "@tiptap/starter-kit";
-import Image from "../extension/image.js";
-import Video from "../extension/video.js";
+import Image from "tiptap-extension-image";
+import Video from "tiptap-extension-video";
 import Iframe from "tiptap-extension-iframe";
 import Underline from "@tiptap/extension-underline";
 import TextStyle from "@tiptap/extension-text-style";
@@ -12,7 +12,7 @@ import Highlight from "@tiptap/extension-highlight";
 import Link from "tiptap-extension-link";
 import CodeBlock from "@tiptap/extension-code-block";
 import TrailingNode from "tiptap-extension-trailing-node";
-import Section from "../extension/section.js";
+import Section from "tiptap-extension-section";
 import ImageLink from "tiptap-extension-image-link";
 import Hr from "tiptap-extension-hr";
 import BulletList from "tiptap-extension-bullet-list";

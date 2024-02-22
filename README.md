@@ -56,7 +56,6 @@
 
 ```
 tiptap-appmsg-editor\src
-├─extensions // 自定义的tiptap拓展
 ├─js
 | ├─editor.js // tiptap编辑器实例
 | ├─function.js // 编辑器功能实现
@@ -68,8 +67,8 @@ tiptap-appmsg-editor\src
 |   ├─sprite
 |   |   └emoji_sprite.png // 表情雪碧图
 |   ├─icon
-|   |  ├─icon-image-link.png // 图片超链接标示图
-|   |  └icon-weapp-link.png // 小程序标示图
+|   |  ├─icon-image-link.png // 图片超链接标识图
+|   |  └icon-weapp-link.png // 小程序标识图
 ├─main.js
 ├─templates // 样式组件和内容模板
 ├─styles
@@ -182,3 +181,33 @@ u：下划线 node
 可以参考其他公众号编辑平台的样式，如 135Editor、壹伴等
 
 壹伴公众号样式平台：https://yiban.io/style_center/0_1_0
+
+**Relations**
+
+[tiptap documentation](https://tiptap.dev/docs/editor/introduction)
+
+[tiptap-extension-resizable](https://github.com/KID-1912/tiptap-extension-resizable)
+
+[tiptap-extension-image](https://github.com/KID-1912/tiptap-extension-image)
+
+[tiptap-extension-video](https://github.com/KID-1912/tiptap-extension-video)
+
+[tiptap-extension-iframe](https://github.com/KID-1912/tiptap-extension-iframe)
+
+[tiptap-extension-font-size](https://github.com/KID-1912/tiptap-extension-font-size)
+
+[tiptap-extension-link](https://github.com/KID-1912/tiptap-extension-link)
+
+[tiptap-extension-trailing-node](https://github.com/KID-1912/tiptap-extension-trailing-node)
+
+[tiptap-extension-image-link](https://github.com/KID-1912/tiptap-extension-image-link)
+
+[tiptap-extension-bullet-list](https://github.com/KID-1912/tiptap-extension-bullet-list)
+
+[tiptap-extension-ordered-list](https://github.com/KID-1912/tiptap-extension-ordered-list)
+
+[tiptap-extension-line-height](https://github.com/KID-1912/tiptap-extension-line-height)
+
+[tiptap-extension-float](https://github.com/KID-1912/tiptap-extension-float)
+
+[tiptap-extension-margin](https://github.com/KID-1912/tiptap-extension-margin)

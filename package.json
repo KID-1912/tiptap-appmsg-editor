@@ -39,13 +39,16 @@
     "tiptap-extension-font-size": "^1.2.0",
     "tiptap-extension-hr": "^1.0.0",
     "tiptap-extension-iframe": "^1.0.0",
+    "tiptap-extension-image": "^1.0.0",
     "tiptap-extension-image-link": "^1.0.0",
     "tiptap-extension-line-height": "^1.0.0",
     "tiptap-extension-link": "^1.0.0",
     "tiptap-extension-margin": "^1.0.0",
     "tiptap-extension-ordered-list": "^1.0.0",
     "tiptap-extension-resizable": "^1.1.1",
-    "tiptap-extension-trailing-node": "^1.0.0"
+    "tiptap-extension-section": "^1.0.0",
+    "tiptap-extension-trailing-node": "^1.0.0",
+    "tiptap-extension-video": "^1.0.0"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^25.0.4",
