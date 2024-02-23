@@ -15,19 +15,20 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  build-and-deploy:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
-
+        uses: actions/checkout@v4
       - name: Use Node.js
         uses: actions/setup-node@v2
         with:
           node-version: "14"
       - name: Install Dependencies
         run: npm install
-
       - name: Build
         run: npm run build
       - name: Setup Pages
@@ -38,12 +39,5 @@ jobs:
           # Upload entire repository
           path: "./dist"
       - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@4.1.5
-        with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BRANCH: gh-pages
-          FOLDER: dist
-          CLEAN: true
-    env:
-      ACTIONS_STEP_DEBUG: true
-      ACTIONS_RUNNER_DEBUG: true
+        id: deployment
+        uses: actions/deploy-pages@v4
