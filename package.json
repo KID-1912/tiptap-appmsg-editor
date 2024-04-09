@@ -48,6 +48,7 @@
     "tiptap-extension-resizable": "^1.1.1",
     "tiptap-extension-section": "^1.0.0",
     "tiptap-extension-trailing-node": "^1.0.0",
+    "@simonwep/pickr": "^1.8.2",
     "tiptap-extension-video": "^1.0.0"
   },
   "devDependencies": {
@@ -55,7 +56,6 @@
     "@rollup/plugin-html": "^1.0.2",
     "@rollup/plugin-node-resolve": "^15.2.1",
     "@rollup/plugin-url": "^8.0.2",
-    "@simonwep/pickr": "^1.8.2",
     "@tiptap/extension-link": "^2.1.16",
     "@types/postcss-url": "^10.0.4",
     "cross-env": "^7.0.3",
