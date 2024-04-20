@@ -6,6 +6,11 @@
 
 [在线示例](https://kid-1912.github.io/tiptap-appmsg-editor/index.html)
 
+
+**vite+vue3 版本**
+[vue-tiptap-appmsg-editor](https://github.com/KID-1912/vue-tiptap-appmsg-editor)
+
+
 <br/>
 
 [![](https://raw.githubusercontent.com/KID-1912/Github-PicGo-Images/master/2024/02/18/20240218183840.png)](https://kid-1912.github.io/tiptap-appmsg-editor/index.html)
