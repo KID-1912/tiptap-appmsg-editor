@@ -144,7 +144,8 @@ $colorPicker.picker.on("save", (color, instance) => {
   editor.chain().focus().setColor(hexValue).run();
   $colorlump.style.backgroundColor = hexValue;
 });
-toolbarListeners.push(({ editor }) => {
+toolbarListeners.push(({ editor, transaction }) => {
+  if (transaction.updated === 0) return;
   const colorValue = editor.getAttributes("textStyle").color;
   if (colorValue) {
     $colorPicker.picker.setColor(colorValue, true);
@@ -179,7 +180,8 @@ $highlightPicker.picker.on("save", (color, instance) => {
   editor.chain().focus().toggleHighlight({ color: hexValue }).run();
   $highlightColorlump.style.backgroundColor = hexValue;
 });
-toolbarListeners.push(({ editor }) => {
+toolbarListeners.push(({ editor, transaction }) => {
+  if (transaction.updated === 0) return;
   const colorValue = editor.getAttributes("highlight").color;
   if (colorValue) {
     $highlightPicker.picker.setColor(colorValue, true);
