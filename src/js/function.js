@@ -38,11 +38,10 @@ $image_link.addEventListener("click", () => {
   const imageUrl = window.prompt("请输入图片链接", "");
   try {
     new URL(imageUrl);
+    editor.chain().focus().setImage({ src: imageUrl }).run();
   } catch (error) {
     console.warn(error);
-    return;
   }
-  editor.chain().focus().setImage({ src: imageUrl }).run();
 });
 
 // 视频
