@@ -21,8 +21,7 @@ const $graphic_list = document.querySelector(".sidebar .graphic-list");
 for (let graphic of graphicList) {
   try {
     const module = await graphic;
-    const template = await fetch(module.default);
-    const html = await template.text();
+    const html = module.default;
     const $item = document.createElement("div");
     $item.classList.add("graphic-item");
     $item.addEventListener("click", () => handleInsert(html));
@@ -38,8 +37,7 @@ const $template_list = document.querySelector(".sidebar .template-list");
 for (let tpl of templateList) {
   try {
     const module = await tpl;
-    const template = await fetch(module.default);
-    const html = await template.text();
+    const html = module.default;
     const $item = document.createElement("div");
     $item.classList.add("template-item");
     $item.addEventListener("click", () => {

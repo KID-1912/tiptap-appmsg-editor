@@ -9,6 +9,7 @@ import watch from "rollup-plugin-watch";
 import livereload from "rollup-plugin-livereload";
 import serve from "rollup-plugin-serve";
 import clear from "rollup-plugin-clear";
+import { string } from "rollup-plugin-string";
 
 let devPlugins = [];
 if (process.env.NODE_ENV === "development") {
@@ -23,13 +24,18 @@ export default {
   input: "src/main.js",
   output: {
     dir: "dist",
+    chunkFileNames: "js/[name]-[hash].js",
+    entryFileNames: "js/[name]-[hash].js",
+    assetFileNames: "[ext]/[name]-[hash].[ext]",
+    manualChunks: {},
   },
   plugins: [
     clear({ targets: ["dist"] }),
     resolver(),
     commonjs({ sourceMap: false }),
     url({
-      include: ["src/templates/*.html", "src/images/**"],
+      // include: ["src/templates/*.html", "src/images/**"],
+      include: ["src/images/**"],
       exclude: ["src/images/svg/*.svg"],
       limit: 0,
     }),
@@ -55,6 +61,10 @@ export default {
         htmlString = htmlString.replace(`\${scripts}`, scripts);
         return htmlString;
       },
+    }),
+    string({
+      include: "**/*.html",
+      exclude: ["public/index.html"],
     }),
     ...devPlugins,
   ],

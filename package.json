@@ -21,6 +21,7 @@
     "url": ""
   },
   "dependencies": {
+    "@simonwep/pickr": "^1.8.2",
     "@tiptap/core": "^2.1.12",
     "@tiptap/extension-code-block": "^2.1.13",
     "@tiptap/extension-color": "^2.1.12",
@@ -48,7 +49,6 @@
     "tiptap-extension-resizable": "^1.1.1",
     "tiptap-extension-section": "^1.0.0",
     "tiptap-extension-trailing-node": "^1.0.0",
-    "@simonwep/pickr": "^1.8.2",
     "tiptap-extension-video": "^1.0.0"
   },
   "devDependencies": {
