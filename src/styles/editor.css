@@ -16,6 +16,10 @@
   word-wrap: break-word !important;
 }
 
+.ProseMirror [draggable][contenteditable=false] {
+  user-select: text;
+}
+
 .ProseMirror p {
   clear: both;
   min-height: 1em;
